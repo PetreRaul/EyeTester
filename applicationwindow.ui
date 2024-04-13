@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1205</width>
+    <height>887</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="mainWindow" native="true">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>-10</y>
+     <width>1201</width>
+     <height>901</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget#mainWindow{
+background-color: qlineargradient(spread:pad, x1:0.506, y1:0.261, x2:0.500051, y2:1, stop:0 rgba(123, 188, 201, 255), stop:0.619318 rgba(151, 217, 197, 255));}</string>
+   </property>
+   <widget class="QPushButton" name="testBotButton">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>480</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI Black</family>
+      <pointsize>14</pointsize>
+      <weight>10</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:20px;
+background-color: rgba(193, 22, 99, 200);
+font: 87 14pt &quot;Segoe UI Black&quot;;
+background-color: qlineargradient(spread:pad, x1:0.506, y1:0.261, x2:0.500051, y2:1, stop:0 rgba(193, 22, 99, 200), stop:0.619318 rgba(193, 22, 99, 255));
+color:white</string>
+    </property>
+    <property name="text">
+     <string>Test</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="visibleLetter1">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>610</y>
+      <width>221</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(243, 255, 137);
+font: 87 16pt &quot;Segoe UI Black&quot;;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="testBotVideoButton">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>450</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI Black</family>
+      <pointsize>14</pointsize>
+      <weight>10</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:20px;
+background-color: rgba(193, 22, 99, 200);
+font: 87 14pt &quot;Segoe UI Black&quot;;
+background-color: qlineargradient(spread:pad, x1:0.506, y1:0.261, x2:0.500051, y2:1, stop:0 rgba(193, 22, 99, 200), stop:0.619318 rgba(193, 22, 99, 255));
+color:white</string>
+    </property>
+    <property name="text">
+     <string>VIDEO</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Webcam">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>580</y>
+      <width>411</width>
+      <height>321</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(243, 255, 137);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
