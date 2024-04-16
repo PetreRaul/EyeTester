@@ -25,7 +25,6 @@ class FaceDetection:
                 w, = self.detector.findDistance(pointLeft, pointRight)
                 print(w)
 
-
                 W  = 6.3
                 # d = 50
                 # f = (wd)/W
@@ -33,6 +32,7 @@ class FaceDetection:
                 f = 840
                 d = (W*f)/w
                 print(d)
+
 
             cv2.imshow("Image", img)
             if cv2.waitKey(1) == ord('q'):  # Press 'q' to quit

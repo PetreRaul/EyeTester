@@ -1,6 +1,8 @@
 import sqlite3
 import sys
 import cv2
+import cvzone
+
 import resources
 from cvzone.FaceMeshModule import FaceMeshDetector
 from PyQt5.QtCore import Qt, QTimer
@@ -36,20 +38,20 @@ class DashboardWindow(QMainWindow):
 
         self.timer = QTimer(self)
 
-        # self.timer.timeout.connect(self.update_frame)
-        # self.capture = None
+        self.dioptre_distance = 80  # Reper de distanta in functie de dioptrie
+
 
     def start_webcam(self):
         self.capture = cv2.VideoCapture(0)
         self.detector = FaceMeshDetector(maxFaces=1)
         self.timer.start(30)
+        dioptre_distance = self.dioptre_distance
 
         while True:
             success, img = self.capture.read()
             if success:
                 img_with_detections = img.copy()
                 img_with_detections, faces = self.detector.findFaceMesh(img_with_detections, False)
-
                 if faces:
                     face = faces[0]
                     point_left = face[145]
@@ -60,17 +62,25 @@ class DashboardWindow(QMainWindow):
                     cv2.circle(img_with_detections, point_right, 5, (255, 0, 255), cv2.FILLED)
 
                     w, _ = self.detector.findDistance(point_left, point_right)
-                    print(w)
                     W = 6.3
                     f = 840
                     d = (W * f) / w
-                    print(d)
 
-                frame = cv2.cvtColor(img_with_detections, cv2.COLOR_BGR2RGB)
-                h, w, ch = frame.shape
-                bytes_per_line = ch * w
-                q_img = QImage(frame.data, w, h, bytes_per_line, QImage.Format_RGB888)
-                self.Webcam.setPixmap(QPixmap.fromImage(q_img))
+                    if dioptre_distance < (int(d) - 10) or dioptre_distance > (int(d) + 10):
+                        colorR = (0, 0, 200)
+                    else:
+                        colorR = (0, 200, 0)
+
+                    cvzone.putTextRect(img_with_detections, f'Distance: {int(d)}cm',(face[10][0] - 50, face[10][1] - 50), scale=1,
+                            font=0, thickness=2, colorT=(0, 0, 0), colorR= colorR)
+
+
+
+            frame = cv2.cvtColor(img_with_detections, cv2.COLOR_BGR2RGB)
+            h, w, ch = frame.shape
+            bytes_per_line = ch * w
+            q_img = QImage(frame.data, w, h, bytes_per_line, QImage.Format_RGB888)
+            self.Webcam.setPixmap(QPixmap.fromImage(q_img))
 
             if cv2.waitKey(1) == ord('q'):
                 break

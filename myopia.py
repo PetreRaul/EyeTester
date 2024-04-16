@@ -41,7 +41,6 @@ def respond(voice_data, text_to_read=None):
 
     if 'close the application' in voice_data:
         exit()
-
     if 'read letters' in voice_data:
         if text_to_read:
             myopia_speak(text_to_read)

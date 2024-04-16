@@ -1,5 +1,19 @@
 <RCC>
   <qresource prefix="newPrefix">
+    <file>images.qrc</file>
+    <file>resources/circle.png</file>
+    <file>resources/exit.png</file>
+    <file>resources/eye.png</file>
+    <file>resources/gear.png</file>
+    <file>resources/home.png</file>
+    <file>resources/justified.png</file>
+    <file>resources/list.png</file>
+    <file>resources/logout.png</file>
+    <file>resources/profile.png</file>
+    <file>resources/settings.png</file>
+    <file>resources/square.png</file>
+    <file>resources/user (1).png</file>
+    <file>resources/user.png</file>
     <file>eye.png</file>
     <file>list.png</file>
     <file>user (1).png</file>
