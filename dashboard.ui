@@ -299,23 +299,224 @@ QPushButton:hover{
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);</string>
+          <string notr="true">background-color: #7EC6F2;</string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>4</number>
          </property>
-         <widget class="QWidget" name="home_window">
-          <widget class="QLabel" name="visibleLetter1">
+         <widget class="QWidget" name="setup_window">
+          <widget class="QLabel" name="Webcam">
+           <property name="geometry">
+            <rect>
+             <x>350</x>
+             <y>84</y>
+             <width>640</width>
+             <height>480</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: qlineargradient(spread:pad, x1:0.477, y1:0, x2:0.506, y2:1, stop:0 rgba(242, 173, 126, 255), stop:1 rgba(255, 255, 255, 255));</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_7">
            <property name="geometry">
             <rect>
              <x>120</x>
+             <y>100</y>
+             <width>71</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Segoe UI Black</family>
+             <pointsize>20</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>INFO</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QLabel" name="distance_guidance_label">
+           <property name="geometry">
+            <rect>
+             <x>510</x>
+             <y>20</y>
+             <width>271</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Segoe UI Black</family>
+             <pointsize>20</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Distance:</string>
+           </property>
+           <property name="wordWrap">
+            <bool>false</bool>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_9">
+           <property name="geometry">
+            <rect>
+             <x>40</x>
              <y>180</y>
+             <width>281</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Tahoma</family>
+             <pointsize>16</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>• Move away from the monitor with the given value above the camera
+
+• Stand still in the green zone for 3 seconds to start the test
+
+• Not standing still might cancel the test</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="home_window">
+          <widget class="QPushButton" name="start_test_button">
+           <property name="geometry">
+            <rect>
+             <x>380</x>
+             <y>520</y>
+             <width>241</width>
+             <height>51</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Segoe UI Black</family>
+             <pointsize>14</pointsize>
+             <weight>10</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-radius:20px;
+background-color: #F2AD7E;
+font: 87 14pt &quot;Segoe UI Black&quot;;
+color:white
+</string>
+           </property>
+           <property name="text">
+            <string>Start</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="dioptre_input">
+           <property name="geometry">
+            <rect>
+             <x>400</x>
+             <y>470</y>
+             <width>191</width>
+             <height>41</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLabel" name="dioptre_error_field">
+           <property name="geometry">
+            <rect>
+             <x>390</x>
+             <y>430</y>
+             <width>241</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: red;
+font: 75 14pt &quot;Arial&quot;;</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_4">
+           <property name="geometry">
+            <rect>
+             <x>280</x>
+             <y>390</y>
+             <width>431</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Segoe UI Black</family>
+             <pointsize>16</pointsize>
+             <weight>10</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font: 87 16pt &quot;Segoe UI Black&quot;;</string>
+           </property>
+           <property name="text">
+            <string>Inserati valoarea dioptriei dumneavoastra</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="statistics_window"/>
+         <widget class="QWidget" name="exercises_window">
+          <widget class="QLabel" name="label_6">
+           <property name="geometry">
+            <rect>
+             <x>420</x>
+             <y>290</y>
+             <width>181</width>
+             <height>61</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>26</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Exercises</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="test_window">
+          <widget class="QLabel" name="visibleLetter1">
+           <property name="geometry">
+            <rect>
+             <x>540</x>
+             <y>70</y>
              <width>221</width>
              <height>381</height>
             </rect>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(243, 255, 137);
+            <string notr="true">background-color: qlineargradient(spread:pad, x1:0.477, y1:0, x2:0.506, y2:1, stop:0 rgba(242, 173, 126, 255), stop:1 rgba(255, 255, 255, 255));
 font: 87 16pt &quot;Segoe UI Black&quot;;</string>
            </property>
            <property name="text">
@@ -325,8 +526,8 @@ font: 87 16pt &quot;Segoe UI Black&quot;;</string>
           <widget class="QPushButton" name="testBotButton">
            <property name="geometry">
             <rect>
-             <x>110</x>
-             <y>60</y>
+             <x>520</x>
+             <y>500</y>
              <width>241</width>
              <height>51</height>
             </rect>
@@ -351,79 +552,25 @@ color:white</string>
             <string>Test</string>
            </property>
           </widget>
-          <widget class="QLabel" name="Webcam">
+          <widget class="QLabel" name="current_distance_label">
            <property name="geometry">
             <rect>
-             <x>510</x>
-             <y>180</y>
-             <width>491</width>
-             <height>381</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(243, 255, 137);</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="testBotVideoButton">
-           <property name="geometry">
-            <rect>
-             <x>640</x>
-             <y>60</y>
-             <width>241</width>
+             <x>80</x>
+             <y>530</y>
+             <width>201</width>
              <height>51</height>
             </rect>
            </property>
            <property name="font">
             <font>
              <family>Segoe UI Black</family>
-             <pointsize>14</pointsize>
-             <weight>10</weight>
-             <italic>false</italic>
-             <bold>false</bold>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
             </font>
            </property>
-           <property name="styleSheet">
-            <string notr="true">border-radius:20px;
-background-color: rgba(193, 22, 99, 200);
-font: 87 14pt &quot;Segoe UI Black&quot;;
-background-color: qlineargradient(spread:pad, x1:0.506, y1:0.261, x2:0.500051, y2:1, stop:0 rgba(193, 22, 99, 200), stop:0.619318 rgba(193, 22, 99, 255));
-color:white</string>
-           </property>
            <property name="text">
-            <string>VIDEO</string>
-           </property>
-          </widget>
-         </widget>
-         <widget class="QWidget" name="statistics_window">
-          <widget class="QLabel" name="label_5">
-           <property name="geometry">
-            <rect>
-             <x>370</x>
-             <y>290</y>
-             <width>47</width>
-             <height>13</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>stastisciics</string>
-           </property>
-          </widget>
-         </widget>
-         <widget class="QWidget" name="exercises_window">
-          <widget class="QLabel" name="label_6">
-           <property name="geometry">
-            <rect>
-             <x>50</x>
-             <y>80</y>
-             <width>47</width>
-             <height>13</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>exeeceisies</string>
+            <string>Current Distance</string>
            </property>
           </widget>
          </widget>
