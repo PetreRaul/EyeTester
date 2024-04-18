@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>797</width>
+    <width>800</width>
     <height>600</height>
    </rect>
   </property>
@@ -24,48 +24,41 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget#mainWindow{
-background-color: qlineargradient(spread:pad, x1:0.506, y1:0.261, x2:0.500051, y2:1, stop:0 rgba(123, 188, 201, 255), stop:0.619318 rgba(151, 217, 197, 255));}</string>
+	background-image: url(:/newPrefix/Default_background_image_for_an_eye_application_appealing_easy_1.jpg);
+
+}</string>
    </property>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>70</y>
-      <width>271</width>
-      <height>101</height>
+      <x>290</x>
+      <y>40</y>
+      <width>201</width>
+      <height>71</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI Black</family>
+      <pointsize>36</pointsize>
+      <weight>10</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">font: 87 48pt &quot;Segoe UI Black&quot;;
-color:rgb(255, 255, 255)</string>
+     <string notr="true">font: 87 36pt &quot;Segoe UI Black&quot;;
+color:#FFFF00;</string>
     </property>
     <property name="text">
      <string>Register</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>170</y>
-      <width>231</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">text-decoration: underline;
-font: 87 16pt &quot;Segoe UI Black&quot;;
-color: white</string>
-    </property>
-    <property name="text">
-     <string>Create a new account</string>
     </property>
    </widget>
    <widget class="QPushButton" name="createAccountButton">
     <property name="geometry">
      <rect>
       <x>280</x>
-      <y>530</y>
+      <y>380</y>
       <width>241</width>
       <height>51</height>
      </rect>
@@ -83,8 +76,8 @@ color: white</string>
      <string notr="true">border-radius:20px;
 background-color: rgba(193, 22, 99, 200);
 font: 87 14pt &quot;Segoe UI Black&quot;;
-background-color: qlineargradient(spread:pad, x1:0.506, y1:0.261, x2:0.500051, y2:1, stop:0 rgba(193, 22, 99, 200), stop:0.619318 rgba(193, 22, 99, 255));
-color:white</string>
+background-color: qlineargradient(spread:pad, x1:0.506, y1:0.261, x2:0.500051, y2:1, stop:0 rgba(255, 255, 0, 200), stop:0.619318 rgba(255, 255, 0, 255));
+color:black</string>
     </property>
     <property name="text">
      <string>Register</string>
@@ -93,88 +86,85 @@ color:white</string>
    <widget class="QLineEdit" name="userFieldRegister">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>250</y>
-      <width>241</width>
-      <height>51</height>
+      <x>270</x>
+      <y>180</y>
+      <width>261</width>
+      <height>35</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI Black</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgba(0,0,0,0)</string>
+     <string notr="true">background-color: rgba(0,0,0,0);
+border: none;
+border-bottom: 2px solid rgba(255, 255, 0, 255);
+color: rgba(0, 0, 0, 230);
+padding-bottom: 7px;</string>
+    </property>
+    <property name="placeholderText">
+     <string>Username</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="passwordFieldRegister">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>340</y>
-      <width>241</width>
-      <height>51</height>
+      <x>270</x>
+      <y>250</y>
+      <width>261</width>
+      <height>35</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(0,0,0,0)</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>230</y>
-      <width>81</width>
-      <height>16</height>
-     </rect>
+    <property name="font">
+     <font>
+      <family>Segoe UI Black</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 87 12pt &quot;Segoe UI Black&quot;;</string>
+     <string notr="true">background-color: rgba(0,0,0,0);
+border: none;
+border-bottom: 2px solid rgba(255, 255, 0, 255);
+color: rgba(0, 0, 0, 230);
+padding-bottom: 7px;</string>
     </property>
-    <property name="text">
-     <string>Username</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>320</y>
-      <width>81</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 87 12pt &quot;Segoe UI Black&quot;;</string>
-    </property>
-    <property name="text">
+    <property name="placeholderText">
      <string>Password</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="passwordFieldConfirmPassword">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>430</y>
-      <width>241</width>
-      <height>51</height>
+      <x>270</x>
+      <y>320</y>
+      <width>261</width>
+      <height>35</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(0,0,0,0)</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>410</y>
-      <width>81</width>
-      <height>16</height>
-     </rect>
+    <property name="font">
+     <font>
+      <family>Segoe UI Black</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 87 12pt &quot;Segoe UI Black&quot;;</string>
+     <string notr="true">background-color: rgba(0,0,0,0);
+border: none;
+border-bottom: 2px solid rgba(255, 255, 0, 255);
+color: rgba(0, 0, 0, 230);
+padding-bottom: 7px;</string>
     </property>
-    <property name="text">
-     <string>Password</string>
+    <property name="placeholderText">
+     <string>Confirm Password</string>
     </property>
    </widget>
    <widget class="QPushButton" name="backRegisterButton">
@@ -199,32 +189,56 @@ color:white</string>
      <string notr="true">border-radius:20px;
 background-color: rgba(193, 22, 99, 200);
 font: 87 14pt &quot;Segoe UI Black&quot;;
-background-color: qlineargradient(spread:pad, x1:0.506, y1:0.261, x2:0.500051, y2:1, stop:0 rgba(193, 22, 99, 200), stop:0.619318 rgba(193, 22, 99, 255));
-color:white</string>
+background-color: qlineargradient(spread:pad, x1:0.506, y1:0.261, x2:0.500051, y2:1, stop:0 rgba(255, 255, 0, 200), stop:0.619318 rgba(255, 255, 0, 255));
+color:black</string>
     </property>
     <property name="text">
-     <string>Back</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="images.qrc">
+      <normaloff>:/newPrefix/arrows.png</normaloff>:/newPrefix/arrows.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>40</width>
+      <height>40</height>
+     </size>
     </property>
    </widget>
    <widget class="QLabel" name="errorRegister">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>500</y>
-      <width>221</width>
-      <height>20</height>
+      <x>260</x>
+      <y>440</y>
+      <width>271</width>
+      <height>121</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>10</pointsize>
+      <weight>9</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">color: red;
-font: 75 14pt &quot;Arial&quot;;</string>
+     <string notr="true">color: #FFFF00;
+font: 75 10pt &quot;Arial&quot;;</string>
     </property>
     <property name="text">
      <string/>
     </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
    </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
  <connections/>
 </ui>

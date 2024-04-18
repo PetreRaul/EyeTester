@@ -302,7 +302,7 @@ QPushButton:hover{
           <string notr="true">background-color: #7EC6F2;</string>
          </property>
          <property name="currentIndex">
-          <number>4</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="setup_window">
           <widget class="QLabel" name="Webcam">
@@ -422,7 +422,7 @@ QPushButton:hover{
             <string notr="true">border-radius:20px;
 background-color: #F2AD7E;
 font: 87 14pt &quot;Segoe UI Black&quot;;
-color:white
+color:black;
 </string>
            </property>
            <property name="text">
@@ -557,14 +557,14 @@ color:white</string>
             <rect>
              <x>80</x>
              <y>530</y>
-             <width>201</width>
+             <width>261</width>
              <height>51</height>
             </rect>
            </property>
            <property name="font">
             <font>
              <family>Segoe UI Black</family>
-             <pointsize>10</pointsize>
+             <pointsize>18</pointsize>
              <weight>75</weight>
              <bold>true</bold>
             </font>

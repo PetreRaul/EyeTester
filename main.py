@@ -3,6 +3,7 @@ import sys
 import cv2
 import time
 import cvzone
+import re
 import resources
 from cvzone.FaceMeshModule import FaceMeshDetector
 from PyQt5.QtCore import Qt, QTimer
@@ -79,7 +80,7 @@ class DashboardWindow(QMainWindow):
                         self.green_check = False
                     else:
                         colorR = (0, 200, 0)
-                        colorRGB = (0, 200, 0)
+                        colorRGB = (0, 150, 30)
                         if not self.green_check:
                             self.start_time = time.time() # incepere countdown folosing unixtime
                         self.green_check = True
@@ -168,7 +169,7 @@ class MainWindow(QDialog):
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.loginButton.clicked.connect(self.go_to_login)
         self.registerButton.clicked.connect(self.go_to_register)
-        self.setFixedSize(709, 599)
+        self.setFixedSize(800, 600)
 
     def go_to_login(self):
         login_button = LoginWindow()
@@ -189,13 +190,22 @@ class RegisterWindow(QDialog):
         self.passwordFieldRegister.setEchoMode(QtWidgets.QLineEdit.Password)
         self.passwordFieldConfirmPassword.setEchoMode(QtWidgets.QLineEdit.Password)
         self.createAccountButton.clicked.connect(self.signup_function)
-
         self.backRegisterButton.clicked.connect(self.go_to_main_window)
 
     def signup_function(self):
         username = self.userFieldRegister.text()
         password = self.passwordFieldRegister.text()
         password_confirm = self.passwordFieldConfirmPassword.text()
+        password_pattern = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+
+        connection = sqlite3.connect("accounts.db")
+        cursor = connection.cursor()
+        cursor.execute('SELECT * FROM People WHERE Username=?', (username,))
+        existing_user = cursor.fetchone()
+
+        if existing_user:
+            self.errorRegister.setText("Username already exists. Please choose a different username.")
+            return
 
         if len(username) == 0 or len(password) == 0 or len(password_confirm) == 0:
             self.errorRegister.setText("Please complete all fields")
@@ -203,9 +213,14 @@ class RegisterWindow(QDialog):
         elif password != password_confirm:
             self.errorRegister.setText("Passwords do not match.")
 
+        elif not re.match(password_pattern, password):
+            self.errorRegister.setText(
+                "• Password must have at least 8 characters\n"
+                "• Password must contain at least one uppercase character\n"
+                "• Password must contain at least one digit\n"
+                "• Password must contain at least one special character")
+
         else:
-            connection = sqlite3.connect("accounts.db")
-            cursor = connection.cursor()
             user_info = [username, password]
             cursor.execute('INSERT INTO People (Username, Password) VALUES (?,?)', user_info)
             connection.commit()
@@ -227,7 +242,7 @@ class LoginWindow(QDialog):
         self.passwordField.setEchoMode(QtWidgets.QLineEdit.Password)
         self.loginAccount.clicked.connect(self.login_function)
         self.backLoginButton.clicked.connect(self.go_to_main_window)
-        self.setFixedSize(709, 599)
+        self.setFixedSize(800, 600)
 
     def go_to_main_window(self):
         backlogin_button = MainWindow()
@@ -273,7 +288,7 @@ application = QApplication(sys.argv)
 main = MainWindow()
 widget = QStackedWidget()
 widget.addWidget(main)
-widget.setFixedSize(709, 599)
+widget.setFixedSize(800, 600)
 widget.show()
 try:
     sys.exit(application.exec_())
