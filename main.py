@@ -44,6 +44,9 @@ class DashboardWindow(QMainWindow):
         self.dioptre_distance = None  # reper de distanta in functie de dioptrie
         self.start_time = None
 
+        # widget.showFullScreen()
+        widget.setFixedSize(1920, 1000)
+        widget.move(0, 0)
 
     def start_webcam(self):
         self.capture = cv2.VideoCapture(0, cv2.CAP_DSHOW)
@@ -107,18 +110,28 @@ class DashboardWindow(QMainWindow):
                 break
 
     def run_myopia(self):
-        letters = myopia.generate_random_letters(rows=2, columns=5)
-        letters_text = '\n'.join([' '.join(row) for row in letters])
-        self.visibleLetter1.setText(letters_text)
-        response = QtWidgets.QMessageBox.question(self, 'Speak Letters', 'Do you want Myopia to speak the letters?',
-                                                  QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
-        if response == QtWidgets.QMessageBox.Yes:
-            myopia.respond('read letters', letters_text)
+        letters = myopia.generate_random_letters()
+        count_index = 9
+        for row in letters:
+            for letter in row:
+                label_variable = getattr(self, f"label_{count_index}")
+                label_variable.setText(letter)
+                count_index += 1
+
+
+        # letters_text = '\n'.join([' '.join(row) for row in letters])
+        # self.visibleLetter1.setText(letters_text)
+        # response = QtWidgets.QMessageBox.question(self, 'Speak Letters', 'Do you want Myopia to speak the letters?',
+        #                                           QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
+        # if response == QtWidgets.QMessageBox.Yes:
+        #     myopia.respond('read letters', letters_text)
 
     def go_to_login(self):
         login_button = LoginWindow()
         widget.addWidget(login_button)
         widget.setCurrentIndex(widget.currentIndex()+1)
+        widget.setFixedSize(800, 600)
+        widget.move(560, 240)
 
     def is_float(self):
         try:
@@ -127,6 +140,13 @@ class DashboardWindow(QMainWindow):
         except ValueError:
             return False
 
+    # def dioptre_distance_calculator(self):
+    #     dioptre = self.dioptre_size
+    #     pixels = self.screen_height
+    #     focal_length = 1/float(dioptre)
+    #     distance_from_screen = (pixels * focal_length) / (dioptre * pixels)
+    #     return distance_from_screen
+
     def go_to_start_test(self):
         self.dioptre_size = self.dioptre_input.text()
         if len(self.dioptre_size) == 0: # verificare empty space dioptrie
@@ -134,6 +154,7 @@ class DashboardWindow(QMainWindow):
         elif not self.is_float(): # verificare tip de date dioptrie
             self.dioptre_error_field.setText("Value is wrong. Insert a float value")
         else:
+            # self.dioptre_distance = self.dioptre_distance_calculator()
             self.dioptre_distance = abs(float(self.dioptre_size)) * 100
             response = QtWidgets.QMessageBox.question(self, 'Camera permissions', 'Do you want to start your camera?', # dialog permisiune camera
                                                       QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
@@ -273,8 +294,7 @@ class LoginWindow(QDialog):
                     print("Successfully logged in")
                     self.errorField.setText("")
                     self.go_to_dashboard_window()
-                    widget.setFixedSize(1280, 720)
-                    widget.move(300, 160)
+
                 else:
                     self.errorField.setText("Invalid username or password")
             else:

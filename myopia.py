@@ -52,11 +52,14 @@ def respond(voice_data, text_to_read=None):
                 for letter in row:
                     myopia_speak(letter)
 
-def generate_random_letters(rows, columns):
+def generate_random_letters():
         letters = []
-        for _ in range(rows):
-            row = ''.join(random.choices('ABCDEFGHIJKLMNOPQRSTUVWXYZ', k=columns))
+        for i in range(7):
+            row = ''.join(random.choices('CDEFLOPTZ', k=i+2))
             letters.append(row)
+        letters.append(''.join(random.choices('CDEFLOPTZ', k=8)))
+        letters.append(''.join(random.choices('CDEFLOPTZ', k=8)))
+        letters.append(''.join(random.choices('CDEFLOPTZ', k=9)))
         return letters
 
 
