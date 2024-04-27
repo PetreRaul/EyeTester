@@ -14,8 +14,10 @@ from PyQt5.QtGui import QPixmap, QImage
 from PyQt5.QtCore import *
 import myopia
 import test
+import speech_recognition as sr
 
 widget = None
+
 
 # ------------------------MAIN_WINDOW------------------------ #
 
@@ -45,12 +47,12 @@ class DashboardWindow(QMainWindow):
         self.testBotButton.clicked.connect(self.run_myopia)
         self.in_test = False
 
-
         self.timer = QTimer(self)
 
-        self.dioptre_distance = None  # reper de distanta in functie de dioptrie
+        self.dioptre_distance_left = None  # reper de distanta in functie de dioptrie
+        self.dioptre_distance_right = None  # reper de distanta in functie de dioptrie
         self.start_time = None
-
+        self.test_return_value = None  #
 
         widget.addWidget(self)
         widget.setCurrentIndex(widget.currentIndex() + 1)
@@ -59,12 +61,11 @@ class DashboardWindow(QMainWindow):
         widget.setFixedSize(1920, 1000)
         widget.move(0, 0)
 
-    def start_webcam(self):
+    def start_webcam(self, dioptre_distance):
         self.capture = cv2.VideoCapture(0, cv2.CAP_DSHOW)
-        #self.capture = cv2.VideoCapture(0)
+        # self.capture = cv2.VideoCapture(0)
         self.detector = FaceMeshDetector(maxFaces=1)
         self.timer.start(30)
-        dioptre_distance = self.dioptre_distance
         self.distance_guidance_label.setText(f'Distance: {int(dioptre_distance)}cm')
         self.green_check = False
 
@@ -96,25 +97,23 @@ class DashboardWindow(QMainWindow):
                         colorR = (0, 200, 0)
                         colorRGB = (0, 150, 30)
                         if not self.green_check:
-                            self.start_time = time.time() # incepere countdown folosing unixtime
+                            self.start_time = time.time()  # incepere countdown folosing unixtime
                         self.green_check = True
 
-
-                    cvzone.putTextRect(img_with_detections, f'Distance: {int(d)}cm', (face[10][0] - 50, face[10][1] - 50), scale=1,
-                            font=0, thickness=2, colorT=(0, 0, 0), colorR= colorR)
+                    cvzone.putTextRect(img_with_detections, f'Distance: {int(d)}cm',
+                                       (face[10][0] - 50, face[10][1] - 50), scale=1,
+                                       font=0, thickness=2, colorT=(0, 0, 0), colorR=colorR)
 
                     self.current_distance_label.setText(f'Your distance: {int(d)}cm')
                     self.current_distance_label.setStyleSheet(f'color: rgb{(colorRGB)};')
 
                     if self.green_check and self.in_test == False:
-                        if time.time() - self.start_time > 3: # verificare 3 secunde consecutive
+                        if time.time() - self.start_time > 3:  # verificare 3 secunde consecutive
                             self.in_test = True
                             self.go_to_myopia_test()
-
-
-
-
-
+                    if self.test_return_value == 1:
+                        self.capture.release()
+                        return
             frame = cv2.cvtColor(img_with_detections, cv2.COLOR_BGR2RGB)
             h, w, ch = frame.shape
             bytes_per_line = ch * w
@@ -124,7 +123,6 @@ class DashboardWindow(QMainWindow):
             if cv2.waitKey(1) == ord('q'):
                 break
 
-
     def run_myopia(self):
         letters = myopia.generate_random_letters()
         count_index = 9
@@ -132,21 +130,22 @@ class DashboardWindow(QMainWindow):
             for letter in row:
                 label_variable = getattr(self, f"label_{count_index}")
                 label_variable.setText(letter)
+
                 count_index += 1
         test_menu = test.Test(letters)
-        test_menu.start_test()
-
+        self.test_return_value = test_menu.start_test(6)
+        print(self.test_return_value)
 
     def go_to_login(self):
         login_button = mainmenu.LoginWindow()
         widget.addWidget(login_button)
-        widget.setCurrentIndex(widget.currentIndex()+1)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
         widget.setFixedSize(800, 600)
         widget.move(560, 240)
 
     def is_float(self):
         try:
-            float(self.dioptre_size)
+            float(self.dioptre_size_left) and float(self.dioptre_size_right)
             return True
         except ValueError:
             return False
@@ -159,25 +158,34 @@ class DashboardWindow(QMainWindow):
     #     return distance_from_screen
 
     def go_to_start_test(self):
-        self.dioptre_size = self.dioptre_input.text()
-        if len(self.dioptre_size) == 0: # verificare empty space dioptrie
-            self.dioptre_error_field.setText("Please insert a dioptre value")
-        elif not self.is_float(): # verificare tip de date dioptrie
-            self.dioptre_error_field.setText("Value is wrong. Insert a float value")
+        self.dioptre_size_left = self.dioptre_input_left.text()
+        self.dioptre_size_right = self.dioptre_input_right.text()
+        if len(self.dioptre_size_left) == 0 or len(self.dioptre_size_right) == 0:  # verificare empty space dioptrii
+            self.dioptre_error_field.setText("Please insert a dioptre value for both eyes")
+        elif not self.is_float():  # verificare tip de date dioptrie
+            self.dioptre_error_field.setText("Please insert only float values")
         else:
             # self.dioptre_distance = self.dioptre_distance_calculator()
-            self.dioptre_distance = abs(float(self.dioptre_size)) * 100
-            response = QtWidgets.QMessageBox.question(self, 'Camera permissions', 'Do you want to start your camera?', # dialog permisiune camera
+            self.dioptre_distance_left = abs(float(self.dioptre_size_left)) * 100
+            self.dioptre_distance_right = abs(float(self.dioptre_size_right)) * 100
+            response = QtWidgets.QMessageBox.question(self, 'Camera permissions', 'Do you want to start your camera?',
+                                                      # dialog permisiune camera
                                                       QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
             if response == QtWidgets.QMessageBox.Yes:
                 capture = cv2.VideoCapture(0)
-                if not capture.isOpened(): # verificare camera existenta
+                if not capture.isOpened():  # verificare camera existenta
                     self.dioptre_error_field.setText("No camera found")
                     capture.release()
                     return False
                 capture.release()
                 self.stackedWidget.setCurrentIndex(0)
-                self.start_webcam()
+                self.start_webcam(self.dioptre_distance_left)
+                print(self.test_return_value)
+                if self.test_return_value == 1:
+                    self.test_return_value = 0
+                    self.in_test = False
+                    self.stackedWidget.setCurrentIndex(0)
+                    self.start_webcam(self.dioptre_distance_right)
 
     def go_to_home(self):
         self.stackedWidget.setCurrentIndex(1)
@@ -191,3 +199,4 @@ class DashboardWindow(QMainWindow):
     def go_to_myopia_test(self):
         self.stackedWidget.setCurrentIndex(4)
         threading.Thread(target=self.run_myopia).start()
+
