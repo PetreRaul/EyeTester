@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>1920</width>
-    <height>1080</height>
+    <height>1044</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -84,20 +84,21 @@
           <string notr="true">background-color: #7EC6F2;</string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="setup_window">
           <widget class="QLabel" name="Webcam">
            <property name="geometry">
             <rect>
-             <x>350</x>
-             <y>84</y>
+             <x>720</x>
+             <y>190</y>
              <width>640</width>
              <height>480</height>
             </rect>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: qlineargradient(spread:pad, x1:0.477, y1:0, x2:0.506, y2:1, stop:0 rgba(242, 173, 126, 255), stop:1 rgba(255, 255, 255, 255));</string>
+            <string notr="true">background-color: #F2D580;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;</string>
            </property>
            <property name="text">
             <string/>
@@ -106,8 +107,8 @@
           <widget class="QLabel" name="info_label">
            <property name="geometry">
             <rect>
-             <x>120</x>
-             <y>100</y>
+             <x>170</x>
+             <y>110</y>
              <width>71</width>
              <height>41</height>
             </rect>
@@ -120,8 +121,11 @@
              <bold>true</bold>
             </font>
            </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: #F2D580;</string>
+           </property>
            <property name="text">
-            <string>INFO</string>
+            <string>Info</string>
            </property>
            <property name="wordWrap">
             <bool>true</bool>
@@ -130,8 +134,8 @@
           <widget class="QLabel" name="distance_guidance_label">
            <property name="geometry">
             <rect>
-             <x>480</x>
-             <y>20</y>
+             <x>860</x>
+             <y>110</y>
              <width>271</width>
              <height>41</height>
             </rect>
@@ -154,10 +158,10 @@
           <widget class="QLabel" name="text_info_label">
            <property name="geometry">
             <rect>
-             <x>40</x>
-             <y>180</y>
+             <x>80</x>
+             <y>190</y>
              <width>281</width>
-             <height>281</height>
+             <height>511</height>
             </rect>
            </property>
            <property name="font">
@@ -169,24 +173,46 @@
              <bold>false</bold>
             </font>
            </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: #F2D580;
+</string>
+           </property>
            <property name="text">
-            <string>• Move away from the monitor with the given value above the camera
-
-• Stand still in the green zone for 3 seconds to start the test
-
-• Not standing still might cancel the test</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;• Move away from the monitor with the given value above the camera&lt;/p&gt;&lt;p&gt;&lt;br/&gt;• Stand still in the green zone for 3 seconds to start the test&lt;br/&gt;&lt;/p&gt;&lt;p&gt;• Not standing still might cancel the test&lt;br/&gt;&lt;/p&gt;&lt;p&gt;• The test will initially start for the left eye&lt;br/&gt;&lt;/p&gt;&lt;p&gt;• In the case of different dioptres, the test will start again for testing the right eye as well&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="wordWrap">
             <bool>true</bool>
            </property>
           </widget>
+          <widget class="QLabel" name="label_81">
+           <property name="geometry">
+            <rect>
+             <x>-60</x>
+             <y>-10</y>
+             <width>511</width>
+             <height>991</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color:#F2D580;
+border-radius: 100px;</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <zorder>label_81</zorder>
+          <zorder>Webcam</zorder>
+          <zorder>info_label</zorder>
+          <zorder>distance_guidance_label</zorder>
+          <zorder>text_info_label</zorder>
          </widget>
          <widget class="QWidget" name="home_window">
           <widget class="QPushButton" name="start_test_button">
            <property name="geometry">
             <rect>
-             <x>670</x>
-             <y>560</y>
+             <x>860</x>
+             <y>630</y>
              <width>241</width>
              <height>51</height>
             </rect>
@@ -202,7 +228,7 @@
            </property>
            <property name="styleSheet">
             <string notr="true">border-radius:20px;
-background-color: #F2AD7E;
+background-color: #F2D580;
 font: 87 14pt &quot;Segoe UI Black&quot;;
 color:black;
 </string>
@@ -214,8 +240,8 @@ color:black;
           <widget class="QLineEdit" name="dioptre_input_left">
            <property name="geometry">
             <rect>
-             <x>700</x>
-             <y>490</y>
+             <x>890</x>
+             <y>560</y>
              <width>51</width>
              <height>41</height>
             </rect>
@@ -224,8 +250,8 @@ color:black;
           <widget class="QLabel" name="dioptre_error_field">
            <property name="geometry">
             <rect>
-             <x>620</x>
-             <y>440</y>
+             <x>810</x>
+             <y>510</y>
              <width>381</width>
              <height>31</height>
             </rect>
@@ -241,8 +267,8 @@ font: 75 14pt &quot;Arial&quot;;</string>
           <widget class="QLabel" name="label_4">
            <property name="geometry">
             <rect>
-             <x>580</x>
-             <y>390</y>
+             <x>770</x>
+             <y>460</y>
              <width>451</width>
              <height>31</height>
             </rect>
@@ -266,8 +292,8 @@ font: 75 14pt &quot;Arial&quot;;</string>
           <widget class="QLineEdit" name="dioptre_input_right">
            <property name="geometry">
             <rect>
-             <x>830</x>
-             <y>490</y>
+             <x>1020</x>
+             <y>560</y>
              <width>51</width>
              <height>41</height>
             </rect>
@@ -276,8 +302,8 @@ font: 75 14pt &quot;Arial&quot;;</string>
           <widget class="QLabel" name="label_78">
            <property name="geometry">
             <rect>
-             <x>670</x>
-             <y>500</y>
+             <x>860</x>
+             <y>570</y>
              <width>31</width>
              <height>21</height>
             </rect>
@@ -298,8 +324,8 @@ font: 75 14pt &quot;Arial&quot;;</string>
           <widget class="QLabel" name="label_79">
            <property name="geometry">
             <rect>
-             <x>790</x>
-             <y>500</y>
+             <x>980</x>
+             <y>570</y>
              <width>31</width>
              <height>21</height>
             </rect>
@@ -320,8 +346,8 @@ font: 75 14pt &quot;Arial&quot;;</string>
           <widget class="QLabel" name="label_80">
            <property name="geometry">
             <rect>
-             <x>680</x>
-             <y>160</y>
+             <x>870</x>
+             <y>230</y>
              <width>221</width>
              <height>211</height>
             </rect>
@@ -339,8 +365,8 @@ font: 75 14pt &quot;Arial&quot;;</string>
           <widget class="QLabel" name="label_6">
            <property name="geometry">
             <rect>
-             <x>420</x>
-             <y>290</y>
+             <x>660</x>
+             <y>250</y>
              <width>181</width>
              <height>61</height>
             </rect>
@@ -354,6 +380,19 @@ font: 75 14pt &quot;Arial&quot;;</string>
            </property>
            <property name="text">
             <string>Exercises</string>
+           </property>
+          </widget>
+          <widget class="QWidget" name="video_player" native="true">
+           <property name="geometry">
+            <rect>
+             <x>380</x>
+             <y>400</y>
+             <width>720</width>
+             <height>480</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: qlineargradient(spread:pad, x1:0.477, y1:0, x2:0.506, y2:1, stop:0 rgba(242, 173, 126, 255), stop:1 rgba(255, 255, 255, 255));</string>
            </property>
           </widget>
          </widget>
@@ -1457,6 +1496,11 @@ QPushButton:hover{
        </item>
        <item>
         <widget class="QPushButton" name="homeButton1">
+         <property name="styleSheet">
+          <string notr="true">QPushButton:hover{
+background-color: #F2D580;
+}</string>
+         </property>
          <property name="text">
           <string/>
          </property>
@@ -1480,6 +1524,11 @@ QPushButton:hover{
        </item>
        <item>
         <widget class="QPushButton" name="statisticsButton1">
+         <property name="styleSheet">
+          <string notr="true">QPushButton:hover{
+background-color: #F2D580;
+}</string>
+         </property>
          <property name="text">
           <string/>
          </property>
@@ -1503,6 +1552,11 @@ QPushButton:hover{
        </item>
        <item>
         <widget class="QPushButton" name="exercisesButton1">
+         <property name="styleSheet">
+          <string notr="true">QPushButton:hover{
+background-color: #F2D580;
+}</string>
+         </property>
          <property name="text">
           <string/>
          </property>
@@ -1539,6 +1593,9 @@ QPushButton:hover{
        </item>
        <item>
         <widget class="QPushButton" name="signoutButton1">
+         <property name="styleSheet">
+          <string notr="true">background-color: #F2D580;</string>
+         </property>
          <property name="text">
           <string/>
          </property>
@@ -1651,6 +1708,11 @@ QPushButton:hover{
            <bold>true</bold>
           </font>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton:hover{
+background-color: #F2D580;
+}</string>
+         </property>
          <property name="text">
           <string>Home</string>
          </property>
@@ -1681,6 +1743,14 @@ QPushButton:hover{
            <weight>75</weight>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+
+QPushButton:hover{
+background-color: red;
+background-color: #F2D580;
+}</string>
          </property>
          <property name="text">
           <string>Statistics</string>
@@ -1713,6 +1783,11 @@ QPushButton:hover{
            <bold>true</bold>
           </font>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton:hover{
+background-color: #F2D580;
+}</string>
+         </property>
          <property name="text">
           <string>Exercises</string>
          </property>
@@ -1741,8 +1816,8 @@ QPushButton:hover{
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>20</width>
-           <height>209</height>
+           <width>118</width>
+           <height>288</height>
           </size>
          </property>
         </spacer>
@@ -1756,6 +1831,11 @@ QPushButton:hover{
            <weight>75</weight>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton:hover{
+background-color: #F2D580;
+}</string>
          </property>
          <property name="text">
           <string>Sign Out</string>

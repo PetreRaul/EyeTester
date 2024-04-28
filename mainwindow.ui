@@ -81,11 +81,34 @@ font: 87 44pt &quot;Segoe UI Black&quot;;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-radius:20px;
-background-color: rgba(193, 22, 99, 200);
-font: 87 14pt &quot;Segoe UI Black&quot;;
-background-color: qlineargradient(spread:pad, x1:0.506, y1:0.261, x2:0.500051, y2:1, stop:0 rgba(255, 255, 0, 200), stop:0.619318 rgba(255, 255, 0, 255));
-color:black</string>
+     <string notr="true">QPushButton {
+ background-color: qlineargradient(spread:pad, x1:0.506, y1:0.261, x2:0.500051, y2:1, stop:0 rgba(255, 255, 0, 200), stop:0.619318 rgba(255, 255, 0, 255));
+  border: 2px solid #422800;
+  border-radius: 20px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+QPushButton:hover {
+  background-color: #fff;
+}
+
+QPushButton:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+</string>
     </property>
     <property name="text">
      <string>Login</string>
@@ -101,11 +124,34 @@ color:black</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-radius:20px;
-background-color: rgba(193, 22, 99, 200);
-font: 87 14pt &quot;Segoe UI Black&quot;;
-background-color: qlineargradient(spread:pad, x1:0.506, y1:0.261, x2:0.500051, y2:1, stop:0 rgba(255, 255, 0, 200), stop:0.619318 rgba(255, 255, 0, 255));
-color:black</string>
+     <string notr="true">QPushButton {
+ background-color: qlineargradient(spread:pad, x1:0.506, y1:0.261, x2:0.500051, y2:1, stop:0 rgba(255, 255, 0, 200), stop:0.619318 rgba(255, 255, 0, 255));
+  border: 2px solid #422800;
+  border-radius: 20px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+QPushButton:hover {
+  background-color: #fff;
+}
+
+QPushButton:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+</string>
     </property>
     <property name="text">
      <string>Register</string>

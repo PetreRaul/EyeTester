@@ -52,27 +52,52 @@ color:#FFFF00;</string>
    <widget class="QPushButton" name="loginAccount">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>450</y>
-      <width>241</width>
+      <x>290</x>
+      <y>430</y>
+      <width>154</width>
       <height>51</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Segoe UI Black</family>
-      <pointsize>14</pointsize>
-      <weight>10</weight>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
       <italic>false</italic>
-      <bold>false</bold>
+      <bold>true</bold>
+      <underline>false</underline>
+      <strikeout>false</strikeout>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-radius:20px;
-background-color: rgba(193, 22, 99, 200);
-font: 87 14pt &quot;Segoe UI Black&quot;;
-background-color: qlineargradient(spread:pad, x1:0.506, y1:0.261, x2:0.500051, y2:1, stop:0 rgba(255, 255, 0, 200), stop:0.619318 rgba(255, 255, 0, 255));
-color:black</string>
+     <string notr="true">QPushButton {
+ background-color: qlineargradient(spread:pad, x1:0.506, y1:0.261, x2:0.500051, y2:1, stop:0 rgba(255, 255, 0, 200), stop:0.619318 rgba(255, 255, 0, 255));
+  border: 2px solid #422800;
+  border-radius: 20px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+QPushButton:hover {
+  background-color: #fff;
+}
+
+QPushButton:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+</string>
     </property>
     <property name="text">
      <string>Log in</string>
@@ -173,18 +198,43 @@ font: 75 14pt &quot;Arial&quot;;</string>
     <property name="font">
      <font>
       <family>Segoe UI Black</family>
-      <pointsize>14</pointsize>
-      <weight>10</weight>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
       <italic>false</italic>
-      <bold>false</bold>
+      <bold>true</bold>
+      <underline>false</underline>
+      <strikeout>false</strikeout>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-radius:20px;
-background-color: rgba(193, 22, 99, 200);
-font: 87 14pt &quot;Segoe UI Black&quot;;
-background-color: #FFFF00;
-color:white</string>
+     <string notr="true">QPushButton {
+ background-color: qlineargradient(spread:pad, x1:0.506, y1:0.261, x2:0.500051, y2:1, stop:0 rgba(255, 255, 0, 200), stop:0.619318 rgba(255, 255, 0, 255));
+  border: 2px solid #422800;
+  border-radius: 20px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+QPushButton:hover {
+  background-color: #fff;
+}
+
+QPushButton:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+</string>
     </property>
     <property name="text">
      <string/>

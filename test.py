@@ -73,7 +73,6 @@ class Test:
         if self.test_state != 0:
             return 1
 
-
     def start_test(self, row):
 
         self.correct_answers = 0

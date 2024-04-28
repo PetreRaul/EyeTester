@@ -1,5 +1,6 @@
 import sqlite3
 import re
+import bcrypt
 import resources
 import dashboard
 from PyQt5.QtCore import Qt, QTimer
@@ -77,11 +78,17 @@ class RegisterWindow(QDialog):
                 "• Password must contain at least one special character")
 
         else:
-            user_info = [username, password]
+            hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())  # hash la parola intr-un string hexadecimal
+
+            user_info = [username, hashed_password]
             cursor.execute('INSERT INTO People (Username, Password) VALUES (?,?)', user_info)
             connection.commit()
+
             print("Successfully registered the user")
             self.go_to_main_window()
+
+        # Close the database connection
+        connection.close()
 
     def go_to_main_window(self):
         backregister_button = MainWindow()
@@ -123,7 +130,7 @@ class LoginWindow(QDialog):
             cursor.execute(query)
             result_pass = cursor.fetchone()
             if result_pass is not None:
-                if result_pass[0] == password:
+                if bcrypt.checkpw(password.encode('utf-8'), result_pass[0]): # comparare parola criptata din baza de date cu parola criptata introdusa de user
                     print("Successfully logged in")
                     self.errorField.setText("")
                     self.go_to_dashboard_window()
