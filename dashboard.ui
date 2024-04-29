@@ -84,7 +84,7 @@
           <string notr="true">background-color: #7EC6F2;</string>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="setup_window">
           <widget class="QLabel" name="Webcam">
@@ -362,37 +362,59 @@ font: 75 14pt &quot;Arial&quot;;</string>
          </widget>
          <widget class="QWidget" name="statistics_window"/>
          <widget class="QWidget" name="exercises_window">
-          <widget class="QLabel" name="label_6">
+          <widget class="QVideoWidget" name="video_player" native="true">
            <property name="geometry">
             <rect>
-             <x>660</x>
-             <y>250</y>
-             <width>181</width>
-             <height>61</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>26</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Exercises</string>
-           </property>
-          </widget>
-          <widget class="QWidget" name="video_player" native="true">
-           <property name="geometry">
-            <rect>
-             <x>380</x>
-             <y>400</y>
+             <x>450</x>
+             <y>290</y>
              <width>720</width>
              <height>480</height>
             </rect>
            </property>
            <property name="styleSheet">
             <string notr="true">background-color: qlineargradient(spread:pad, x1:0.477, y1:0, x2:0.506, y2:1, stop:0 rgba(242, 173, 126, 255), stop:1 rgba(255, 255, 255, 255));</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="play_pause_button">
+           <property name="geometry">
+            <rect>
+             <x>760</x>
+             <y>790</y>
+             <width>91</width>
+             <height>91</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">image: url(:/newPrefix/300px-Play_Pause_icon_2283501.png);
+border: none;</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="shortcut">
+            <string>Space</string>
+           </property>
+          </widget>
+          <widget class="QSlider" name="video_position">
+           <property name="geometry">
+            <rect>
+             <x>440</x>
+             <y>780</y>
+             <width>721</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="maximum">
+            <number>99</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="invertedAppearance">
+            <bool>false</bool>
+           </property>
+           <property name="invertedControls">
+            <bool>false</bool>
            </property>
           </widget>
          </widget>
@@ -1858,6 +1880,14 @@ background-color: #F2D580;
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QVideoWidget</class>
+   <extends>QWidget</extends>
+   <header>PyQt5.QtMultimediaWidgets</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="images.qrc"/>
  </resources>

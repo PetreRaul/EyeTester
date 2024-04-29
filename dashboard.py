@@ -1,17 +1,19 @@
+import os
 import threading
 import cv2
 import time
 import cvzone
 import re
+import exercises
 import mainmenu
 import resources
 from cvzone.FaceMeshModule import FaceMeshDetector
+from PyQt5 import QtWidgets, QtMultimedia, uic, QtCore
 from PyQt5.QtCore import Qt, QTimer
 from PyQt5.uic import loadUi
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, uic, QtMultimedia
 from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QStackedWidget
 from PyQt5.QtGui import QPixmap, QImage
-from PyQt5.QtCore import *
 import myopia
 import test
 import speech_recognition as sr
@@ -53,6 +55,11 @@ class DashboardWindow(QMainWindow):
         self.dioptre_distance_right = None  # reper de distanta in functie de dioptrie
         self.start_time = None
         self.test_return_value = None  #
+        self.widget = widget
+
+        self.is_video_playing = False
+        self.is_video_paused = False
+
 
         widget.addWidget(self)
         widget.setCurrentIndex(widget.currentIndex() + 1)
@@ -188,15 +195,56 @@ class DashboardWindow(QMainWindow):
                     self.start_webcam(self.dioptre_distance_right)
 
     def go_to_home(self):
+        if self.is_video_playing is True:
+            self.player.stop()
+            self.is_video_playing = False
         self.stackedWidget.setCurrentIndex(1)
 
     def go_to_statistics(self):
+        if self.is_video_playing is True:
+            self.player.stop()
+            self.is_video_playing = False
         self.stackedWidget.setCurrentIndex(2)
 
     def go_to_exercises(self):
         self.stackedWidget.setCurrentIndex(3)
+        self.player = QtMultimedia.QMediaPlayer(None, QtMultimedia.QMediaPlayer.VideoSurface)
+        file = os.path.join(os.path.dirname(__file__), "myvideo.mp4")
+        self.player.setMedia(QtMultimedia.QMediaContent(QtCore.QUrl.fromLocalFile(file)))
+        self.player.setVideoOutput(self.video_player)
+        self.play_pause_button.clicked.connect(self.play_pause)
+
+        self.video_position.sliderMoved.connect(self.set_position)
+        self.player.positionChanged.connect(self.position_changed)
+        self.player.durationChanged.connect(self.duration_changed)
+
+        self.player.play()
+
+        self.is_video_playing = True
+
+    def position_changed(self, position):
+        self.video_position.setValue(position)
+
+    def duration_changed(self, duration):
+        self.video_position.setRange(0, duration)
+
+    def set_position(self, position):
+        self.player.setPosition(position)
+
+    def play_pause(self):
+        if self.is_video_paused is False and self.is_video_playing is True:
+            self.player.pause()
+            self.is_video_paused = True
+        else:
+            self.player.play()
+            self.is_video_paused = False
+
 
     def go_to_myopia_test(self):
+        if self.is_video_playing is True:
+            self.player.stop()
+            self.is_video_playing = False
         self.stackedWidget.setCurrentIndex(4)
         threading.Thread(target=self.run_myopia).start()
+
 

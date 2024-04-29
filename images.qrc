@@ -1,6 +1,7 @@
 <RCC>
   <qresource prefix="newPrefix">
     <file>images.qrc</file>
+    <file>300px-Play_Pause_icon_2283501.png</file>
     <file>Snellen_chart.svg.png</file>
     <file>output-onlinepngtools (1).png</file>
     <file>download (3)-modified.png</file>

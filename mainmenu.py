@@ -130,7 +130,7 @@ class LoginWindow(QDialog):
             cursor.execute(query)
             result_pass = cursor.fetchone()
             if result_pass is not None:
-                if bcrypt.checkpw(password.encode('utf-8'), result_pass[0]): # comparare parola criptata din baza de date cu parola criptata introdusa de user
+                if bcrypt.checkpw(password.encode('utf-8'), result_pass[0]):  # comparare parola criptata din baza de date cu parola criptata introdusa de user
                     print("Successfully logged in")
                     self.errorField.setText("")
                     self.go_to_dashboard_window()
