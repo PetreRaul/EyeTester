@@ -206,6 +206,59 @@ class DashboardWindow(QMainWindow):
             self.is_video_playing = False
         self.stackedWidget.setCurrentIndex(2)
 
+        self.widget.setStyleSheet("#widget {background-image: url(:/newPrefix/ex2.png);}")
+
+        self.stackedWidget_carousel.setCurrentIndex(0)
+        self.bottom_button1.setChecked(True)
+
+        self.btn_list = [
+            self.bottom_button1,
+            self.bottom_button2,
+            self.bottom_button3,
+            self.previous_button,
+            self.next_button
+        ]
+
+        for btn in self.btn_list:
+            btn.clicked.connect(self.do_change_page)
+
+    def do_change_page(self):
+        button = self.sender()
+        current_index = self.stackedWidget_carousel.currentIndex()
+
+        if button == self.next_button:
+            if current_index == self.stackedWidget_carousel.count() - 1:
+                self.stackedWidget_carousel.setCurrentIndex(0)
+            else:
+                self.stackedWidget_carousel.setCurrentIndex(current_index + 1)
+
+        elif button == self.previous_button:
+            if current_index == 0:
+                self.stackedWidget_carousel.setCurrentIndex(self.stackedWidget_carousel.count() - 1)
+            else:
+                self.stackedWidget_carousel.setCurrentIndex(current_index - 1)
+
+        elif button in self.btn_list:
+            index = self.btn_list.index(button)
+            self.stackedWidget_carousel.setCurrentIndex(index)
+
+        else:
+            pass
+
+        index = self.stackedWidget_carousel.currentIndex()
+        self.change_background_image(index)
+
+    def change_background_image(self, index):
+        if index == 0:
+            self.widget.setStyleSheet("#widget {background-image: url(:/newPrefix/ex2.png);}")
+            self.bottom_button1.setChecked(True)
+        elif index == 1:
+            self.widget.setStyleSheet("#widget {background-image: url(:/newPrefix/ex3.png);}")
+            self.bottom_button2.setChecked(True)
+        else:
+            self.widget.setStyleSheet("#widget {background-image: url(:/newPrefix/ex4.png);}")
+            self.bottom_button3.setChecked(True)
+
     def go_to_exercises(self):
         self.stackedWidget.setCurrentIndex(3)
         self.player = QtMultimedia.QMediaPlayer(None, QtMultimedia.QMediaPlayer.VideoSurface)
