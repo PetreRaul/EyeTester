@@ -1,6 +1,8 @@
 <RCC>
   <qresource prefix="newPrefix">
     <file>images.qrc</file>
+    <file>ex5.webp</file>
+    <file>ex5.webp</file>
     <file>left-chevron.png</file>
     <file>right-chevron.png</file>
     <file>mountain_lake_landscape_nature-wallpaper-1600x900.jpg</file>

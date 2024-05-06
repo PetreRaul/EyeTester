@@ -15,6 +15,7 @@ class Test:
         self.in_test = True
         self.given_answers = 0
         self.test_state = 0
+        self.last_row_results = None
 
     def speak_letters(self, row, column):
         position = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth"]
@@ -55,8 +56,10 @@ class Test:
                 self.test_state = 1
                 self.start_test(row + 1)
             elif self.test_state == 1:
+                self.last_row_results = 1
                 engine.say(f"Correct! Your vision is good!")
             elif self.test_state == -1:
+                self.last_row_results = 1
                 engine.say(f"Correct! Your vision is alright, but you need eye exercises!")
 
         else:
@@ -65,13 +68,15 @@ class Test:
                 self.test_state = -1
                 self.start_test(row - 1)
             elif self.test_state == 1:
+                self.last_row_results = -1
                 engine.say(f"Wrong! Your vision is alright, but you need eye exercises!")
             elif self.test_state == -1:
+                self.last_row_results = -1
                 engine.say(f"Wrong! Check an eye specialist!")
 
         engine.runAndWait()
         if self.test_state != 0:
-            return 1
+            return [self.test_state, self.last_row_results]
 
     def start_test(self, row):
 
@@ -81,6 +86,7 @@ class Test:
         column = 0
 
         while self.in_test:
+            print(column)
             if ((self.correct_answers >= len(self.letters[row]) / 2 + 1) or
                     (self.given_answers == len(self.letters[row])) or
                     (self.given_answers - self.correct_answers >= len(self.letters[row]) / 2)):

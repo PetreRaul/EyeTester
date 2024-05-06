@@ -1,4 +1,5 @@
 import os
+import sqlite3
 import threading
 import cv2
 import time
@@ -25,9 +26,11 @@ widget = None
 
 
 class DashboardWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, connection_data):
         super(DashboardWindow, self).__init__()
         loadUi("dashboard.ui", self)
+
+        self.username = connection_data
 
         self.icon_widget.setHidden(True)
         self.stackedWidget.setCurrentIndex(1)
@@ -37,11 +40,14 @@ class DashboardWindow(QMainWindow):
         self.homeButton1.clicked.connect(self.go_to_home)
         self.homeButton2.clicked.connect(self.go_to_home)
 
-        self.statisticsButton1.clicked.connect(self.go_to_statistics)
-        self.statisticsButton2.clicked.connect(self.go_to_statistics)
+        self.infoButton1.clicked.connect(self.go_to_statistics)
+        self.infoButton2.clicked.connect(self.go_to_statistics)
 
         self.exercisesButton1.clicked.connect(self.go_to_exercises)
         self.exercisesButton2.clicked.connect(self.go_to_exercises)
+
+        self.statisticsButton1.clicked.connect(self.go_to_information)
+        self.statisticsButton2.clicked.connect(self.go_to_information)
 
         self.signoutButton1.clicked.connect(self.go_to_login)
         self.signoutButton2.clicked.connect(self.go_to_login)
@@ -59,6 +65,7 @@ class DashboardWindow(QMainWindow):
 
         self.is_video_playing = False
         self.is_video_paused = False
+
 
 
         widget.addWidget(self)
@@ -118,7 +125,7 @@ class DashboardWindow(QMainWindow):
                         if time.time() - self.start_time > 3:  # verificare 3 secunde consecutive
                             self.in_test = True
                             self.go_to_myopia_test()
-                    if self.test_return_value == 1:
+                    if self.test_return_value:
                         self.capture.release()
                         return
             frame = cv2.cvtColor(img_with_detections, cv2.COLOR_BGR2RGB)
@@ -141,7 +148,6 @@ class DashboardWindow(QMainWindow):
                 count_index += 1
         test_menu = test.Test(letters)
         self.test_return_value = test_menu.start_test(6)
-        print(self.test_return_value)
 
     def go_to_login(self):
         login_button = mainmenu.LoginWindow()
@@ -188,11 +194,18 @@ class DashboardWindow(QMainWindow):
                 self.stackedWidget.setCurrentIndex(0)
                 self.start_webcam(self.dioptre_distance_left)
                 print(self.test_return_value)
-                if self.test_return_value == 1:
+                test_results = [self.test_return_value]
+                if self.test_return_value:
                     self.test_return_value = 0
                     self.in_test = False
                     self.stackedWidget.setCurrentIndex(0)
                     self.start_webcam(self.dioptre_distance_right)
+                if self.test_return_value:
+                    print(self.test_return_value)
+                    test_results.append(self.test_return_value)
+                    self.test_return_value = 0
+                    self.in_test = False
+                    self.add_test_results(test_results)
 
     def go_to_home(self):
         if self.is_video_playing is True:
@@ -200,13 +213,16 @@ class DashboardWindow(QMainWindow):
             self.is_video_playing = False
         self.stackedWidget.setCurrentIndex(1)
 
+    def go_to_information(self):
+        self.stackedWidget.setCurrentIndex(5)
+
     def go_to_statistics(self):
         if self.is_video_playing is True:
             self.player.stop()
             self.is_video_playing = False
         self.stackedWidget.setCurrentIndex(2)
 
-        self.widget.setStyleSheet("#widget {background-image: url(:/newPrefix/ex2.png);}")
+        self.widget.setStyleSheet("#widget {background-image: url(:/newPrefix/ex5.webp);}")
 
         self.stackedWidget_carousel.setCurrentIndex(0)
         self.bottom_button1.setChecked(True)
@@ -221,6 +237,16 @@ class DashboardWindow(QMainWindow):
 
         for btn in self.btn_list:
             btn.clicked.connect(self.do_change_page)
+
+        self.timer = QTimer(self)
+        self.timer.timeout.connect(self.auto_change_page)
+        self.timer.start(10000)  # setare interval schimbare imagine
+
+    def auto_change_page(self):
+        current_index = self.stackedWidget_carousel.currentIndex()
+        next_index = (current_index + 1) % self.stackedWidget_carousel.count()
+        self.stackedWidget_carousel.setCurrentIndex(next_index)
+        self.change_background_image(next_index)
 
     def do_change_page(self):
         button = self.sender()
@@ -245,12 +271,15 @@ class DashboardWindow(QMainWindow):
         else:
             pass
 
+        self.timer.stop()
+        self.timer.start(10000)
+
         index = self.stackedWidget_carousel.currentIndex()
         self.change_background_image(index)
 
     def change_background_image(self, index):
         if index == 0:
-            self.widget.setStyleSheet("#widget {background-image: url(:/newPrefix/ex2.png);}")
+            self.widget.setStyleSheet("#widget {background-image: url(:/newPrefix/ex5.webp);}")
             self.bottom_button1.setChecked(True)
         elif index == 1:
             self.widget.setStyleSheet("#widget {background-image: url(:/newPrefix/ex3.png);}")
@@ -292,7 +321,6 @@ class DashboardWindow(QMainWindow):
             self.player.play()
             self.is_video_paused = False
 
-
     def go_to_myopia_test(self):
         if self.is_video_playing is True:
             self.player.stop()
@@ -300,4 +328,22 @@ class DashboardWindow(QMainWindow):
         self.stackedWidget.setCurrentIndex(4)
         threading.Thread(target=self.run_myopia).start()
 
+    def add_test_results(self, test_results):
 
+        print(test_results)
+
+        connection = sqlite3.connect("accounts.db")
+        cursor = connection.cursor()
+        sql = 'INSERT INTO Scores (Username_People, Score_left_first, Score_left_second, Score_right_first, Score_right_second, Timestamp) VALUES (?, ?, ?, ?, ?, ?)'
+        timestamp = time.time()
+
+        try:
+            cursor.execute(sql, (self.username, test_results[0][0], test_results[0][1], test_results[1][0], test_results[1][1], timestamp))
+            connection.commit()
+            print("Score and username inserted successfully")
+
+        except Exception as e:
+            connection.rollback()
+            print("Failed to insert score and username:", str(e))
+
+        connection.close()

@@ -87,7 +87,6 @@ class RegisterWindow(QDialog):
             print("Successfully registered the user")
             self.go_to_main_window()
 
-        # Close the database connection
         connection.close()
 
     def go_to_main_window(self):
@@ -114,7 +113,8 @@ class LoginWindow(QDialog):
 
     def go_to_dashboard_window(self):
         dashboard.widget = widget
-        dashboard.DashboardWindow()
+        connection_data = self.userField.text()
+        dashboard.DashboardWindow(connection_data)
 
     def login_function(self):
         username = self.userField.text()
@@ -129,6 +129,7 @@ class LoginWindow(QDialog):
             query = 'SELECT Password FROM People WHERE Username =\''+username+"\'"
             cursor.execute(query)
             result_pass = cursor.fetchone()
+            connection.close()
             if result_pass is not None:
                 if bcrypt.checkpw(password.encode('utf-8'), result_pass[0]):  # comparare parola criptata din baza de date cu parola criptata introdusa de user
                     print("Successfully logged in")
@@ -139,3 +140,4 @@ class LoginWindow(QDialog):
                     self.errorField.setText("Invalid username or password")
             else:
                 self.errorField.setText("Invalid username or password")
+
