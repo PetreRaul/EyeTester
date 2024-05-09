@@ -13,9 +13,11 @@ from PyQt5 import QtWidgets, QtMultimedia, uic, QtCore
 from PyQt5.QtCore import Qt, QTimer
 from PyQt5.uic import loadUi
 from PyQt5 import QtWidgets, uic, QtMultimedia
+from PyQt5.QtChart import QChart, QBarSet, QBarSeries, QChartView, QBarCategoryAxis
 from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QStackedWidget
-from PyQt5.QtGui import QPixmap, QImage
+from PyQt5.QtGui import QPixmap, QImage, QColor
 import myopia
+import statistics
 import test
 import speech_recognition as sr
 
@@ -215,6 +217,7 @@ class DashboardWindow(QMainWindow):
 
     def go_to_information(self):
         self.stackedWidget.setCurrentIndex(5)
+        statistics.Statistics(self)
 
     def go_to_statistics(self):
         if self.is_video_playing is True:

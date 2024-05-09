@@ -18,6 +18,7 @@ is_logged_in = False
 
 class MainWindow(QDialog):
     def __init__(self):
+
         super(MainWindow, self).__init__()
         loadUi("mainwindow.ui", self)
         self.setWindowFlags(Qt.FramelessWindowHint)

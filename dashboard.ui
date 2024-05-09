@@ -2068,20 +2068,17 @@ color:white</string>
           <zorder>label_77</zorder>
          </widget>
          <widget class="QWidget" name="information_window">
-          <widget class="QLabel" name="label_83">
+          <widget class="QChartView" name="chart_view" native="true">
            <property name="geometry">
             <rect>
-             <x>470</x>
-             <y>370</y>
-             <width>321</width>
-             <height>301</height>
+             <x>230</x>
+             <y>120</y>
+             <width>1041</width>
+             <height>711</height>
             </rect>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: red;</string>
-           </property>
-           <property name="text">
-            <string/>
+            <string notr="true"/>
            </property>
           </widget>
          </widget>
@@ -2582,6 +2579,12 @@ background-color: #F2D580;
    <class>QVideoWidget</class>
    <extends>QWidget</extends>
    <header>PyQt5.QtMultimediaWidgets</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QChartView</class>
+   <extends>QWidget</extends>
+   <header>PyQt5.QtChart</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
