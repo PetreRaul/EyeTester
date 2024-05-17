@@ -18,8 +18,8 @@ class Statistics:
         set0 = QBarSet("Left Eye")
         set1 = QBarSet("Right Eye")
 
-        set0.setColor(QColor(255, 0, 0))
-        set1.setColor(QColor(0, 255, 0))
+        set0.setColor(QColor(4, 191, 191))
+        set1.setColor(QColor(242,109,109))
 
         set0.append(data_set[0])
         set1.append(data_set[1])
@@ -31,17 +31,19 @@ class Statistics:
         chart = QChart()
         chart.addSeries(series)
         chart.setAnimationOptions(QChart.SeriesAnimations)
-        chart.setBackgroundBrush(QBrush(QColor("transparent")))
+        #chart.setBackgroundBrush(QBrush(QColor("transparent")))
         chart.legend().setAlignment(Qt.AlignRight)
         chart.legend().setFont(QFont("Times", weight=QFont.Bold))
 
+        font = QFont("Times", 10)
+        font.setWeight(QFont.Bold)
         categories_x = data_set[2]
         axis_x = QBarCategoryAxis()
         axis_x.append(categories_x)
-        axis_x.setLabelsFont(QFont("Times", weight=QFont.Bold))
+        axis_x.setLabelsFont(font)
         chart.addAxis(axis_x, Qt.AlignBottom)
 
-        categories_y = ["Bad", "Worse", "Good", "Better"]
+        categories_y = ["Impaired Vision", "Suboptimal Vision", "Normal Vision", "Enhanced Vision"]
         axis_y = QBarCategoryAxis()
         axis_y.setLabelsFont(QFont("Times", weight=QFont.Bold))
         axis_y.append(categories_y)

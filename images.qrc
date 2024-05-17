@@ -1,6 +1,7 @@
 <RCC>
   <qresource prefix="newPrefix">
     <file>images.qrc</file>
+    <file>ex6.png</file>
     <file>ex5.webp</file>
     <file>ex5.webp</file>
     <file>left-chevron.png</file>

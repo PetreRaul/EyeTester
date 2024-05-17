@@ -68,6 +68,8 @@ class DashboardWindow(QMainWindow):
         self.is_video_playing = False
         self.is_video_paused = False
 
+        self.is_first_ex_playing = False
+
 
 
         widget.addWidget(self)
@@ -94,10 +96,6 @@ class DashboardWindow(QMainWindow):
                     face = faces[0]
                     point_left = face[145]
                     point_right = face[374]
-
-                    # cv2.line(img_with_detections, point_left, point_right, (0, 200, 0), 3)
-                    # cv2.circle(img_with_detections, point_left, 5, (255, 0, 255), cv2.FILLED)
-                    # cv2.circle(img_with_detections, point_right, 5, (255, 0, 255), cv2.FILLED)
 
                     w, _ = self.detector.findDistance(point_left, point_right)
                     W = 6.3
@@ -152,6 +150,13 @@ class DashboardWindow(QMainWindow):
         self.test_return_value = test_menu.start_test(6)
 
     def go_to_login(self):
+        if self.is_first_ex_playing is True:
+            self.capture_exercise_1.release()
+            self.exercise_1.clear()
+            self.is_first_ex_playing = False
+        if self.is_video_playing is True:
+            self.player.stop()
+            self.is_video_playing = False
         login_button = mainmenu.LoginWindow()
         widget.addWidget(login_button)
         widget.setCurrentIndex(widget.currentIndex() + 1)
@@ -210,26 +215,35 @@ class DashboardWindow(QMainWindow):
                     self.add_test_results(test_results)
 
     def go_to_home(self):
+        if self.is_first_ex_playing is True:
+            self.capture_exercise_1.release()
+            self.exercise_1.clear()
+            self.is_first_ex_playing = False
         if self.is_video_playing is True:
             self.player.stop()
             self.is_video_playing = False
         self.stackedWidget.setCurrentIndex(1)
 
     def go_to_information(self):
+        if self.is_first_ex_playing is True:
+            self.capture_exercise_1.release()
+            self.exercise_1.clear()
+            self.is_first_ex_playing = False
+        if self.is_video_playing is True:
+            self.player.stop()
+            self.is_video_playing = False
         self.stackedWidget.setCurrentIndex(5)
         statistics.Statistics(self)
 
     def go_to_statistics(self):
-        if self.is_video_playing is True:
-            self.player.stop()
-            self.is_video_playing = False
+        if self.is_first_ex_playing is True:
+            self.capture_exercise_1.release()
+            self.exercise_1.clear()
+            self.is_first_ex_playing = False
         self.stackedWidget.setCurrentIndex(2)
-
-        self.widget.setStyleSheet("#widget {background-image: url(:/newPrefix/ex5.webp);}")
-
+        threading.Thread(target=self.start_exercise_1).start()
         self.stackedWidget_carousel.setCurrentIndex(0)
         self.bottom_button1.setChecked(True)
-
         self.btn_list = [
             self.bottom_button1,
             self.bottom_button2,
@@ -240,10 +254,6 @@ class DashboardWindow(QMainWindow):
 
         for btn in self.btn_list:
             btn.clicked.connect(self.do_change_page)
-
-        self.timer = QTimer(self)
-        self.timer.timeout.connect(self.auto_change_page)
-        self.timer.start(10000)  # setare interval schimbare imagine
 
     def auto_change_page(self):
         current_index = self.stackedWidget_carousel.currentIndex()
@@ -274,47 +284,89 @@ class DashboardWindow(QMainWindow):
         else:
             pass
 
-        self.timer.stop()
-        self.timer.start(10000)
-
         index = self.stackedWidget_carousel.currentIndex()
         self.change_background_image(index)
 
+    def start_exercise_1(self):
+        self.is_first_ex_playing = True
+        #self.capture_exercise_1 = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+        self.capture_exercise_1= cv2.VideoCapture(0)
+        detector = FaceMeshDetector(maxFaces=1)
+
+        id_list = [22, 23, 24, 26, 110, 157, 158, 159, 160, 161, 130, 243]
+        ratio_list = []
+        blink_counter = 0
+        counter = False
+        last_blink = time.time()
+
+        while True:
+            success, img = self.capture_exercise_1.read()
+            if success:
+                img_with_detections = img.copy()
+                img_with_detections, faces = detector.findFaceMesh(img_with_detections, draw=False)
+                current_time = time.time()
+                time_since_last_blink = current_time - last_blink
+                if faces:
+                    face = faces[0]
+                    for id in id_list:
+                        cv2.circle(img, face[id], 5, (255, 255, 255), cv2.FILLED)
+
+                    left_eye_up_position = face[159]
+                    left_eye_down_position = face[23]
+                    left_eye_left_position = face[130]
+                    left_eye_right_position = face[243]
+
+                    vertical_length, _ = detector.findDistance(left_eye_up_position, left_eye_down_position)
+                    horizontal_length, _ = detector.findDistance(left_eye_left_position, left_eye_right_position)
+
+                    # cv2.line(img, left_eye_up_position, left_eye_down_position, (0, 200, 0), 3)
+                    # cv2.line(img, left_eye_left_position, left_eye_right_position, (0, 200, 0), 3)
+
+                    ratio = int((vertical_length / horizontal_length) * 100)
+                    ratio_list.append(ratio)
+
+                    if len(ratio_list) > 3:
+                        ratio_list.pop(0)
+                    ratio_average = sum(ratio_list) / len(ratio_list)
+                    print(ratio_average)
+
+                    if ratio_average < 35 and counter == 0:
+                        blink_counter += 1
+                        counter = 1
+                        last_blink = current_time
+                    if counter != 0:
+                        counter += 1
+                        if counter > 10:
+                            counter = 0
+
+                    print(blink_counter)
+
+                if time_since_last_blink > 5:
+                    cvzone.putTextRect(img_with_detections, 'Please blink', (20, 150), scale=1.5, thickness=2, colorR=(255, 0, 0))
+
+            frame = cv2.cvtColor(img_with_detections, cv2.COLOR_BGR2RGB)
+            h, w, ch = frame.shape
+            bytes_per_line = ch * w
+            q_img = QImage(frame.data, w, h, bytes_per_line, QImage.Format_RGB888)
+            self.exercise_1.setPixmap(QPixmap.fromImage(q_img))
+
+            if cv2.waitKey(1) == ord('q'):
+                break
+
     def change_background_image(self, index):
         if index == 0:
-            self.widget.setStyleSheet("#widget {background-image: url(:/newPrefix/ex5.webp);}")
             self.bottom_button1.setChecked(True)
         elif index == 1:
-            self.widget.setStyleSheet("#widget {background-image: url(:/newPrefix/ex3.png);}")
             self.bottom_button2.setChecked(True)
         else:
-            self.widget.setStyleSheet("#widget {background-image: url(:/newPrefix/ex4.png);}")
             self.bottom_button3.setChecked(True)
 
     def go_to_exercises(self):
+        if self.is_first_ex_playing is True:
+            self.capture_exercise_1.release()
+            self.exercise_1.clear()
+            self.is_first_ex_playing = False
         self.stackedWidget.setCurrentIndex(3)
-        self.player = QtMultimedia.QMediaPlayer(None, QtMultimedia.QMediaPlayer.VideoSurface)
-        file = os.path.join(os.path.dirname(__file__), "myvideo.mp4")
-        self.player.setMedia(QtMultimedia.QMediaContent(QtCore.QUrl.fromLocalFile(file)))
-        self.player.setVideoOutput(self.video_player)
-        self.play_pause_button.clicked.connect(self.play_pause)
-
-        self.video_position.sliderMoved.connect(self.set_position)
-        self.player.positionChanged.connect(self.position_changed)
-        self.player.durationChanged.connect(self.duration_changed)
-
-        self.player.play()
-
-        self.is_video_playing = True
-
-    def position_changed(self, position):
-        self.video_position.setValue(position)
-
-    def duration_changed(self, duration):
-        self.video_position.setRange(0, duration)
-
-    def set_position(self, position):
-        self.player.setPosition(position)
 
     def play_pause(self):
         if self.is_video_paused is False and self.is_video_playing is True:
@@ -323,6 +375,9 @@ class DashboardWindow(QMainWindow):
         else:
             self.player.play()
             self.is_video_paused = False
+        if self.is_video_playing is False:
+            self.player.play()
+            self.is_video_playing = True
 
     def go_to_myopia_test(self):
         if self.is_video_playing is True:
