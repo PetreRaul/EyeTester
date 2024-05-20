@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>2112</width>
+    <width>1938</width>
     <height>1013</height>
    </rect>
   </property>
@@ -33,6 +33,492 @@
     <property name="bottomMargin">
      <number>0</number>
     </property>
+    <item row="0" column="0">
+     <widget class="QWidget" name="icon_widget" native="true">
+      <property name="styleSheet">
+       <string notr="true">QWidget{
+	
+	background-color:#7EC6F2
+}
+
+QPushButton{
+	color: black;
+	height:50px;
+	border: none;
+	border-radius: 10px;
+}
+
+QPushButton:checked{
+	background-color: #828cf2;
+	color: #80F2C8;
+	font-weight: bold;
+}
+QPushButton:hover{
+	background-color:#828cf2;
+	color: #80F2C8;
+	font-weight: bold;
+}</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_10">
+       <property name="verticalSpacing">
+        <number>30</number>
+       </property>
+       <item row="0" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap resource="images.qrc">:/newPrefix/eye.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0">
+        <widget class="QPushButton" name="homeButton1">
+         <property name="styleSheet">
+          <string notr="true">QPushButton:hover{
+background-color: #828cf2;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="images.qrc">
+           <normaloff>:/newPrefix/home.png</normaloff>:/newPrefix/home.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QPushButton" name="infoButton1">
+         <property name="styleSheet">
+          <string notr="true">QPushButton:hover{
+background-color: #828cf2;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="images.qrc">
+           <normaloff>:/newPrefix/user (1).png</normaloff>:/newPrefix/user (1).png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QPushButton" name="exercisesButton1">
+         <property name="styleSheet">
+          <string notr="true">QPushButton:hover{
+background-color: #828cf2;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="images.qrc">
+           <normaloff>:/newPrefix/settings.png</normaloff>:/newPrefix/settings.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QPushButton" name="statisticsButton1">
+         <property name="styleSheet">
+          <string notr="true">QPushButton:hover{
+background-color: #828cf2;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="images.qrc">
+           <normaloff>:/newPrefix/settings.png</normaloff>:/newPrefix/settings.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>505</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="6" column="0">
+        <widget class="QPushButton" name="signoutButton1">
+         <property name="styleSheet">
+          <string notr="true">QPushButton:hover{
+background-color: #828cf2;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="images.qrc">
+           <normaloff>:/newPrefix/logout.png</normaloff>:/newPrefix/logout.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QWidget" name="text_widget" native="true">
+      <property name="styleSheet">
+       <string notr="true">QWidget{
+	
+	background-color: #7EC6F2
+}
+
+QPushButton{
+	color: black;
+	text-align:left;
+	height:50px;
+	border: none;
+	padding-left: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+QPushButton:checked{
+	background-color: #828cf2;
+	color: #80F2C8;
+	font-weight: bold;
+}
+QPushButton:hover{
+	background-color: #828cf2;
+	color: #80F2C8;
+	font-weight: bold;
+}
+</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_9">
+       <property name="leftMargin">
+        <number>9</number>
+       </property>
+       <property name="rightMargin">
+        <number>9</number>
+       </property>
+       <property name="horizontalSpacing">
+        <number>9</number>
+       </property>
+       <property name="verticalSpacing">
+        <number>30</number>
+       </property>
+       <item row="0" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="spacing">
+          <number>15</number>
+         </property>
+         <property name="rightMargin">
+          <number>10</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap resource="images.qrc">:/newPrefix/eye.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="font">
+            <font>
+             <family>Segoe UI Black</family>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Eye Tester</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="5" column="0">
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>505</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="6" column="0">
+        <widget class="QPushButton" name="signoutButton2">
+         <property name="font">
+          <font>
+           <family>Segoe UI Black</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton:hover{
+background-color: #828cf2;
+}</string>
+         </property>
+         <property name="text">
+          <string>Sign Out</string>
+         </property>
+         <property name="icon">
+          <iconset resource="images.qrc">
+           <normaloff>:/newPrefix/logout.png</normaloff>:/newPrefix/logout.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QPushButton" name="infoButton2">
+         <property name="font">
+          <font>
+           <family>Segoe UI Black</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+
+QPushButton:hover{
+background-color: red;
+background-color: #828cf2;
+}</string>
+         </property>
+         <property name="text">
+          <string>Info</string>
+         </property>
+         <property name="icon">
+          <iconset resource="images.qrc">
+           <normaloff>:/newPrefix/user (1).png</normaloff>:/newPrefix/user (1).png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QPushButton" name="homeButton2">
+         <property name="font">
+          <font>
+           <family>Segoe UI Black</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton:hover{
+background-color:#828cf2;
+}</string>
+         </property>
+         <property name="text">
+          <string>Home</string>
+         </property>
+         <property name="icon">
+          <iconset resource="images.qrc">
+           <normaloff>:/newPrefix/home.png</normaloff>:/newPrefix/home.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QPushButton" name="exercisesButton2">
+         <property name="font">
+          <font>
+           <family>Segoe UI Black</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton:hover{
+background-color: #828cf2;
+}</string>
+         </property>
+         <property name="text">
+          <string>Exercises</string>
+         </property>
+         <property name="icon">
+          <iconset resource="images.qrc">
+           <normaloff>:/newPrefix/settings.png</normaloff>:/newPrefix/settings.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QPushButton" name="statisticsButton2">
+         <property name="font">
+          <font>
+           <family>Segoe UI Black</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton:hover{
+background-color: #828cf2;
+}</string>
+         </property>
+         <property name="text">
+          <string>Statistics</string>
+         </property>
+         <property name="icon">
+          <iconset resource="images.qrc">
+           <normaloff>:/newPrefix/settings.png</normaloff>:/newPrefix/settings.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
     <item row="0" column="2">
      <widget class="QWidget" name="main_menu_widget" native="true">
       <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -590,42 +1076,7 @@ background-color: rgba(255, 255, 255, 0)</string>
               <string notr="true"/>
              </property>
              <layout class="QGridLayout" name="gridLayout_7">
-              <item row="0" column="0">
-               <widget class="QFrame" name="frame">
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-                <layout class="QGridLayout" name="gridLayout_5">
-                 <item row="0" column="0">
-                  <widget class="QPushButton" name="previous_button">
-                   <property name="styleSheet">
-                    <string notr="true"/>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="icon">
-                    <iconset resource="images.qrc">
-                     <normaloff>:/newPrefix/left-chevron.png</normaloff>:/newPrefix/left-chevron.png</iconset>
-                   </property>
-                   <property name="iconSize">
-                    <size>
-                     <width>70</width>
-                     <height>70</height>
-                    </size>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item row="1" column="1">
+              <item row="1" column="0">
                <widget class="QFrame" name="frame_3">
                 <property name="styleSheet">
                  <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
@@ -732,6 +1183,26 @@ QPushButton:focus{
                   </widget>
                  </item>
                  <item>
+                  <widget class="QPushButton" name="bottom_button4">
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton:hover{
+	background-color: black;
+}
+
+QPushButton{
+	background-color: white;
+}
+
+QPushButton:focus{
+	background-color:black;
+}</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <spacer name="horizontalSpacer_15">
                    <property name="orientation">
                     <enum>Qt::Horizontal</enum>
@@ -747,48 +1218,13 @@ QPushButton:focus{
                 </layout>
                </widget>
               </item>
-              <item row="0" column="2">
-               <widget class="QFrame" name="frame_2">
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-                <layout class="QGridLayout" name="gridLayout_6">
-                 <item row="0" column="0">
-                  <widget class="QPushButton" name="next_button">
-                   <property name="styleSheet">
-                    <string notr="true"/>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="icon">
-                    <iconset resource="images.qrc">
-                     <normaloff>:/newPrefix/right-chevron.png</normaloff>:/newPrefix/right-chevron.png</iconset>
-                   </property>
-                   <property name="iconSize">
-                    <size>
-                     <width>70</width>
-                     <height>70</height>
-                    </size>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item row="0" column="1">
+              <item row="0" column="0">
                <widget class="QStackedWidget" name="stackedWidget_carousel">
                 <property name="styleSheet">
                  <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
                 </property>
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>2</number>
                 </property>
                 <widget class="QWidget" name="page_7">
                  <layout class="QGridLayout" name="gridLayout_3">
@@ -806,30 +1242,14 @@ QPushButton:focus{
                     <widget class="QLabel" name="exercise_1">
                      <property name="geometry">
                       <rect>
-                       <x>460</x>
-                       <y>310</y>
+                       <x>520</x>
+                       <y>230</y>
                        <width>640</width>
                        <height>480</height>
                       </rect>
                      </property>
                      <property name="styleSheet">
                       <string notr="true"/>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                    </widget>
-                    <widget class="QLabel" name="label99_test">
-                     <property name="geometry">
-                      <rect>
-                       <x>530</x>
-                       <y>120</y>
-                       <width>481</width>
-                       <height>61</height>
-                      </rect>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">background-color: red</string>
                      </property>
                      <property name="text">
                       <string/>
@@ -855,14 +1275,14 @@ QPushButton:focus{
                     <widget class="QFrame" name="frame_7">
                      <property name="geometry">
                       <rect>
-                       <x>51</x>
+                       <x>21</x>
                        <y>7</y>
-                       <width>1551</width>
-                       <height>771</height>
+                       <width>1751</width>
+                       <height>821</height>
                       </rect>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+                      <string notr="true">background-color: qlineargradient(spread:pad, x1:0.499364, y1:1, x2:0.502, y2:0, stop:0 rgba(130, 140, 242, 255), stop:1 rgba(255, 255, 255, 255));</string>
                      </property>
                      <property name="frameShape">
                       <enum>QFrame::StyledPanel</enum>
@@ -870,24 +1290,159 @@ QPushButton:focus{
                      <property name="frameShadow">
                       <enum>QFrame::Raised</enum>
                      </property>
-                     <widget class="QLabel" name="label_6">
+                     <widget class="QSlider" name="circle_slider">
                       <property name="geometry">
                        <rect>
-                        <x>320</x>
-                        <y>210</y>
-                        <width>581</width>
-                        <height>371</height>
+                        <x>540</x>
+                        <y>740</y>
+                        <width>961</width>
+                        <height>22</height>
                        </rect>
                       </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>60</pointsize>
+                       </font>
+                      </property>
                       <property name="styleSheet">
-                       <string notr="true">background-color: cyan;
-font: 87 22pt &quot;Segoe UI Black&quot;;</string>
+                       <string notr="true">background-color: rgba(0, 0, 0, 0)</string>
+                      </property>
+                      <property name="minimum">
+                       <number>1</number>
+                      </property>
+                      <property name="maximum">
+                       <number>100</number>
+                      </property>
+                      <property name="pageStep">
+                       <number>1</number>
+                      </property>
+                      <property name="value">
+                       <number>1</number>
+                      </property>
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="tickPosition">
+                       <enum>QSlider::TicksBelow</enum>
+                      </property>
+                      <property name="tickInterval">
+                       <number>1</number>
+                      </property>
+                     </widget>
+                     <widget class="QLabel" name="circle_label">
+                      <property name="geometry">
+                       <rect>
+                        <x>540</x>
+                        <y>40</y>
+                        <width>961</width>
+                        <height>661</height>
+                       </rect>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>60</pointsize>
+                       </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">background-color: rgba(0, 0, 0, 0)</string>
+                      </property>
+                      <property name="frameShape">
+                       <enum>QFrame::Box</enum>
                       </property>
                       <property name="text">
-                       <string>Page 2</string>
+                       <string>⊙</string>
                       </property>
                       <property name="alignment">
                        <set>Qt::AlignCenter</set>
+                      </property>
+                     </widget>
+                     <widget class="QLabel" name="label_95">
+                      <property name="geometry">
+                       <rect>
+                        <x>-60</x>
+                        <y>-10</y>
+                        <width>531</width>
+                        <height>841</height>
+                       </rect>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">background-color: #80F2C8;
+border-radius: 100px;</string>
+                      </property>
+                      <property name="frameShape">
+                       <enum>QFrame::Box</enum>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                     <widget class="QLabel" name="label_82">
+                      <property name="geometry">
+                       <rect>
+                        <x>60</x>
+                        <y>80</y>
+                        <width>81</width>
+                        <height>91</height>
+                       </rect>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">background-color: rgba(0, 0, 0, 0);
+image: url(:/newPrefix/point.png);</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                     <widget class="QLabel" name="label_96">
+                      <property name="geometry">
+                       <rect>
+                        <x>200</x>
+                        <y>90</y>
+                        <width>221</width>
+                        <height>61</height>
+                       </rect>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">background-color: rgba(0, 0, 0, 0);
+font: 24pt &quot;Arial&quot;;</string>
+                      </property>
+                      <property name="text">
+                       <string>Precision Point</string>
+                      </property>
+                     </widget>
+                     <widget class="QLabel" name="label_97">
+                      <property name="geometry">
+                       <rect>
+                        <x>30</x>
+                        <y>170</y>
+                        <width>381</width>
+                        <height>591</height>
+                       </rect>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">background-color: rgba(0, 0, 0, 0);
+font: 18pt &quot;Arial&quot;;</string>
+                      </property>
+                      <property name="frameShape">
+                       <enum>QFrame::NoFrame</enum>
+                      </property>
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;What to do:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;On your screen, you will see a circle with a point in the middle&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The size of the circle can be manually adjusted&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Focus on the target and track its movement across the screen&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Benefits:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Enhances visual concentration and attention&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Improves the ability to maintain focus on a single point&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                      <property name="textFormat">
+                       <enum>Qt::AutoText</enum>
+                      </property>
+                      <property name="scaledContents">
+                       <bool>false</bool>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+                      </property>
+                      <property name="wordWrap">
+                       <bool>true</bool>
+                      </property>
+                      <property name="indent">
+                       <number>-1</number>
                       </property>
                      </widget>
                     </widget>
@@ -900,7 +1455,7 @@ font: 87 22pt &quot;Segoe UI Black&quot;;</string>
                   <item row="0" column="0">
                    <widget class="QFrame" name="frame_9">
                     <property name="styleSheet">
-                     <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+                     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.499364, y1:1, x2:0.502, y2:0, stop:0 rgba(130, 140, 242, 255), stop:1 rgba(255, 255, 255, 255));</string>
                     </property>
                     <property name="frameShape">
                      <enum>QFrame::StyledPanel</enum>
@@ -908,29 +1463,336 @@ font: 87 22pt &quot;Segoe UI Black&quot;;</string>
                     <property name="frameShadow">
                      <enum>QFrame::Raised</enum>
                     </property>
-                    <widget class="QLabel" name="label_82">
+                    <widget class="QLabel" name="group_1">
                      <property name="geometry">
                       <rect>
-                       <x>360</x>
-                       <y>240</y>
-                       <width>611</width>
-                       <height>361</height>
+                       <x>650</x>
+                       <y>150</y>
+                       <width>231</width>
+                       <height>81</height>
                       </rect>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: yellow;
-font: 87 20pt &quot;Segoe UI Black&quot;;</string>
+                      <string notr="true">font: 87 30pt &quot;Segoe UI Black&quot;;
+background-color: rgba(0, 0, 0, 0);
+color: red</string>
                      </property>
                      <property name="text">
-                      <string>Page 3</string>
+                      <string>▲ ▲ ▲</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
+                    <widget class="QLabel" name="group_2">
+                     <property name="geometry">
+                      <rect>
+                       <x>1260</x>
+                       <y>150</y>
+                       <width>221</width>
+                       <height>91</height>
+                      </rect>
+                     </property>
+                     <property name="autoFillBackground">
+                      <bool>false</bool>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">font: 87 30pt &quot;Segoe UI Black&quot;;
+background-color: rgba(0, 0, 0, 0);
+color: blue</string>
+                     </property>
+                     <property name="text">
+                      <string>● ● ●</string>
+                     </property>
+                     <property name="scaledContents">
+                      <bool>false</bool>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                    <widget class="QLabel" name="label_94">
+                     <property name="geometry">
+                      <rect>
+                       <x>-60</x>
+                       <y>-10</y>
+                       <width>531</width>
+                       <height>861</height>
+                      </rect>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: #80F2C8;
+border-radius: 100px;</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                    </widget>
+                    <widget class="QLabel" name="group_5">
+                     <property name="geometry">
+                      <rect>
+                       <x>960</x>
+                       <y>370</y>
+                       <width>231</width>
+                       <height>81</height>
+                      </rect>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">font: 87 30pt &quot;Segoe UI Black&quot;;
+background-color: rgba(0, 0, 0, 0);
+color: green</string>
+                     </property>
+                     <property name="text">
+                      <string>▬ ▬ ▬</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                    <widget class="QLabel" name="group_4">
+                     <property name="geometry">
+                      <rect>
+                       <x>650</x>
+                       <y>600</y>
+                       <width>231</width>
+                       <height>81</height>
+                      </rect>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">font: 87 30pt &quot;Segoe UI Black&quot;;
+background-color: rgba(0, 0, 0, 0);
+color: yellow</string>
+                     </property>
+                     <property name="text">
+                      <string>■ ■ ■</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                    <widget class="QLabel" name="group_3">
+                     <property name="geometry">
+                      <rect>
+                       <x>1260</x>
+                       <y>600</y>
+                       <width>231</width>
+                       <height>81</height>
+                      </rect>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">font: 87 30pt &quot;Segoe UI Black&quot;;
+background-color: rgba(0, 0, 0, 0);
+color: cyan</string>
+                     </property>
+                     <property name="text">
+                      <string>◆ ◆ ◆</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                    <widget class="QLabel" name="label_98">
+                     <property name="geometry">
+                      <rect>
+                       <x>40</x>
+                       <y>50</y>
+                       <width>91</width>
+                       <height>121</height>
+                      </rect>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgba(0, 0, 0, 0);
+image: url(:/newPrefix/arrow.png);</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                    </widget>
+                    <widget class="QLabel" name="label_99">
+                     <property name="geometry">
+                      <rect>
+                       <x>140</x>
+                       <y>60</y>
+                       <width>311</width>
+                       <height>101</height>
+                      </rect>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgba(0, 0, 0, 0);
+font: 24pt &quot;Arial&quot;;</string>
+                     </property>
+                     <property name="text">
+                      <string>Dynamic Focus Shift</string>
+                     </property>
+                    </widget>
+                    <widget class="QLabel" name="label_100">
+                     <property name="geometry">
+                      <rect>
+                       <x>50</x>
+                       <y>190</y>
+                       <width>351</width>
+                       <height>591</height>
+                      </rect>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgba(0, 0, 0, 0);
+font: 18pt &quot;Arial&quot;;</string>
+                     </property>
+                     <property name="text">
+                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;What to do:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Different groups of shapes will appear on the screen, one at a time&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Each group will be visible for a short duration before switching to the next one&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The task is to focus on the currently visible group of shapes without moving your head&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Benefits:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Enhances visual focus and attention&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Increases visual tracking and reaction times&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+                     </property>
+                     <property name="wordWrap">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
                    </widget>
                   </item>
                  </layout>
+                </widget>
+                <widget class="QWidget" name="page">
+                 <widget class="QFrame" name="frame_5">
+                  <property name="geometry">
+                   <rect>
+                    <x>10</x>
+                    <y>19</y>
+                    <width>1801</width>
+                    <height>821</height>
+                   </rect>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: qlineargradient(spread:pad, x1:0.499364, y1:1, x2:0.502, y2:0, stop:0 rgba(130, 140, 242, 255), stop:1 rgba(255, 255, 255, 255));</string>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <widget class="QWidget" name="exercise_1234" native="true">
+                   <property name="geometry">
+                    <rect>
+                     <x>1390</x>
+                     <y>340</y>
+                     <width>121</width>
+                     <height>111</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">image: url(:/newPrefix/vision.png);
+background-color: rgba(0, 0, 0, 0);
+border-radius:15px;</string>
+                   </property>
+                  </widget>
+                  <widget class="QLabel" name="label_85">
+                   <property name="geometry">
+                    <rect>
+                     <x>-60</x>
+                     <y>-10</y>
+                     <width>531</width>
+                     <height>841</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: #80F2C8;
+border-radius: 100px;</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                  <widget class="QLabel" name="label_6">
+                   <property name="geometry">
+                    <rect>
+                     <x>60</x>
+                     <y>80</y>
+                     <width>91</width>
+                     <height>81</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">image: url(:/newPrefix/vision.png);
+background-color: #80F2C8;
+
+
+</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                  <widget class="QLabel" name="label_86">
+                   <property name="geometry">
+                    <rect>
+                     <x>160</x>
+                     <y>80</y>
+                     <width>241</width>
+                     <height>81</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font: 24pt &quot;Arial&quot;;
+border-radius: 40px;
+background-color: #80F2C8;</string>
+                   </property>
+                   <property name="text">
+                    <string>Track the Target</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                  <widget class="QLabel" name="label_93">
+                   <property name="geometry">
+                    <rect>
+                     <x>30</x>
+                     <y>210</y>
+                     <width>391</width>
+                     <height>551</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: #80F2C8;
+font: 18pt &quot;Arial&quot;;</string>
+                   </property>
+                   <property name="text">
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;What to do:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;A target will appear on your screen and start moving in a circular direction&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Follow the moving target with your eyes without moving your head&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Focus on the target and track its movement smoothly across the screen&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Benefits:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Enhances eye coordination and control&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Improves visual attention and focus&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+                   </property>
+                   <property name="wordWrap">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                  <widget class="QFrame" name="frame">
+                   <property name="geometry">
+                    <rect>
+                     <x>570</x>
+                     <y>30</y>
+                     <width>991</width>
+                     <height>771</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::Box</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                  </widget>
+                  <zorder>frame</zorder>
+                  <zorder>exercise_1234</zorder>
+                  <zorder>label_85</zorder>
+                  <zorder>label_6</zorder>
+                  <zorder>label_86</zorder>
+                  <zorder>label_93</zorder>
+                 </widget>
                 </widget>
                </widget>
               </item>
@@ -2048,492 +2910,6 @@ color:white</string>
            </property>
           </widget>
          </widget>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QWidget" name="icon_widget" native="true">
-      <property name="styleSheet">
-       <string notr="true">QWidget{
-	
-	background-color:#7EC6F2
-}
-
-QPushButton{
-	color: black;
-	height:50px;
-	border: none;
-	border-radius: 10px;
-}
-
-QPushButton:checked{
-	background-color: #828cf2;
-	color: #80F2C8;
-	font-weight: bold;
-}
-QPushButton:hover{
-	background-color:#828cf2;
-	color: #80F2C8;
-	font-weight: bold;
-}</string>
-      </property>
-      <layout class="QGridLayout" name="gridLayout_10">
-       <property name="verticalSpacing">
-        <number>30</number>
-       </property>
-       <item row="0" column="0">
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <widget class="QLabel" name="label">
-           <property name="maximumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="pixmap">
-            <pixmap resource="images.qrc">:/newPrefix/eye.png</pixmap>
-           </property>
-           <property name="scaledContents">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="1" column="0">
-        <widget class="QPushButton" name="homeButton1">
-         <property name="styleSheet">
-          <string notr="true">QPushButton:hover{
-background-color: #828cf2;
-}</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="images.qrc">
-           <normaloff>:/newPrefix/home.png</normaloff>:/newPrefix/home.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>30</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <property name="autoExclusive">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QPushButton" name="infoButton1">
-         <property name="styleSheet">
-          <string notr="true">QPushButton:hover{
-background-color: #828cf2;
-}</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="images.qrc">
-           <normaloff>:/newPrefix/user (1).png</normaloff>:/newPrefix/user (1).png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>30</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <property name="autoExclusive">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QPushButton" name="exercisesButton1">
-         <property name="styleSheet">
-          <string notr="true">QPushButton:hover{
-background-color: #828cf2;
-}</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="images.qrc">
-           <normaloff>:/newPrefix/settings.png</normaloff>:/newPrefix/settings.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>30</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <property name="autoExclusive">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0">
-        <widget class="QPushButton" name="statisticsButton1">
-         <property name="styleSheet">
-          <string notr="true">QPushButton:hover{
-background-color: #828cf2;
-}</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="images.qrc">
-           <normaloff>:/newPrefix/settings.png</normaloff>:/newPrefix/settings.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>30</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <property name="autoExclusive">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>505</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="6" column="0">
-        <widget class="QPushButton" name="signoutButton1">
-         <property name="styleSheet">
-          <string notr="true">QPushButton:hover{
-background-color: #828cf2;
-}</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="images.qrc">
-           <normaloff>:/newPrefix/logout.png</normaloff>:/newPrefix/logout.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>30</width>
-           <height>30</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QWidget" name="text_widget" native="true">
-      <property name="styleSheet">
-       <string notr="true">QWidget{
-	
-	background-color: #7EC6F2
-}
-
-QPushButton{
-	color: black;
-	text-align:left;
-	height:50px;
-	border: none;
-	padding-left: 10px;
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
-}
-
-QPushButton:checked{
-	background-color: #828cf2;
-	color: #80F2C8;
-	font-weight: bold;
-}
-QPushButton:hover{
-	background-color: #828cf2;
-	color: #80F2C8;
-	font-weight: bold;
-}
-</string>
-      </property>
-      <layout class="QGridLayout" name="gridLayout_9">
-       <property name="leftMargin">
-        <number>9</number>
-       </property>
-       <property name="rightMargin">
-        <number>9</number>
-       </property>
-       <property name="horizontalSpacing">
-        <number>9</number>
-       </property>
-       <property name="verticalSpacing">
-        <number>30</number>
-       </property>
-       <item row="0" column="0">
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <property name="spacing">
-          <number>15</number>
-         </property>
-         <property name="rightMargin">
-          <number>10</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="label_2">
-           <property name="maximumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="pixmap">
-            <pixmap resource="images.qrc">:/newPrefix/eye.png</pixmap>
-           </property>
-           <property name="scaledContents">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_3">
-           <property name="font">
-            <font>
-             <family>Segoe UI Black</family>
-             <pointsize>10</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Eye Tester</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="1" column="0">
-        <widget class="QPushButton" name="homeButton2">
-         <property name="font">
-          <font>
-           <family>Segoe UI Black</family>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton:hover{
-background-color:#828cf2;
-}</string>
-         </property>
-         <property name="text">
-          <string>Home</string>
-         </property>
-         <property name="icon">
-          <iconset resource="images.qrc">
-           <normaloff>:/newPrefix/home.png</normaloff>:/newPrefix/home.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>30</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <property name="autoExclusive">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QPushButton" name="infoButton2">
-         <property name="font">
-          <font>
-           <family>Segoe UI Black</family>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">
-
-QPushButton:hover{
-background-color: red;
-background-color: #828cf2;
-}</string>
-         </property>
-         <property name="text">
-          <string>Info</string>
-         </property>
-         <property name="icon">
-          <iconset resource="images.qrc">
-           <normaloff>:/newPrefix/user (1).png</normaloff>:/newPrefix/user (1).png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>30</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <property name="autoExclusive">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QPushButton" name="exercisesButton2">
-         <property name="font">
-          <font>
-           <family>Segoe UI Black</family>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton:hover{
-background-color: #828cf2;
-}</string>
-         </property>
-         <property name="text">
-          <string>Exercises</string>
-         </property>
-         <property name="icon">
-          <iconset resource="images.qrc">
-           <normaloff>:/newPrefix/settings.png</normaloff>:/newPrefix/settings.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>30</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <property name="autoExclusive">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0">
-        <widget class="QPushButton" name="statisticsButton2">
-         <property name="font">
-          <font>
-           <family>Segoe UI Black</family>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton:hover{
-background-color: #828cf2;
-}</string>
-         </property>
-         <property name="text">
-          <string>Statistics</string>
-         </property>
-         <property name="icon">
-          <iconset resource="images.qrc">
-           <normaloff>:/newPrefix/settings.png</normaloff>:/newPrefix/settings.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>30</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <property name="autoExclusive">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <spacer name="verticalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>505</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="6" column="0">
-        <widget class="QPushButton" name="signoutButton2">
-         <property name="font">
-          <font>
-           <family>Segoe UI Black</family>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton:hover{
-background-color: #828cf2;
-}</string>
-         </property>
-         <property name="text">
-          <string>Sign Out</string>
-         </property>
-         <property name="icon">
-          <iconset resource="images.qrc">
-           <normaloff>:/newPrefix/logout.png</normaloff>:/newPrefix/logout.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>30</width>
-           <height>30</height>
-          </size>
-         </property>
         </widget>
        </item>
       </layout>

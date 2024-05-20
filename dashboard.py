@@ -1,21 +1,23 @@
 import os
 import sqlite3
 import threading
+import math
 import cv2
 import time
 import cvzone
+import random
 import re
 import exercises
 import mainmenu
 import resources
 from cvzone.FaceMeshModule import FaceMeshDetector
 from PyQt5 import QtWidgets, QtMultimedia, uic, QtCore
-from PyQt5.QtCore import Qt, QTimer
+from PyQt5.QtCore import Qt, QTimer, QPropertyAnimation, QEasingCurve, QPoint, QTimeLine
 from PyQt5.uic import loadUi
 from PyQt5 import QtWidgets, uic, QtMultimedia
 from PyQt5.QtChart import QChart, QBarSet, QBarSeries, QChartView, QBarCategoryAxis
-from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QStackedWidget
-from PyQt5.QtGui import QPixmap, QImage, QColor
+from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QStackedWidget, QGraphicsOpacityEffect, QWidget
+from PyQt5.QtGui import QPixmap, QImage, QColor, QFont
 import myopia
 import statistics
 import test
@@ -69,7 +71,7 @@ class DashboardWindow(QMainWindow):
         self.is_video_paused = False
 
         self.is_first_ex_playing = False
-
+        self.timer_group_exercise = None
 
 
         widget.addWidget(self)
@@ -248,8 +250,7 @@ class DashboardWindow(QMainWindow):
             self.bottom_button1,
             self.bottom_button2,
             self.bottom_button3,
-            self.previous_button,
-            self.next_button
+            self.bottom_button4,
         ]
 
         for btn in self.btn_list:
@@ -263,21 +264,8 @@ class DashboardWindow(QMainWindow):
 
     def do_change_page(self):
         button = self.sender()
-        current_index = self.stackedWidget_carousel.currentIndex()
 
-        if button == self.next_button:
-            if current_index == self.stackedWidget_carousel.count() - 1:
-                self.stackedWidget_carousel.setCurrentIndex(0)
-            else:
-                self.stackedWidget_carousel.setCurrentIndex(current_index + 1)
-
-        elif button == self.previous_button:
-            if current_index == 0:
-                self.stackedWidget_carousel.setCurrentIndex(self.stackedWidget_carousel.count() - 1)
-            else:
-                self.stackedWidget_carousel.setCurrentIndex(current_index - 1)
-
-        elif button in self.btn_list:
+        if button in self.btn_list:
             index = self.btn_list.index(button)
             self.stackedWidget_carousel.setCurrentIndex(index)
 
@@ -357,9 +345,67 @@ class DashboardWindow(QMainWindow):
         if index == 0:
             self.bottom_button1.setChecked(True)
         elif index == 1:
+            if self.is_first_ex_playing is True:
+                self.capture_exercise_1.release()
+                self.exercise_1.clear()
+                self.is_first_ex_playing = False
+
+            self.circle_slider.valueChanged.connect(self.number_changed)
+            self.circle_slider.setValue(1)
             self.bottom_button2.setChecked(True)
+        elif index == 2:
+            if self.is_first_ex_playing is True:
+                self.capture_exercise_1.release()
+                self.exercise_1.clear()
+                self.is_first_ex_playing = False
+
+
+            self.group_1.setVisible(True)
+            self.group_2.setVisible(False)
+            self.group_3.setVisible(False)
+            self.group_4.setVisible(False)
+            self.group_5.setVisible(False)
+            self.timer_group_exercise = QTimer()
+            self.timer_group_exercise.timeout.connect(self.toggle_groups)
+            self.timer_group_exercise.start(1000)
         else:
-            self.bottom_button3.setChecked(True)
+            self.center_x = 1030
+            self.center_y = 355
+            self.radius = 330  # Raza cercului
+            self.angle = 100
+
+            if hasattr(self, 'timeline') and self.timeline.state() == QTimeLine.Running:
+                self.timeline.stop()
+
+            self.timeline = QTimeLine(4500, self)  # Duration in milliseconds
+            self.timeline.setFrameRange(0, 360)
+            self.timeline.frameChanged.connect(self.update_position)
+            self.timeline.setCurveShape(QTimeLine.EaseInOutCurve)
+            self.timeline.finished.connect(self.restart_animation)
+            self.timeline.start()
+            self.bottom_button4.setChecked(True)
+
+    def update_position(self, angle):
+        x = self.center_x + self.radius * math.cos(math.radians(angle))
+        y = self.center_y + self.radius * math.sin(math.radians(angle))
+
+        self.exercise_1234.move(int(x), int(y))
+
+    def restart_animation(self):
+        self.timeline.setCurrentTime(0)
+        self.timeline.start()
+
+    def toggle_groups(self):
+        total_groups = [self.group_1, self.group_2, self.group_3, self.group_4, self.group_5]
+        for group in total_groups:
+            group.setVisible(False)
+        random.choice(total_groups).setVisible(True)
+
+    def number_changed(self):
+        new_value = self.circle_slider.value()
+        font = QFont("Arial", new_value * 20)
+        self.circle_label.setFont(font)
+        self.circle_label.setText("⊙")
 
     def go_to_exercises(self):
         if self.is_first_ex_playing is True:

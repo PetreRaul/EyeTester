@@ -1,6 +1,10 @@
 <RCC>
   <qresource prefix="newPrefix">
+    <file>exercise_1.webp</file>
     <file>images.qrc</file>
+    <file>arrow.png</file>
+    <file>point.png</file>
+    <file>vision.png</file>
     <file>ex6.png</file>
     <file>ex5.webp</file>
     <file>ex5.webp</file>
