@@ -53,10 +53,14 @@ class DashboardWindow(QMainWindow):
         self.statisticsButton1.clicked.connect(self.go_to_information)
         self.statisticsButton2.clicked.connect(self.go_to_information)
 
+        self.nutritionButton1.clicked.connect(self.go_to_nutrition)
+        self.nutritionButton2.clicked.connect(self.go_to_nutrition)
+
+
+
         self.signoutButton1.clicked.connect(self.go_to_login)
         self.signoutButton2.clicked.connect(self.go_to_login)
 
-        self.testBotButton.clicked.connect(self.run_myopia)
         self.in_test = False
 
         self.timer = QTimer(self)
@@ -105,8 +109,8 @@ class DashboardWindow(QMainWindow):
                     d = (W * f) / w
 
                     if dioptre_distance < (int(d) - 10) or dioptre_distance > (int(d) + 10):
-                        colorR = (0, 0, 200)
-                        colorRGB = (200, 0, 0)
+                        colorR = (0, 0, 250)
+                        colorRGB = (250, 0, 0)
                         self.start_time = None
                         self.green_check = False
                     else:
@@ -237,6 +241,17 @@ class DashboardWindow(QMainWindow):
         self.stackedWidget.setCurrentIndex(5)
         statistics.Statistics(self)
 
+    def go_to_nutrition(self):
+        if self.is_first_ex_playing is True:
+            self.capture_exercise_1.release()
+            self.exercise_1.clear()
+            self.is_first_ex_playing = False
+        if self.is_video_playing is True:
+            self.player.stop()
+            self.is_video_playing = False
+        self.stackedWidget.setCurrentIndex(6)
+        statistics.Statistics(self)
+
     def go_to_statistics(self):
         if self.is_first_ex_playing is True:
             self.capture_exercise_1.release()
@@ -252,7 +267,6 @@ class DashboardWindow(QMainWindow):
             self.bottom_button3,
             self.bottom_button4,
         ]
-
         for btn in self.btn_list:
             btn.clicked.connect(self.do_change_page)
 
@@ -403,7 +417,7 @@ class DashboardWindow(QMainWindow):
 
     def number_changed(self):
         new_value = self.circle_slider.value()
-        font = QFont("Arial", new_value * 20)
+        font = QFont("Arial", new_value * 30)
         self.circle_label.setFont(font)
         self.circle_label.setText("⊙")
 

@@ -1,25 +1,28 @@
 <RCC>
   <qresource prefix="newPrefix">
+    <file>cropped_image (9).png</file>
+    <file>eye-examination_2.png</file>
     <file>exercise_1.webp</file>
     <file>images.qrc</file>
+    <file>cropped_image (8).png</file>
+    <file>cropped_image (6).png</file>
+    <file>cropped_image (5).png</file>
+    <file>cropped_image (7).png</file>
+    <file>cropped_image (3).png</file>
+    <file>nutrition_1786614.png</file>
+    <file>information-button.png</file>
+    <file>view.png</file>
+    <file>bar-chart (1).png</file>
     <file>arrow.png</file>
     <file>point.png</file>
     <file>vision.png</file>
-    <file>ex6.png</file>
     <file>ex5.webp</file>
     <file>ex5.webp</file>
     <file>left-chevron.png</file>
     <file>right-chevron.png</file>
-    <file>mountain_lake_landscape_nature-wallpaper-1600x900.jpg</file>
-    <file>ex2.png</file>
-    <file>ex3.png</file>
-    <file>ex4.png</file>
-    <file>coniferous_forest_road_sun_rays_shines_through_trees-wallpaper-1600x900.jpg</file>
-    <file>the_tree_of_life-wallpaper-1600x900.jpg</file>
     <file>300px-Play_Pause_icon_2283501.png</file>
     <file>Snellen_chart.svg.png</file>
     <file>output-onlinepngtools (1).png</file>
-    <file>download (3)-modified.png</file>
     <file>Default_background_image_for_an_eye_application_appealing_easy_1.jpg</file>
     <file>resources/circle.png</file>
     <file>arrows.png</file>

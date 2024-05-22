@@ -31,6 +31,8 @@ class Statistics:
         chart = QChart()
         chart.addSeries(series)
         chart.setAnimationOptions(QChart.SeriesAnimations)
+        chart.setTitle("Vision Assessment")
+        chart.setTitleFont(QFont("Times", 14, QFont.Bold))
         #chart.setBackgroundBrush(QBrush(QColor("transparent")))
         chart.legend().setAlignment(Qt.AlignRight)
         chart.legend().setFont(QFont("Times", weight=QFont.Bold))
