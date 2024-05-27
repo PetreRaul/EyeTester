@@ -1,5 +1,9 @@
 import sqlite3
 import datetime
+from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QFileDialog
+
+import export
 from PyQt5.QtCore import Qt
 from PyQt5.QtChart import QChart, QBarSet, QBarSeries, QChartView, QBarCategoryAxis
 from PyQt5.QtGui import QColor, QBrush, QFont
@@ -7,13 +11,23 @@ from PyQt5.QtGui import QColor, QBrush, QFont
 
 class Statistics:
 
-    def __init__(self, dashboard_window):
+    def __init__(self, dashboard_window, filename):
+        self.filename = filename
         self.dashboard_window = dashboard_window
         self.results = None
-        self.add_chart()
+        self.data_set = None
+        if filename is not None:
+            self.export()
+        else:
+            self.add_chart()
+
+    def export(self):
+        data_set = self.get_chart_data()
+        export.export(data_set, self.filename)
 
     def add_chart(self):
         data_set = self.get_chart_data()
+        self.data_set = data_set
 
         set0 = QBarSet("Left Eye")
         set1 = QBarSet("Right Eye")
@@ -103,7 +117,7 @@ class Statistics:
 
             test = datetime.datetime.fromtimestamp(entry[4]).strftime('%Y-%m-%d %H:%M')
             timestamp_data.append(test)
-            print(test)
+
 
         return [left_eye_data, right_eye_data, timestamp_data]
 
