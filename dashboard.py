@@ -16,8 +16,7 @@ from PyQt5.QtCore import Qt, QTimer, QPropertyAnimation, QEasingCurve, QPoint, Q
 from PyQt5.uic import loadUi
 from PyQt5 import QtWidgets, uic, QtMultimedia
 from PyQt5.QtChart import QChart, QBarSet, QBarSeries, QChartView, QBarCategoryAxis
-from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QStackedWidget, QGraphicsOpacityEffect, QWidget, \
-    QFileDialog
+from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QStackedWidget, QGraphicsOpacityEffect, QWidget
 from PyQt5.QtGui import QPixmap, QImage, QColor, QFont
 import myopia
 import statistics
@@ -57,7 +56,7 @@ class DashboardWindow(QMainWindow):
         self.nutritionButton1.clicked.connect(self.go_to_nutrition)
         self.nutritionButton2.clicked.connect(self.go_to_nutrition)
 
-        self.export_button.clicked.connect(self.go_to_export)
+
 
         self.signoutButton1.clicked.connect(self.go_to_login)
         self.signoutButton2.clicked.connect(self.go_to_login)
@@ -240,7 +239,7 @@ class DashboardWindow(QMainWindow):
             self.player.stop()
             self.is_video_playing = False
         self.stackedWidget.setCurrentIndex(5)
-        statistics.Statistics(self, None)
+        statistics.Statistics(self)
 
     def go_to_nutrition(self):
         if self.is_first_ex_playing is True:
@@ -251,18 +250,7 @@ class DashboardWindow(QMainWindow):
             self.player.stop()
             self.is_video_playing = False
         self.stackedWidget.setCurrentIndex(6)
-
-    def go_to_export(self):
-        file_filter = 'Excel File (.xlsx .xls)'
-        response = QFileDialog.getSaveFileName(
-            parent=self,
-            caption='Select a data file',
-            directory='Statistics.xlsx',
-            filter=file_filter,
-            initialFilter='Excel File (.xlsx *.xls)'
-        )
-        if response[0]:
-            statistics.Statistics(self, response[0])
+        statistics.Statistics(self)
 
     def go_to_statistics(self):
         if self.is_first_ex_playing is True:
@@ -303,8 +291,8 @@ class DashboardWindow(QMainWindow):
 
     def start_exercise_1(self):
         self.is_first_ex_playing = True
-        self.capture_exercise_1 = cv2.VideoCapture(0, cv2.CAP_DSHOW)
-        #self.capture_exercise_1= cv2.VideoCapture(0)
+        #self.capture_exercise_1 = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+        self.capture_exercise_1= cv2.VideoCapture(0)
         detector = FaceMeshDetector(maxFaces=1)
 
         id_list = [22, 23, 24, 26, 110, 157, 158, 159, 160, 161, 130, 243]
@@ -403,7 +391,7 @@ class DashboardWindow(QMainWindow):
             if hasattr(self, 'timeline') and self.timeline.state() == QTimeLine.Running:
                 self.timeline.stop()
 
-            self.timeline = QTimeLine(4500, self)
+            self.timeline = QTimeLine(4500, self)  # Duration in milliseconds
             self.timeline.setFrameRange(0, 360)
             self.timeline.frameChanged.connect(self.update_position)
             self.timeline.setCurveShape(QTimeLine.EaseInOutCurve)
@@ -457,7 +445,6 @@ class DashboardWindow(QMainWindow):
             self.is_video_playing = False
         self.stackedWidget.setCurrentIndex(4)
         threading.Thread(target=self.run_myopia).start()
-
 
     def add_test_results(self, test_results):
 

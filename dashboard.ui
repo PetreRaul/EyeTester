@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>2070</width>
-    <height>1016</height>
+    <width>2181</width>
+    <height>1019</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -634,7 +634,7 @@ background-color: #828cf2;
           <string notr="true">background-color: #7EC6F2;</string>
          </property>
          <property name="currentIndex">
-          <number>5</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="setup_window">
           <widget class="QLabel" name="Webcam">
@@ -3619,19 +3619,6 @@ image: url(:/newPrefix/eye.png);</string>
            </property>
            <property name="text">
             <string/>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="export_button">
-           <property name="geometry">
-            <rect>
-             <x>990</x>
-             <y>900</y>
-             <width>101</width>
-             <height>21</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Export CSV</string>
            </property>
           </widget>
          </widget>
