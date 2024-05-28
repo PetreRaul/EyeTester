@@ -7,13 +7,12 @@ import time
 import cvzone
 import random
 import re
-
 import exercise_number_1
 import exercises
 import mainmenu
 import resources
 from cvzone.FaceMeshModule import FaceMeshDetector
-from PyQt5 import QtWidgets, QtMultimedia, uic, QtCore
+from PyQt5 import QtWidgets, QtMultimedia, uic, QtCore, QtGui
 from PyQt5.QtCore import Qt, QTimer, QPropertyAnimation, QEasingCurve, QPoint, QTimeLine
 from PyQt5.uic import loadUi
 from PyQt5 import QtWidgets, uic, QtMultimedia
@@ -64,7 +63,7 @@ class DashboardWindow(QMainWindow):
         self.signoutButton1.clicked.connect(self.go_to_login)
         self.signoutButton2.clicked.connect(self.go_to_login)
 
-        self.first_exercise_button.clicked.connect(self.go_to_first_exercise)
+
         self.second_exercise_button.clicked.connect(self.go_to_second_exercise)
         self.third_exercise_button.clicked.connect(self.go_to_third_exercise)
 
@@ -83,7 +82,6 @@ class DashboardWindow(QMainWindow):
 
         self.is_first_ex_playing = False
         self.timer_group_exercise = None
-
 
 
         widget.addWidget(self)
@@ -142,6 +140,7 @@ class DashboardWindow(QMainWindow):
                     if self.test_return_value:
                         self.capture.release()
                         return
+
             frame = cv2.cvtColor(img_with_detections, cv2.COLOR_BGR2RGB)
             h, w, ch = frame.shape
             bytes_per_line = ch * w
@@ -378,20 +377,28 @@ class DashboardWindow(QMainWindow):
         if index == 0:
             self.bottom_button1.setChecked(True)
         elif index == 1:
-            # if self.is_first_ex_playing is True:
-            #     self.capture_exercise_2.release()
-            #     self.exercise_2.clear()
-            #     self.is_first_ex_playing = Fals
-            first_webcam = ExerciseNumber1
-            threading.Thread(target=first_webcam.start_webcam(self)).start()
+            if self.is_first_ex_playing is True:
+                self.capture.release()
+                self.is_first_ex_playing = False
+            self.camera_holder = self.first_exercise_webcam
+            self.exercise_index = 1
+            self.exercise_webcam()
             self.bottom_button2.setChecked(True)
         elif index == 2:
-            # if self.is_first_ex_playing is True:
-            #     self.capture_exercise_2.release()
-            #     self.exercise_2.clear()
-            #     self.is_first_ex_playing = False
+            if self.is_first_ex_playing is True:
+                self.capture.release()
+                self.is_first_ex_playing = False
+            self.camera_holder = self.second_exercise_webcam
+            self.exercise_index = 2
+            self.exercise_webcam()
             self.bottom_button3.setChecked(True)
         else:
+            if self.is_first_ex_playing is True:
+                self.capture.release()
+                self.is_first_ex_playing = False
+            self.camera_holder = self.third_exercise_webcam
+            self.exercise_index = 3
+            self.exercise_webcam()
             self.bottom_button4.setChecked(True)
 
     def go_to_exercises(self):
@@ -419,22 +426,18 @@ class DashboardWindow(QMainWindow):
         self.stackedWidget.setCurrentIndex(4)
         threading.Thread(target=self.run_myopia).start()
 
-    def go_to_first_exercise(self):
-        self.capture.release()
-        first_exercise = ExerciseNumber1()
-        self.widget.addWidget(first_exercise)
-        self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
+
 
     def go_to_second_exercise(self):
         # self.capture.release()
-        second_exercise = ExerciseNumber2()
-        self.widget.addWidget(second_exercise)
-        self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
+        second_exercise = ExerciseNumber2(widget.currentIndex())
+        widget.addWidget(second_exercise)
+        widget.setCurrentIndex(widget.count() - 1)
 
     def go_to_third_exercise(self):
-        second_exercise = ExerciseNumber3()
-        self.widget.addWidget(second_exercise)
-        self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
+        third_exercise = ExerciseNumber3(widget.currentIndex())
+        widget.addWidget(third_exercise)
+        widget.setCurrentIndex(widget.count() - 1)
 
     def add_test_results(self, test_results):
 
@@ -456,36 +459,27 @@ class DashboardWindow(QMainWindow):
 
         connection.close()
 
+    def go_to_dashboard(self):
+        dashboard = DashboardWindow(self)
+        widget.addWidget(dashboard)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+        widget.setFixedSize(1920, 1000)
+        widget.move(0, 0)
 
-######################## EXERCISE 1 #######################################
+    def go_to_first_exercise(self):
+        first_exercise = ExerciseNumber1(widget.currentIndex())
+        widget.addWidget(first_exercise)
+        widget.setCurrentIndex(widget.count() - 1)
 
 
-class ExerciseNumber1(QMainWindow):
-    def __init__(self):
-        super(ExerciseNumber1, self).__init__()
-        loadUi("exercise_number_1.ui", self)
-
-        self.widget = QStackedWidget()
-
-        self.widget.addWidget(self)
-        self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
-
-        self.circle_slider.valueChanged.connect(self.number_changed)
-        self.circle_slider.setValue(1)
-
-        self.exercise_1_back_button.clicked.connect(self.go_to_dashboard)
-
-        self.widget.setFixedSize(1920, 1000)
-        self.widget.move(0, 0)
-
-    def number_changed(self):
-        new_value = self.circle_slider.value()
-        font = QFont("Arial", new_value * 40)
-        self.circle_label.setFont(font)
-        self.circle_label.setText("⊙")
-    def start_webcam(self):
+    def exercise_webcam(self):
+        print("EXEECEIIEWEBXCAM")
         self.capture = cv2.VideoCapture(0, cv2.CAP_DSHOW)
         self.detector = FaceMeshDetector(maxFaces=1)
+        self.is_first_ex_playing = True
+        dioptre_distance = 30
+        self.green_check = False
+        self.in_test = False
         while True:
             success, img = self.capture.read()
             if success:
@@ -501,41 +495,99 @@ class ExerciseNumber1(QMainWindow):
                     f = 840
                     d = (W * f) / w
 
-                    colorR = (0, 0, 250)
+                    if dioptre_distance < (int(d) - 10) or dioptre_distance > (int(d) + 10):
+                        colorR = (0, 0, 250)
+                        colorRGB = (250, 0, 0)
+                        self.start_time = None
+                        self.green_check = False
+                    else:
+                        colorR = (0, 200, 0)
+                        colorRGB = (0, 150, 30)
+                        if not self.green_check:
+                            self.start_time = time.time()
+                        self.green_check = True
 
                     cvzone.putTextRect(img_with_detections, f'Distance: {int(d)}cm',
                                        (face[10][0] - 50, face[10][1] - 50), scale=1,
                                        font=0, thickness=2, colorT=(0, 0, 0), colorR=colorR)
 
+                    self.current_distance_label.setText(f'Your distance: {int(d)}cm')
+                    self.current_distance_label.setStyleSheet(f'color: rgb{(colorRGB)};')
+
+                    if self.green_check and self.in_test == False:
+                        if time.time() - self.start_time > 3:  # verificare 3 secunde consecutive
+                            self.in_test = True
+                            #self.capture.release()
+                            #self.camera_holder.clear()
+
+                            self.green_check = False
+                            if self.exercise_index == 1:
+                                self.go_to_first_exercise()
+                            elif self.exercise_index == 2:
+                                self.go_to_second_exercise()
+                            else:
+                                self.go_to_third_exercise()
+
+
             frame = cv2.cvtColor(img_with_detections, cv2.COLOR_BGR2RGB)
             h, w, ch = frame.shape
             bytes_per_line = ch * w
             q_img = QImage(frame.data, w, h, bytes_per_line, QImage.Format_RGB888)
-            self.first_exercise_webcam.setPixmap(QPixmap.fromImage(q_img))
+            self.camera_holder.setPixmap(QPixmap.fromImage(q_img))
 
             if cv2.waitKey(1) == ord('q'):
                 break
 
-    def go_to_dashboard(self):
-        dashboard = DashboardWindow(self)
-        widget.addWidget(dashboard)
-        widget.setCurrentIndex(widget.currentIndex() + 1)
-        widget.setFixedSize(1920, 1000)
-        widget.move(0, 0)
 
-        print(3)
+######################## EXERCISE 1 #######################################
+
+
+class ExerciseNumber1(QMainWindow):
+    def __init__(self, main_window_index):
+        super(ExerciseNumber1, self).__init__()
+        loadUi("exercise_number_1.ui", self)
+
+        self.widget = QStackedWidget()
+
+        self.main_window_index = main_window_index
+        print(main_window_index)
+
+        self.widget.addWidget(self)
+
+        self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
+        self.circle_slider.valueChanged.connect(self.number_changed)
+        self.circle_slider.setValue(1)
+
+        self.exercise_1_back_button.clicked.connect(self.stop)
+
+
+        self.widget.setFixedSize(1920, 1000)
+        self.widget.move(0, 0)
+
+    def stop(self):
+        widget.setCurrentIndex(self.main_window_index)
+        return 1
+
+    def number_changed(self):
+        new_value = self.circle_slider.value()
+        font = QFont("Arial", new_value * 40)
+        self.circle_label.setFont(font)
+        self.circle_label.setText("⊙")
+
 
 class ExerciseNumber2(QMainWindow):
-    def __init__(self):
+    def __init__(self, main_window_index):
         super(ExerciseNumber2, self).__init__()
         loadUi("exercise_number_2.ui", self)
 
         self.widget = QStackedWidget()
 
+        self.main_window_index = main_window_index
+
         self.widget.addWidget(self)
         self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
 
-        self.exercise_2_back_button.clicked.connect(ExerciseNumber1.go_to_dashboard)
+        self.exercise_2_back_button.clicked.connect(self.stop)
 
         self.widget.setFixedSize(1920, 1000)
         self.widget.move(0, 0)
@@ -549,6 +601,9 @@ class ExerciseNumber2(QMainWindow):
         self.timer_group_exercise.timeout.connect(self.toggle_groups)
         self.timer_group_exercise.start(1000)
 
+    def stop(self):
+        widget.setCurrentIndex(self.main_window_index)
+        return
 
     def toggle_groups(self):
         total_groups = [self.group_1, self.group_2, self.group_3, self.group_4, self.group_5]
@@ -557,18 +612,20 @@ class ExerciseNumber2(QMainWindow):
         random.choice(total_groups).setVisible(True)
 
 
-
 class ExerciseNumber3(QMainWindow):
-    def __init__(self):
+    def __init__(self, main_window_index):
         super(ExerciseNumber3, self).__init__()
         loadUi("exercise_number_3.ui", self)
 
         self.widget = QStackedWidget()
 
+        self.main_window_index = main_window_index
+        print(main_window_index)
+
         self.widget.addWidget(self)
         self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
 
-        self.exercise_3_back_button.clicked.connect(ExerciseNumber1.go_to_dashboard)
+        self.exercise_3_back_button.clicked.connect(self.stop)
 
         self.widget.setFixedSize(1920, 1000)
         self.widget.move(0, 0)
@@ -597,3 +654,7 @@ class ExerciseNumber3(QMainWindow):
     def restart_animation(self):
         self.timeline.setCurrentTime(0)
         self.timeline.start()
+
+    def stop(self):
+        widget.setCurrentIndex(self.main_window_index)
+        return

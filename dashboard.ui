@@ -1335,7 +1335,7 @@ QPushButton:focus{
                  <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
                 </property>
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>3</number>
                 </property>
                 <widget class="QWidget" name="page_7">
                  <layout class="QGridLayout" name="gridLayout_3">
@@ -1386,8 +1386,8 @@ QPushButton:focus{
                     <widget class="QFrame" name="frame_7">
                      <property name="geometry">
                       <rect>
-                       <x>21</x>
-                       <y>7</y>
+                       <x>0</x>
+                       <y>0</y>
                        <width>1751</width>
                        <height>821</height>
                       </rect>
@@ -1624,6 +1624,22 @@ font: 18pt &quot;Arial&quot;;</string>
                       <string>PushButton</string>
                      </property>
                     </widget>
+                    <widget class="QLabel" name="second_exercise_webcam">
+                     <property name="geometry">
+                      <rect>
+                       <x>730</x>
+                       <y>150</y>
+                       <width>641</width>
+                       <height>531</height>
+                      </rect>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: red</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                    </widget>
                    </widget>
                   </item>
                  </layout>
@@ -1739,6 +1755,22 @@ font: 18pt &quot;Arial&quot;;</string>
                    </property>
                    <property name="text">
                     <string>PushButton</string>
+                   </property>
+                  </widget>
+                  <widget class="QLabel" name="third_exercise_webcam">
+                   <property name="geometry">
+                    <rect>
+                     <x>740</x>
+                     <y>110</y>
+                     <width>641</width>
+                     <height>531</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: red</string>
+                   </property>
+                   <property name="text">
+                    <string/>
                    </property>
                   </widget>
                  </widget>
