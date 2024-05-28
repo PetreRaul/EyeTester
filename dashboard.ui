@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>2070</width>
-    <height>1016</height>
+    <height>1021</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -634,7 +634,7 @@ background-color: #828cf2;
           <string notr="true">background-color: #7EC6F2;</string>
          </property>
          <property name="currentIndex">
-          <number>5</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="setup_window">
           <widget class="QLabel" name="Webcam">
@@ -1335,7 +1335,7 @@ QPushButton:focus{
                  <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
                 </property>
                 <property name="currentIndex">
-                 <number>2</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="page_7">
                  <layout class="QGridLayout" name="gridLayout_3">
@@ -1350,7 +1350,7 @@ QPushButton:focus{
                     <property name="frameShadow">
                      <enum>QFrame::Raised</enum>
                     </property>
-                    <widget class="QLabel" name="exercise_1">
+                    <widget class="QLabel" name="exercise_2">
                      <property name="geometry">
                       <rect>
                        <x>520</x>
@@ -1360,7 +1360,7 @@ QPushButton:focus{
                       </rect>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true"/>
+                      <string notr="true">background-color: red</string>
                      </property>
                      <property name="text">
                       <string/>
@@ -1401,72 +1401,6 @@ QPushButton:focus{
                      <property name="frameShadow">
                       <enum>QFrame::Raised</enum>
                      </property>
-                     <widget class="QSlider" name="circle_slider">
-                      <property name="geometry">
-                       <rect>
-                        <x>540</x>
-                        <y>740</y>
-                        <width>961</width>
-                        <height>22</height>
-                       </rect>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>60</pointsize>
-                       </font>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">background-color: rgba(0, 0, 0, 0)</string>
-                      </property>
-                      <property name="minimum">
-                       <number>1</number>
-                      </property>
-                      <property name="maximum">
-                       <number>100</number>
-                      </property>
-                      <property name="pageStep">
-                       <number>1</number>
-                      </property>
-                      <property name="value">
-                       <number>1</number>
-                      </property>
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="tickPosition">
-                       <enum>QSlider::TicksBelow</enum>
-                      </property>
-                      <property name="tickInterval">
-                       <number>1</number>
-                      </property>
-                     </widget>
-                     <widget class="QLabel" name="circle_label">
-                      <property name="geometry">
-                       <rect>
-                        <x>540</x>
-                        <y>40</y>
-                        <width>961</width>
-                        <height>661</height>
-                       </rect>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>60</pointsize>
-                       </font>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">background-color: rgba(0, 0, 0, 0)</string>
-                      </property>
-                      <property name="frameShape">
-                       <enum>QFrame::Box</enum>
-                      </property>
-                      <property name="text">
-                       <string>⊙</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
                      <widget class="QLabel" name="label_95">
                       <property name="geometry">
                        <rect>
@@ -1556,6 +1490,35 @@ font: 18pt &quot;Arial&quot;;</string>
                        <number>-1</number>
                       </property>
                      </widget>
+                     <widget class="QLabel" name="first_exercise_webcam">
+                      <property name="geometry">
+                       <rect>
+                        <x>620</x>
+                        <y>120</y>
+                        <width>641</width>
+                        <height>531</height>
+                       </rect>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">background-color: red</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                     <widget class="QPushButton" name="first_exercise_button">
+                      <property name="geometry">
+                       <rect>
+                        <x>810</x>
+                        <y>710</y>
+                        <width>231</width>
+                        <height>61</height>
+                       </rect>
+                      </property>
+                      <property name="text">
+                       <string>PushButton</string>
+                      </property>
+                     </widget>
                     </widget>
                    </widget>
                   </item>
@@ -1574,54 +1537,6 @@ font: 18pt &quot;Arial&quot;;</string>
                     <property name="frameShadow">
                      <enum>QFrame::Raised</enum>
                     </property>
-                    <widget class="QLabel" name="group_1">
-                     <property name="geometry">
-                      <rect>
-                       <x>650</x>
-                       <y>150</y>
-                       <width>231</width>
-                       <height>81</height>
-                      </rect>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">font: 87 50pt &quot;Segoe UI Black&quot;;
-background-color: rgba(0, 0, 0, 0);
-color: red</string>
-                     </property>
-                     <property name="text">
-                      <string>▲ ▲ ▲</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                    <widget class="QLabel" name="group_2">
-                     <property name="geometry">
-                      <rect>
-                       <x>1260</x>
-                       <y>150</y>
-                       <width>221</width>
-                       <height>91</height>
-                      </rect>
-                     </property>
-                     <property name="autoFillBackground">
-                      <bool>false</bool>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">font: 87 70pt &quot;Segoe UI Black&quot;;
-background-color: rgba(0, 0, 0, 0);
-color: blue</string>
-                     </property>
-                     <property name="text">
-                      <string>● ● ●</string>
-                     </property>
-                     <property name="scaledContents">
-                      <bool>false</bool>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
                     <widget class="QLabel" name="label_94">
                      <property name="geometry">
                       <rect>
@@ -1637,69 +1552,6 @@ border-radius: 100px;</string>
                      </property>
                      <property name="text">
                       <string/>
-                     </property>
-                    </widget>
-                    <widget class="QLabel" name="group_5">
-                     <property name="geometry">
-                      <rect>
-                       <x>960</x>
-                       <y>370</y>
-                       <width>231</width>
-                       <height>81</height>
-                      </rect>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">font: 87 50pt &quot;Segoe UI Black&quot;;
-background-color: rgba(0, 0, 0, 0);
-color: green</string>
-                     </property>
-                     <property name="text">
-                      <string>▬ ▬ ▬</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                    <widget class="QLabel" name="group_4">
-                     <property name="geometry">
-                      <rect>
-                       <x>650</x>
-                       <y>600</y>
-                       <width>231</width>
-                       <height>81</height>
-                      </rect>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">font: 87 50pt &quot;Segoe UI Black&quot;;
-background-color: rgba(0, 0, 0, 0);
-color: yellow</string>
-                     </property>
-                     <property name="text">
-                      <string>■ ■ ■</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                    <widget class="QLabel" name="group_3">
-                     <property name="geometry">
-                      <rect>
-                       <x>1260</x>
-                       <y>600</y>
-                       <width>231</width>
-                       <height>81</height>
-                      </rect>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">font: 87 50pt &quot;Segoe UI Black&quot;;
-background-color: rgba(0, 0, 0, 0);
-color: cyan</string>
-                     </property>
-                     <property name="text">
-                      <string>◆ ◆ ◆</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
                     <widget class="QLabel" name="label_98">
@@ -1759,23 +1611,17 @@ font: 18pt &quot;Arial&quot;;</string>
                       <bool>true</bool>
                      </property>
                     </widget>
-                    <widget class="QFrame" name="frame_8">
+                    <widget class="QPushButton" name="second_exercise_button">
                      <property name="geometry">
                       <rect>
-                       <x>590</x>
-                       <y>70</y>
-                       <width>971</width>
-                       <height>681</height>
+                       <x>900</x>
+                       <y>780</y>
+                       <width>231</width>
+                       <height>41</height>
                       </rect>
                      </property>
-                     <property name="styleSheet">
-                      <string notr="true">background-color: rgba(0, 0, 0, 0)</string>
-                     </property>
-                     <property name="frameShape">
-                      <enum>QFrame::Box</enum>
-                     </property>
-                     <property name="frameShadow">
-                      <enum>QFrame::Plain</enum>
+                     <property name="text">
+                      <string>PushButton</string>
                      </property>
                     </widget>
                    </widget>
@@ -1801,21 +1647,6 @@ font: 18pt &quot;Arial&quot;;</string>
                   <property name="frameShadow">
                    <enum>QFrame::Raised</enum>
                   </property>
-                  <widget class="QWidget" name="exercise_1234" native="true">
-                   <property name="geometry">
-                    <rect>
-                     <x>1390</x>
-                     <y>340</y>
-                     <width>121</width>
-                     <height>111</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">image: url(:/newPrefix/vision.png);
-background-color: rgba(0, 0, 0, 0);
-border-radius:15px;</string>
-                   </property>
-                  </widget>
                   <widget class="QLabel" name="label_85">
                    <property name="geometry">
                     <rect>
@@ -1897,31 +1728,19 @@ font: 18pt &quot;Arial&quot;;</string>
                     <bool>true</bool>
                    </property>
                   </widget>
-                  <widget class="QFrame" name="frame">
+                  <widget class="QPushButton" name="third_exercise_button">
                    <property name="geometry">
                     <rect>
-                     <x>570</x>
-                     <y>30</y>
-                     <width>991</width>
-                     <height>771</height>
+                     <x>890</x>
+                     <y>690</y>
+                     <width>351</width>
+                     <height>101</height>
                     </rect>
                    </property>
-                   <property name="styleSheet">
-                    <string notr="true"/>
-                   </property>
-                   <property name="frameShape">
-                    <enum>QFrame::Box</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Plain</enum>
+                   <property name="text">
+                    <string>PushButton</string>
                    </property>
                   </widget>
-                  <zorder>frame</zorder>
-                  <zorder>exercise_1234</zorder>
-                  <zorder>label_85</zorder>
-                  <zorder>label_6</zorder>
-                  <zorder>label_86</zorder>
-                  <zorder>label_93</zorder>
                  </widget>
                 </widget>
                </widget>

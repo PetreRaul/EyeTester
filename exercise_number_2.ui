@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1920</width>
+    <height>1000</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>40</y>
+      <width>1681</width>
+      <height>931</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white</string>
+    </property>
+    <widget class="QLabel" name="group_5">
+     <property name="geometry">
+      <rect>
+       <x>580</x>
+       <y>400</y>
+       <width>231</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 50pt &quot;Segoe UI Black&quot;;
+background-color: rgba(0, 0, 0, 0);
+color: green</string>
+     </property>
+     <property name="text">
+      <string>▬ ▬ ▬</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="group_4">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>630</y>
+       <width>231</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 50pt &quot;Segoe UI Black&quot;;
+background-color: rgba(0, 0, 0, 0);
+color: yellow</string>
+     </property>
+     <property name="text">
+      <string>■ ■ ■</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="group_2">
+     <property name="geometry">
+      <rect>
+       <x>880</x>
+       <y>180</y>
+       <width>221</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 70pt &quot;Segoe UI Black&quot;;
+background-color: rgba(0, 0, 0, 0);
+color: blue</string>
+     </property>
+     <property name="text">
+      <string>● ● ●</string>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="group_3">
+     <property name="geometry">
+      <rect>
+       <x>880</x>
+       <y>630</y>
+       <width>231</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 50pt &quot;Segoe UI Black&quot;;
+background-color: rgba(0, 0, 0, 0);
+color: cyan</string>
+     </property>
+     <property name="text">
+      <string>◆ ◆ ◆</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="group_1">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>180</y>
+       <width>231</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 50pt &quot;Segoe UI Black&quot;;
+background-color: rgba(0, 0, 0, 0);
+color: red</string>
+     </property>
+     <property name="text">
+      <string>▲ ▲ ▲</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="exercise_2_back_button">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>390</y>
+      <width>75</width>
+      <height>321</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

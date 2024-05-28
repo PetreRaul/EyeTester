@@ -7,6 +7,8 @@ import time
 import cvzone
 import random
 import re
+
+import exercise_number_1
 import exercises
 import mainmenu
 import resources
@@ -62,6 +64,10 @@ class DashboardWindow(QMainWindow):
         self.signoutButton1.clicked.connect(self.go_to_login)
         self.signoutButton2.clicked.connect(self.go_to_login)
 
+        self.first_exercise_button.clicked.connect(self.go_to_first_exercise)
+        self.second_exercise_button.clicked.connect(self.go_to_second_exercise)
+        self.third_exercise_button.clicked.connect(self.go_to_third_exercise)
+
         self.in_test = False
 
         self.timer = QTimer(self)
@@ -77,6 +83,7 @@ class DashboardWindow(QMainWindow):
 
         self.is_first_ex_playing = False
         self.timer_group_exercise = None
+
 
 
         widget.addWidget(self)
@@ -157,10 +164,10 @@ class DashboardWindow(QMainWindow):
         self.test_return_value = test_menu.start_test(6)
 
     def go_to_login(self):
-        if self.is_first_ex_playing is True:
-            self.capture_exercise_1.release()
-            self.exercise_1.clear()
-            self.is_first_ex_playing = False
+        # if self.is_first_ex_playing is True:
+        #     self.capture_exercise_2.release()
+        #     self.exercise_2.clear()
+        #     self.is_first_ex_playing = False
         if self.is_video_playing is True:
             self.player.stop()
             self.is_video_playing = False
@@ -222,20 +229,20 @@ class DashboardWindow(QMainWindow):
                     self.add_test_results(test_results)
 
     def go_to_home(self):
-        if self.is_first_ex_playing is True:
-            self.capture_exercise_1.release()
-            self.exercise_1.clear()
-            self.is_first_ex_playing = False
+        # if self.is_first_ex_playing is True:
+        #     self.capture_exercise_2.release()
+        #     self.exercise_2.clear()
+        #     self.is_first_ex_playing = False
         if self.is_video_playing is True:
             self.player.stop()
             self.is_video_playing = False
         self.stackedWidget.setCurrentIndex(1)
 
     def go_to_information(self):
-        if self.is_first_ex_playing is True:
-            self.capture_exercise_1.release()
-            self.exercise_1.clear()
-            self.is_first_ex_playing = False
+        # if self.is_first_ex_playing is True:
+        #     self.capture_exercise_2.release()
+        #     self.exercise_2.clear()
+        #     self.is_first_ex_playing = False
         if self.is_video_playing is True:
             self.player.stop()
             self.is_video_playing = False
@@ -243,10 +250,10 @@ class DashboardWindow(QMainWindow):
         statistics.Statistics(self, None)
 
     def go_to_nutrition(self):
-        if self.is_first_ex_playing is True:
-            self.capture_exercise_1.release()
-            self.exercise_1.clear()
-            self.is_first_ex_playing = False
+        # if self.is_first_ex_playing is True:
+        #     self.capture_exercise_2.release()
+        #     self.exercise_2.clear()
+        #     self.is_first_ex_playing = False
         if self.is_video_playing is True:
             self.player.stop()
             self.is_video_playing = False
@@ -265,12 +272,12 @@ class DashboardWindow(QMainWindow):
             statistics.Statistics(self, response[0])
 
     def go_to_statistics(self):
-        if self.is_first_ex_playing is True:
-            self.capture_exercise_1.release()
-            self.exercise_1.clear()
-            self.is_first_ex_playing = False
+        # if self.is_first_ex_playing is True:
+        #     self.capture_exercise_2.release()
+        #     self.exercise_2.clear()
+        #     self.is_first_ex_playing = False
         self.stackedWidget.setCurrentIndex(2)
-        threading.Thread(target=self.start_exercise_1).start()
+        # threading.Thread(target=self.start_exercise_2).start()
         self.stackedWidget_carousel.setCurrentIndex(0)
         self.bottom_button1.setChecked(True)
         self.btn_list = [
@@ -301,143 +308,97 @@ class DashboardWindow(QMainWindow):
         index = self.stackedWidget_carousel.currentIndex()
         self.change_background_image(index)
 
-    def start_exercise_1(self):
-        self.is_first_ex_playing = True
-        self.capture_exercise_1 = cv2.VideoCapture(0, cv2.CAP_DSHOW)
-        #self.capture_exercise_1= cv2.VideoCapture(0)
-        detector = FaceMeshDetector(maxFaces=1)
-
-        id_list = [22, 23, 24, 26, 110, 157, 158, 159, 160, 161, 130, 243]
-        ratio_list = []
-        blink_counter = 0
-        counter = False
-        last_blink = time.time()
-
-        while True:
-            success, img = self.capture_exercise_1.read()
-            if success:
-                img_with_detections = img.copy()
-                img_with_detections, faces = detector.findFaceMesh(img_with_detections, draw=False)
-                current_time = time.time()
-                time_since_last_blink = current_time - last_blink
-                if faces:
-                    face = faces[0]
-                    for id in id_list:
-                        cv2.circle(img, face[id], 5, (255, 255, 255), cv2.FILLED)
-
-                    left_eye_up_position = face[159]
-                    left_eye_down_position = face[23]
-                    left_eye_left_position = face[130]
-                    left_eye_right_position = face[243]
-
-                    vertical_length, _ = detector.findDistance(left_eye_up_position, left_eye_down_position)
-                    horizontal_length, _ = detector.findDistance(left_eye_left_position, left_eye_right_position)
-
-                    # cv2.line(img, left_eye_up_position, left_eye_down_position, (0, 200, 0), 3)
-                    # cv2.line(img, left_eye_left_position, left_eye_right_position, (0, 200, 0), 3)
-
-                    ratio = int((vertical_length / horizontal_length) * 100)
-                    ratio_list.append(ratio)
-
-                    if len(ratio_list) > 3:
-                        ratio_list.pop(0)
-                    ratio_average = sum(ratio_list) / len(ratio_list)
-                    print(ratio_average)
-
-                    if ratio_average < 35 and counter == 0:
-                        blink_counter += 1
-                        counter = 1
-                        last_blink = current_time
-                    if counter != 0:
-                        counter += 1
-                        if counter > 10:
-                            counter = 0
-
-                    print(blink_counter)
-
-                if time_since_last_blink > 5:
-                    cvzone.putTextRect(img_with_detections, 'Please blink', (20, 150), scale=1.5, thickness=2, colorR=(255, 0, 0))
-
-            frame = cv2.cvtColor(img_with_detections, cv2.COLOR_BGR2RGB)
-            h, w, ch = frame.shape
-            bytes_per_line = ch * w
-            q_img = QImage(frame.data, w, h, bytes_per_line, QImage.Format_RGB888)
-            self.exercise_1.setPixmap(QPixmap.fromImage(q_img))
-
-            if cv2.waitKey(1) == ord('q'):
-                break
+    # def start_exercise_2(self):
+    #     self.is_first_ex_playing = True
+    #     self.capture_exercise_2 = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+    #     #self.capture_exercise_2= cv2.VideoCapture(0)
+    #     detector = FaceMeshDetector(maxFaces=1)
+    #
+    #     id_list = [22, 23, 24, 26, 110, 157, 158, 159, 160, 161, 130, 243]
+    #     ratio_list = []
+    #     blink_counter = 0
+    #     counter = False
+    #     last_blink = time.time()
+    #
+    #     while True:
+    #         success, img = self.capture_exercise_2.read()
+    #         if success:
+    #             img_with_detections = img.copy()
+    #             img_with_detections, faces = detector.findFaceMesh(img_with_detections, draw=False)
+    #             current_time = time.time()
+    #             time_since_last_blink = current_time - last_blink
+    #             if faces:
+    #                 face = faces[0]
+    #                 for id in id_list:
+    #                     cv2.circle(img, face[id], 5, (255, 255, 255), cv2.FILLED)
+    #
+    #                 left_eye_up_position = face[159]
+    #                 left_eye_down_position = face[23]
+    #                 left_eye_left_position = face[130]
+    #                 left_eye_right_position = face[243]
+    #
+    #                 vertical_length, _ = detector.findDistance(left_eye_up_position, left_eye_down_position)
+    #                 horizontal_length, _ = detector.findDistance(left_eye_left_position, left_eye_right_position)
+    #
+    #                 # cv2.line(img, left_eye_up_position, left_eye_down_position, (0, 200, 0), 3)
+    #                 # cv2.line(img, left_eye_left_position, left_eye_right_position, (0, 200, 0), 3)
+    #
+    #                 ratio = int((vertical_length / horizontal_length) * 100)
+    #                 ratio_list.append(ratio)
+    #
+    #                 if len(ratio_list) > 3:
+    #                     ratio_list.pop(0)
+    #                 ratio_average = sum(ratio_list) / len(ratio_list)
+    #                 print(ratio_average)
+    #
+    #                 if ratio_average < 35 and counter == 0:
+    #                     blink_counter += 1
+    #                     counter = 1
+    #                     last_blink = current_time
+    #                 if counter != 0:
+    #                     counter += 1
+    #                     if counter > 10:
+    #                         counter = 0
+    #
+    #                 print(blink_counter)
+    #
+    #             if time_since_last_blink > 5:
+    #                 cvzone.putTextRect(img_with_detections, 'Please blink', (20, 150), scale=1.5, thickness=2, colorR=(255, 0, 0))
+    #
+    #         frame = cv2.cvtColor(img_with_detections, cv2.COLOR_BGR2RGB)
+    #         h, w, ch = frame.shape
+    #         bytes_per_line = ch * w
+    #         q_img = QImage(frame.data, w, h, bytes_per_line, QImage.Format_RGB888)
+    #         self.exercise_2.setPixmap(QPixmap.fromImage(q_img))
+    #
+    #         if cv2.waitKey(1) == ord('q'):
+    #             break
 
     def change_background_image(self, index):
         if index == 0:
             self.bottom_button1.setChecked(True)
         elif index == 1:
-            if self.is_first_ex_playing is True:
-                self.capture_exercise_1.release()
-                self.exercise_1.clear()
-                self.is_first_ex_playing = False
-
-            self.circle_slider.valueChanged.connect(self.number_changed)
-            self.circle_slider.setValue(1)
+            # if self.is_first_ex_playing is True:
+            #     self.capture_exercise_2.release()
+            #     self.exercise_2.clear()
+            #     self.is_first_ex_playing = Fals
+            first_webcam = ExerciseNumber1
+            threading.Thread(target=first_webcam.start_webcam(self)).start()
             self.bottom_button2.setChecked(True)
         elif index == 2:
-            if self.is_first_ex_playing is True:
-                self.capture_exercise_1.release()
-                self.exercise_1.clear()
-                self.is_first_ex_playing = False
-
-
-            self.group_1.setVisible(True)
-            self.group_2.setVisible(False)
-            self.group_3.setVisible(False)
-            self.group_4.setVisible(False)
-            self.group_5.setVisible(False)
-            self.timer_group_exercise = QTimer()
-            self.timer_group_exercise.timeout.connect(self.toggle_groups)
-            self.timer_group_exercise.start(1000)
+            # if self.is_first_ex_playing is True:
+            #     self.capture_exercise_2.release()
+            #     self.exercise_2.clear()
+            #     self.is_first_ex_playing = False
+            self.bottom_button3.setChecked(True)
         else:
-            self.center_x = 1030
-            self.center_y = 355
-            self.radius = 330  # Raza cercului
-            self.angle = 100
-
-            if hasattr(self, 'timeline') and self.timeline.state() == QTimeLine.Running:
-                self.timeline.stop()
-
-            self.timeline = QTimeLine(4500, self)
-            self.timeline.setFrameRange(0, 360)
-            self.timeline.frameChanged.connect(self.update_position)
-            self.timeline.setCurveShape(QTimeLine.EaseInOutCurve)
-            self.timeline.finished.connect(self.restart_animation)
-            self.timeline.start()
             self.bottom_button4.setChecked(True)
 
-    def update_position(self, angle):
-        x = self.center_x + self.radius * math.cos(math.radians(angle))
-        y = self.center_y + self.radius * math.sin(math.radians(angle))
-
-        self.exercise_1234.move(int(x), int(y))
-
-    def restart_animation(self):
-        self.timeline.setCurrentTime(0)
-        self.timeline.start()
-
-    def toggle_groups(self):
-        total_groups = [self.group_1, self.group_2, self.group_3, self.group_4, self.group_5]
-        for group in total_groups:
-            group.setVisible(False)
-        random.choice(total_groups).setVisible(True)
-
-    def number_changed(self):
-        new_value = self.circle_slider.value()
-        font = QFont("Arial", new_value * 30)
-        self.circle_label.setFont(font)
-        self.circle_label.setText("⊙")
-
     def go_to_exercises(self):
-        if self.is_first_ex_playing is True:
-            self.capture_exercise_1.release()
-            self.exercise_1.clear()
-            self.is_first_ex_playing = False
+        # if self.is_first_ex_playing is True:
+        #     self.capture_exercise_2.release()
+        #     self.exercise_2.clear()
+        #     self.is_first_ex_playing = False
         self.stackedWidget.setCurrentIndex(3)
 
     def play_pause(self):
@@ -458,6 +419,22 @@ class DashboardWindow(QMainWindow):
         self.stackedWidget.setCurrentIndex(4)
         threading.Thread(target=self.run_myopia).start()
 
+    def go_to_first_exercise(self):
+        self.capture.release()
+        first_exercise = ExerciseNumber1()
+        self.widget.addWidget(first_exercise)
+        self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
+
+    def go_to_second_exercise(self):
+        # self.capture.release()
+        second_exercise = ExerciseNumber2()
+        self.widget.addWidget(second_exercise)
+        self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
+
+    def go_to_third_exercise(self):
+        second_exercise = ExerciseNumber3()
+        self.widget.addWidget(second_exercise)
+        self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
 
     def add_test_results(self, test_results):
 
@@ -478,3 +455,145 @@ class DashboardWindow(QMainWindow):
             print("Failed to insert score and username:", str(e))
 
         connection.close()
+
+
+######################## EXERCISE 1 #######################################
+
+
+class ExerciseNumber1(QMainWindow):
+    def __init__(self):
+        super(ExerciseNumber1, self).__init__()
+        loadUi("exercise_number_1.ui", self)
+
+        self.widget = QStackedWidget()
+
+        self.widget.addWidget(self)
+        self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
+
+        self.circle_slider.valueChanged.connect(self.number_changed)
+        self.circle_slider.setValue(1)
+
+        self.exercise_1_back_button.clicked.connect(self.go_to_dashboard)
+
+        self.widget.setFixedSize(1920, 1000)
+        self.widget.move(0, 0)
+
+    def number_changed(self):
+        new_value = self.circle_slider.value()
+        font = QFont("Arial", new_value * 40)
+        self.circle_label.setFont(font)
+        self.circle_label.setText("⊙")
+    def start_webcam(self):
+        self.capture = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+        self.detector = FaceMeshDetector(maxFaces=1)
+        while True:
+            success, img = self.capture.read()
+            if success:
+                img_with_detections = img.copy()
+                img_with_detections, faces = self.detector.findFaceMesh(img_with_detections, False)
+                if faces:
+                    face = faces[0]
+                    point_left = face[145]
+                    point_right = face[374]
+
+                    w, _ = self.detector.findDistance(point_left, point_right)
+                    W = 6.3
+                    f = 840
+                    d = (W * f) / w
+
+                    colorR = (0, 0, 250)
+
+                    cvzone.putTextRect(img_with_detections, f'Distance: {int(d)}cm',
+                                       (face[10][0] - 50, face[10][1] - 50), scale=1,
+                                       font=0, thickness=2, colorT=(0, 0, 0), colorR=colorR)
+
+            frame = cv2.cvtColor(img_with_detections, cv2.COLOR_BGR2RGB)
+            h, w, ch = frame.shape
+            bytes_per_line = ch * w
+            q_img = QImage(frame.data, w, h, bytes_per_line, QImage.Format_RGB888)
+            self.first_exercise_webcam.setPixmap(QPixmap.fromImage(q_img))
+
+            if cv2.waitKey(1) == ord('q'):
+                break
+
+    def go_to_dashboard(self):
+        dashboard = DashboardWindow(self)
+        widget.addWidget(dashboard)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+        widget.setFixedSize(1920, 1000)
+        widget.move(0, 0)
+
+        print(3)
+
+class ExerciseNumber2(QMainWindow):
+    def __init__(self):
+        super(ExerciseNumber2, self).__init__()
+        loadUi("exercise_number_2.ui", self)
+
+        self.widget = QStackedWidget()
+
+        self.widget.addWidget(self)
+        self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
+
+        self.exercise_2_back_button.clicked.connect(ExerciseNumber1.go_to_dashboard)
+
+        self.widget.setFixedSize(1920, 1000)
+        self.widget.move(0, 0)
+
+        self.group_1.setVisible(True)
+        self.group_2.setVisible(False)
+        self.group_3.setVisible(False)
+        self.group_4.setVisible(False)
+        self.group_5.setVisible(False)
+        self.timer_group_exercise = QTimer()
+        self.timer_group_exercise.timeout.connect(self.toggle_groups)
+        self.timer_group_exercise.start(1000)
+
+
+    def toggle_groups(self):
+        total_groups = [self.group_1, self.group_2, self.group_3, self.group_4, self.group_5]
+        for group in total_groups:
+            group.setVisible(False)
+        random.choice(total_groups).setVisible(True)
+
+
+
+class ExerciseNumber3(QMainWindow):
+    def __init__(self):
+        super(ExerciseNumber3, self).__init__()
+        loadUi("exercise_number_3.ui", self)
+
+        self.widget = QStackedWidget()
+
+        self.widget.addWidget(self)
+        self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
+
+        self.exercise_3_back_button.clicked.connect(ExerciseNumber1.go_to_dashboard)
+
+        self.widget.setFixedSize(1920, 1000)
+        self.widget.move(0, 0)
+
+        self.center_x = 1030
+        self.center_y = 355
+        self.radius = 330  # Raza cercului
+        self.angle = 100
+
+        if hasattr(self, 'timeline') and self.timeline.state() == QTimeLine.Running:
+            self.timeline.stop()
+
+        self.timeline = QTimeLine(4500, self)
+        self.timeline.setFrameRange(0, 360)
+        self.timeline.frameChanged.connect(self.update_position)
+        self.timeline.setCurveShape(QTimeLine.EaseInOutCurve)
+        self.timeline.finished.connect(self.restart_animation)
+        self.timeline.start()
+
+    def update_position(self, angle):
+        x = self.center_x + self.radius * math.cos(math.radians(angle))
+        y = self.center_y + self.radius * math.sin(math.radians(angle))
+
+        self.exercise_1234.move(int(x), int(y))
+
+    def restart_animation(self):
+        self.timeline.setCurrentTime(0)
+        self.timeline.start()
