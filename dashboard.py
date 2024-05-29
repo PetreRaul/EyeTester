@@ -426,18 +426,17 @@ class DashboardWindow(QMainWindow):
         self.stackedWidget.setCurrentIndex(4)
         threading.Thread(target=self.run_myopia).start()
 
-
-
     def go_to_second_exercise(self):
-        # self.capture.release()
         second_exercise = ExerciseNumber2(widget.currentIndex())
         widget.addWidget(second_exercise)
         widget.setCurrentIndex(widget.count() - 1)
+        second_exercise.start_webcam_second_exercise()
 
     def go_to_third_exercise(self):
         third_exercise = ExerciseNumber3(widget.currentIndex())
         widget.addWidget(third_exercise)
         widget.setCurrentIndex(widget.count() - 1)
+        third_exercise.start_webcam_third_exercise()
 
     def add_test_results(self, test_results):
 
@@ -470,6 +469,7 @@ class DashboardWindow(QMainWindow):
         first_exercise = ExerciseNumber1(widget.currentIndex())
         widget.addWidget(first_exercise)
         widget.setCurrentIndex(widget.count() - 1)
+        first_exercise.start_webcam_first_exercise()
 
 
     def exercise_webcam(self):
@@ -480,6 +480,7 @@ class DashboardWindow(QMainWindow):
         dioptre_distance = 30
         self.green_check = False
         self.in_test = False
+
         while True:
             success, img = self.capture.read()
             if success:
@@ -487,6 +488,7 @@ class DashboardWindow(QMainWindow):
                 img_with_detections, faces = self.detector.findFaceMesh(img_with_detections, False)
                 if faces:
                     face = faces[0]
+
                     point_left = face[145]
                     point_right = face[374]
 
@@ -564,7 +566,83 @@ class ExerciseNumber1(QMainWindow):
         self.widget.setFixedSize(1920, 1000)
         self.widget.move(0, 0)
 
+    def start_webcam_first_exercise(self):
+        self.capture = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+        # self.capture = cv2.VideoCapture(0)
+        self.detector = FaceMeshDetector(maxFaces=1)
+        id_list = [22, 23, 24, 26, 110, 157, 158, 159, 160, 161, 130, 243]
+        ratio_list = []
+        blink_counter = 0
+        counter = False
+        last_blink = time.time()
+        dioptre_distance = 30
+
+        while True:
+            success, img = self.capture.read()
+            if success:
+                img_with_detections = img.copy()
+                img_with_detections, faces = self.detector.findFaceMesh(img_with_detections, False)
+                current_time = time.time()
+                time_since_last_blink = current_time - last_blink
+                if faces:
+                    face = faces[0]
+                    point_left = face[145]
+                    point_right = face[374]
+
+                    w, _ = self.detector.findDistance(point_left, point_right)
+                    W = 6.3
+                    f = 840
+                    d = (W * f) / w
+
+                    if dioptre_distance < (int(d) - 10) or dioptre_distance > (int(d) + 10):
+                        colorRGB = (250, 0, 0)
+                    else:
+                        colorRGB = (0, 150, 30)
+
+                    self.current_distance_label_first.setText(f'Your distance: {int(d)}cm')
+                    self.current_distance_label_first.setStyleSheet(f'color: rgb{(colorRGB)};')
+
+
+                    ######################### BLINKING #########################
+
+                    for id in id_list:
+                        cv2.circle(img, face[id], 5, (255, 255, 255), cv2.FILLED)
+
+                    left_eye_up_position = face[159]
+                    left_eye_down_position = face[23]
+                    left_eye_left_position = face[130]
+                    left_eye_right_position = face[243]
+
+                    vertical_length, _ = self.detector.findDistance(left_eye_up_position, left_eye_down_position)
+                    horizontal_length, _ = self.detector.findDistance(left_eye_left_position, left_eye_right_position)
+
+                    ratio = int((vertical_length / horizontal_length) * 100)
+                    ratio_list.append(ratio)
+
+                    if len(ratio_list) > 3:
+                        ratio_list.pop(0)
+                    ratio_average = sum(ratio_list) / len(ratio_list)
+                    print(ratio_average)
+
+                    if ratio_average < 35 and counter == 0:
+                        blink_counter += 1
+                        counter = 1
+                        last_blink = current_time
+                    if counter != 0:
+                        counter += 1
+                        if counter > 10:
+                            counter = 0
+
+                if time_since_last_blink > 5:
+                    self.blink_label_1.setText(f'Please Blink')
+                elif time_since_last_blink < 5:
+                    self.blink_label_1.setText("")
+
+            if cv2.waitKey(1) == ord('q'):
+                break
+
     def stop(self):
+        self.capture.release()
         widget.setCurrentIndex(self.main_window_index)
         return 1
 
@@ -600,6 +678,81 @@ class ExerciseNumber2(QMainWindow):
         self.timer_group_exercise = QTimer()
         self.timer_group_exercise.timeout.connect(self.toggle_groups)
         self.timer_group_exercise.start(1000)
+
+    def start_webcam_second_exercise(self):
+        self.capture = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+        # self.capture = cv2.VideoCapture(0)
+        self.detector = FaceMeshDetector(maxFaces=1)
+        id_list = [22, 23, 24, 26, 110, 157, 158, 159, 160, 161, 130, 243]
+        ratio_list = []
+        blink_counter = 0
+        counter = False
+        last_blink = time.time()
+        dioptre_distance = 30
+
+        while True:
+            success, img = self.capture.read()
+            if success:
+                img_with_detections = img.copy()
+                img_with_detections, faces = self.detector.findFaceMesh(img_with_detections, False)
+                current_time = time.time()
+                time_since_last_blink = current_time - last_blink
+                if faces:
+                    face = faces[0]
+                    point_left = face[145]
+                    point_right = face[374]
+
+                    w, _ = self.detector.findDistance(point_left, point_right)
+                    W = 6.3
+                    f = 840
+                    d = (W * f) / w
+
+                    if dioptre_distance < (int(d) - 10) or dioptre_distance > (int(d) + 10):
+                        colorRGB = (250, 0, 0)
+                    else:
+                        colorRGB = (0, 150, 30)
+
+                    self.current_distance_label_second.setText(f'Your distance: {int(d)}cm')
+                    self.current_distance_label_second.setStyleSheet(f'color: rgb{(colorRGB)};')
+
+
+                    ######################### BLINKING #########################
+
+                    for id in id_list:
+                        cv2.circle(img, face[id], 5, (255, 255, 255), cv2.FILLED)
+
+                    left_eye_up_position = face[159]
+                    left_eye_down_position = face[23]
+                    left_eye_left_position = face[130]
+                    left_eye_right_position = face[243]
+
+                    vertical_length, _ = self.detector.findDistance(left_eye_up_position, left_eye_down_position)
+                    horizontal_length, _ = self.detector.findDistance(left_eye_left_position, left_eye_right_position)
+
+                    ratio = int((vertical_length / horizontal_length) * 100)
+                    ratio_list.append(ratio)
+
+                    if len(ratio_list) > 3:
+                        ratio_list.pop(0)
+                    ratio_average = sum(ratio_list) / len(ratio_list)
+                    print(ratio_average)
+
+                    if ratio_average < 35 and counter == 0:
+                        blink_counter += 1
+                        counter = 1
+                        last_blink = current_time
+                    if counter != 0:
+                        counter += 1
+                        if counter > 10:
+                            counter = 0
+
+                if time_since_last_blink > 5:
+                    self.blink_label_2.setText(f'Please Blink')
+                elif time_since_last_blink < 5:
+                    self.blink_label_2.setText("")
+
+            if cv2.waitKey(1) == ord('q'):
+                break
 
     def stop(self):
         widget.setCurrentIndex(self.main_window_index)
@@ -645,6 +798,80 @@ class ExerciseNumber3(QMainWindow):
         self.timeline.finished.connect(self.restart_animation)
         self.timeline.start()
 
+    def start_webcam_third_exercise(self):
+        self.capture = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+        # self.capture = cv2.VideoCapture(0)
+        self.detector = FaceMeshDetector(maxFaces=1)
+        id_list = [22, 23, 24, 26, 110, 157, 158, 159, 160, 161, 130, 243]
+        ratio_list = []
+        blink_counter = 0
+        counter = False
+        last_blink = time.time()
+        dioptre_distance = 30
+
+        while True:
+            success, img = self.capture.read()
+            if success:
+                img_with_detections = img.copy()
+                img_with_detections, faces = self.detector.findFaceMesh(img_with_detections, False)
+                current_time = time.time()
+                time_since_last_blink = current_time - last_blink
+                if faces:
+                    face = faces[0]
+                    point_left = face[145]
+                    point_right = face[374]
+
+                    w, _ = self.detector.findDistance(point_left, point_right)
+                    W = 6.3
+                    f = 840
+                    d = (W * f) / w
+
+                    if dioptre_distance < (int(d) - 10) or dioptre_distance > (int(d) + 10):
+                        colorRGB = (250, 0, 0)
+                    else:
+                        colorRGB = (0, 150, 30)
+
+                    self.current_distance_label_third.setText(f'Your distance: {int(d)}cm')
+                    self.current_distance_label_third.setStyleSheet(f'color: rgb{(colorRGB)};')
+
+
+                    ######################### BLINKING #########################
+
+                    for id in id_list:
+                        cv2.circle(img, face[id], 5, (255, 255, 255), cv2.FILLED)
+
+                    left_eye_up_position = face[159]
+                    left_eye_down_position = face[23]
+                    left_eye_left_position = face[130]
+                    left_eye_right_position = face[243]
+
+                    vertical_length, _ = self.detector.findDistance(left_eye_up_position, left_eye_down_position)
+                    horizontal_length, _ = self.detector.findDistance(left_eye_left_position, left_eye_right_position)
+
+                    ratio = int((vertical_length / horizontal_length) * 100)
+                    ratio_list.append(ratio)
+
+                    if len(ratio_list) > 3:
+                        ratio_list.pop(0)
+                    ratio_average = sum(ratio_list) / len(ratio_list)
+                    print(ratio_average)
+
+                    if ratio_average < 35 and counter == 0:
+                        blink_counter += 1
+                        counter = 1
+                        last_blink = current_time
+                    if counter != 0:
+                        counter += 1
+                        if counter > 10:
+                            counter = 0
+
+                if time_since_last_blink > 5:
+                    self.blink_label_3.setText(f'Please Blink')
+                elif time_since_last_blink < 5:
+                    self.blink_label_3.setText("")
+
+            if cv2.waitKey(1) == ord('q'):
+                break
     def update_position(self, angle):
         x = self.center_x + self.radius * math.cos(math.radians(angle))
         y = self.center_y + self.radius * math.sin(math.radians(angle))

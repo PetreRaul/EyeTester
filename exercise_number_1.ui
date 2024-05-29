@@ -17,14 +17,14 @@
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>160</x>
       <y>10</y>
-      <width>1801</width>
+      <width>1731</width>
       <height>981</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: white</string>
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.499364, y1:1, x2:0.502, y2:0, stop:0 rgba(130, 140, 242, 255), stop:1 rgba(255, 255, 255, 255));</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -37,7 +37,7 @@
       <rect>
        <x>30</x>
        <y>10</y>
-       <width>1721</width>
+       <width>1681</width>
        <height>891</height>
       </rect>
      </property>
@@ -102,19 +102,63 @@
    <widget class="QPushButton" name="exercise_1_back_button">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>320</y>
-      <width>75</width>
-      <height>231</height>
+      <x>20</x>
+      <y>40</y>
+      <width>121</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="text">
-     <string>BACK</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="images.qrc">
+      <normaloff>:/newPrefix/arrows.png</normaloff>:/newPrefix/arrows.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>70</width>
+      <height>70</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="current_distance_label_first">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>290</y>
+      <width>121</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="blink_label_1">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>540</y>
+      <width>111</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white</string>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
  <connections/>
 </ui>

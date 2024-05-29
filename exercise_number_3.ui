@@ -17,14 +17,14 @@
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>180</x>
       <y>30</y>
-      <width>1861</width>
-      <height>891</height>
+      <width>1711</width>
+      <height>931</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: white</string>
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.499364, y1:1, x2:0.502, y2:0, stop:0 rgba(130, 140, 242, 255), stop:1 rgba(255, 255, 255, 255));</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -43,6 +43,7 @@
      </property>
      <property name="styleSheet">
       <string notr="true">image: url(:/newPrefix/vision.png);
+background-color: rgba(0, 0, 0, 0);
 border-radius:15px;</string>
      </property>
     </widget>
@@ -50,14 +51,57 @@ border-radius:15px;</string>
    <widget class="QPushButton" name="exercise_3_back_button">
     <property name="geometry">
      <rect>
-      <x>840</x>
-      <y>940</y>
-      <width>281</width>
-      <height>41</height>
+      <x>40</x>
+      <y>50</y>
+      <width>91</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="images.qrc">
+      <normaloff>:/newPrefix/arrows.png</normaloff>:/newPrefix/arrows.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>70</width>
+      <height>70</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="current_distance_label_third">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>350</y>
+      <width>81</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="blink_label_3">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>550</y>
+      <width>121</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white
+</string>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

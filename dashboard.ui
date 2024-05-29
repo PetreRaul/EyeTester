@@ -634,7 +634,7 @@ background-color: #828cf2;
           <string notr="true">background-color: #7EC6F2;</string>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="setup_window">
           <widget class="QLabel" name="Webcam">
