@@ -268,6 +268,7 @@ class DashboardWindow(QMainWindow):
             initialFilter='Excel File (.xlsx *.xls)'
         )
         if response[0]:
+            print(response[0])
             statistics.Statistics(self, response[0])
 
     def go_to_statistics(self):

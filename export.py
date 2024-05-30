@@ -9,7 +9,8 @@ def export(data_set, filename):
         'Timestamp': data_set[2],
         'Left Eye': data_set[0],
         'Right Eye': data_set[1],
-        'Vision Status': ['Impaired Vision', 'Impaired Vision', 'Impaired Vision', 'Enhanced Vision']
+        'Vision Status Left Eye': data_set[3],
+        'Vision Status Right Eye': data_set[4]
     }
 
     df = pd.DataFrame(data)

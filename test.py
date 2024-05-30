@@ -25,10 +25,10 @@ class Test:
     def recognize_speech(self):
         with sr.Microphone() as source:
             print("Listening...")
-            # recognizer.adjust_for_ambient_noise(source)
+            recognizer.adjust_for_ambient_noise(source)
             audio = recognizer.listen(source)
             try:
-                text = recognizer.recognize_google(audio).upper()
+                text = recognizer.recognize_google(audio, language='ro-RO').upper()
                 print(text)
                 return text
             except sr.UnknownValueError:
@@ -87,7 +87,7 @@ class Test:
 
         while self.in_test:
             print(column)
-            if ((self.correct_answers >= len(self.letters[row]) / 2 + 1) or
+            if ((self.correct_answers >= len(self.letters[row]) / 6 + 1) or
                     (self.given_answers == len(self.letters[row])) or
                     (self.given_answers - self.correct_answers >= len(self.letters[row]) / 2)):
                 return self.check_results(row)

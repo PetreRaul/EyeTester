@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import QFileDialog
 
 import export
 from PyQt5.QtCore import Qt
-from PyQt5.QtChart import QChart, QBarSet, QBarSeries, QChartView, QBarCategoryAxis
+from PyQt5.QtChart import QChart, QBarSet, QBarSeries, QChartView, QBarCategoryAxis, QValueAxis
 from PyQt5.QtGui import QColor, QBrush, QFont
 
 
@@ -23,6 +23,7 @@ class Statistics:
 
     def export(self):
         data_set = self.get_chart_data()
+        print(data_set)
         export.export(data_set, self.filename)
 
     def add_chart(self):
@@ -58,12 +59,20 @@ class Statistics:
         axis_x.append(categories_x)
         axis_x.setLabelsFont(font)
         chart.addAxis(axis_x, Qt.AlignBottom)
+        series.attachAxis(axis_x)
 
-        categories_y = ["Impaired Vision", "Suboptimal Vision", "Normal Vision", "Enhanced Vision"]
+        categories_y = ["", "Impaired Vision", "Suboptimal Vision", "Normal Vision", "Enhanced Vision"]
         axis_y = QBarCategoryAxis()
         axis_y.setLabelsFont(QFont("Times", weight=QFont.Bold))
         axis_y.append(categories_y)
         chart.addAxis(axis_y, Qt.AlignLeft)
+        series.attachAxis(axis_y)
+
+        axis_y_values = QValueAxis()
+        axis_y_values.setRange(0, 4)
+        axis_y_values.setTickCount(5)
+        chart.addAxis(axis_y_values, Qt.AlignRight)
+        series.attachAxis(axis_y_values)
 
         self.dashboard_window.chart_view.setChart(chart)
 
@@ -73,7 +82,7 @@ class Statistics:
             cursor = connection.cursor()
 
             try:
-                query = f'SELECT Score_left_first, Score_left_second, Score_right_first, Score_right_second, Timestamp FROM Scores WHERE Username_People = {self.dashboard_window.username}'
+                query = f"SELECT Score_left_first, Score_left_second, Score_right_first, Score_right_second, Timestamp FROM Scores WHERE Username_People = '{self.dashboard_window.username}'"
                 cursor.execute(query)
                 results = cursor.fetchall()
                 self.results = results
@@ -93,8 +102,12 @@ class Statistics:
         left_eye_data = []
         right_eye_data = []
         timestamp_data = []
+        label_left_eye = []
+        label_right_eye = []
+        categories = ["","Impaired Vision", "Suboptimal Vision", "Normal Vision", "Enhanced Vision"]
 
         for entry in self.results:
+
             left_first_row = entry[0]
             left_second_row = entry[1]
             if left_first_row == -1:
@@ -104,6 +117,8 @@ class Statistics:
 
             left_eye = left_first_row * 2 + left_second_row + 1
             left_eye_data.append(left_eye)
+            label_left_eye.append(categories[left_eye])
+
 
             right_first_row = entry[2]
             right_second_row = entry[3]
@@ -114,11 +129,11 @@ class Statistics:
 
             right_eye = right_first_row * 2 + right_second_row + 1
             right_eye_data.append(right_eye)
+            label_right_eye.append(categories[right_eye])
 
             test = datetime.datetime.fromtimestamp(entry[4]).strftime('%Y-%m-%d %H:%M')
             timestamp_data.append(test)
 
-
-        return [left_eye_data, right_eye_data, timestamp_data]
+        return [left_eye_data, right_eye_data, timestamp_data, label_left_eye, label_right_eye]
 
 
