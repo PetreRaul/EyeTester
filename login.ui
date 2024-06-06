@@ -36,7 +36,7 @@ background-image: url(:/newPrefix/Default_background_image_for_an_eye_applicatio
     <property name="geometry">
      <rect>
       <x>300</x>
-      <y>90</y>
+      <y>110</y>
       <width>141</width>
       <height>71</height>
      </rect>

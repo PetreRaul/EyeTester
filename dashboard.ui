@@ -634,14 +634,14 @@ background-color: #828cf2;
           <string notr="true">background-color: #7EC6F2;</string>
          </property>
          <property name="currentIndex">
-          <number>4</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="setup_window">
           <widget class="QLabel" name="Webcam">
            <property name="geometry">
             <rect>
-             <x>720</x>
-             <y>230</y>
+             <x>830</x>
+             <y>270</y>
              <width>640</width>
              <height>480</height>
             </rect>
@@ -660,16 +660,16 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 
           <widget class="QLabel" name="info_label">
            <property name="geometry">
             <rect>
-             <x>140</x>
+             <x>130</x>
              <y>80</y>
-             <width>271</width>
+             <width>301</width>
              <height>61</height>
             </rect>
            </property>
            <property name="font">
             <font>
              <family>Segoe UI Black</family>
-             <pointsize>24</pointsize>
+             <pointsize>20</pointsize>
              <weight>10</weight>
              <italic>false</italic>
              <bold>false</bold>
@@ -677,20 +677,20 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 
            </property>
            <property name="styleSheet">
             <string notr="true">background-color: #80F2C8;
-font: 87 24pt &quot;Segoe UI Black&quot;;</string>
+font: 87 20pt &quot;Segoe UI Black&quot;;</string>
            </property>
            <property name="text">
-            <string>Test Information</string>
+            <string>Informații despre test</string>
            </property>
            <property name="wordWrap">
-            <bool>true</bool>
+            <bool>false</bool>
            </property>
           </widget>
           <widget class="QLabel" name="distance_guidance_label">
            <property name="geometry">
             <rect>
-             <x>860</x>
-             <y>110</y>
+             <x>950</x>
+             <y>200</y>
              <width>271</width>
              <height>41</height>
             </rect>
@@ -704,7 +704,7 @@ font: 87 24pt &quot;Segoe UI Black&quot;;</string>
             </font>
            </property>
            <property name="text">
-            <string>Distance:</string>
+            <string>Distanță:</string>
            </property>
            <property name="wordWrap">
             <bool>false</bool>
@@ -713,8 +713,8 @@ font: 87 24pt &quot;Segoe UI Black&quot;;</string>
           <widget class="QLabel" name="text_info_label">
            <property name="geometry">
             <rect>
-             <x>80</x>
-             <y>160</y>
+             <x>70</x>
+             <y>180</y>
              <width>311</width>
              <height>711</height>
             </rect>
@@ -732,7 +732,7 @@ font: 87 24pt &quot;Segoe UI Black&quot;;</string>
             <string notr="true">background-color: #80F2C8;</string>
            </property>
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Move away from the monitor with the given value above the camera&lt;/p&gt;&lt;p&gt;&lt;br/&gt;Stand still in the green zone for 3 seconds to start the test&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Not standing still might cancel the test&lt;br/&gt;&lt;/p&gt;&lt;p&gt;The test will initially start for the left eye&lt;br/&gt;&lt;/p&gt;&lt;p&gt;In the case of different dioptres, the test will start again for testing the right eye as well&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Îndepărtați-vă de monitor la distanța afișată deasupra camerei&lt;/p&gt;&lt;p&gt;&lt;br/&gt;Stați nemișcat în zona verde timp de 3 secunde pentru a începe testul&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Există posibilitatea ca mișcările bruște să anuleze testul&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Testul va începe inițal pentru ochiul stâng, pe urma pentru cel drept&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignJustify|Qt::AlignVCenter</set>
@@ -761,8 +761,8 @@ border-radius: 100px;</string>
           <widget class="QLabel" name="label_88">
            <property name="geometry">
             <rect>
-             <x>50</x>
-             <y>240</y>
+             <x>40</x>
+             <y>260</y>
              <width>20</width>
              <height>21</height>
             </rect>
@@ -781,8 +781,8 @@ background-color: #80F2C8;</string>
           <widget class="QLabel" name="label_89">
            <property name="geometry">
             <rect>
-             <x>50</x>
-             <y>360</y>
+             <x>40</x>
+             <y>380</y>
              <width>20</width>
              <height>21</height>
             </rect>
@@ -801,8 +801,8 @@ background-color: #80F2C8;</string>
           <widget class="QLabel" name="label_90">
            <property name="geometry">
             <rect>
-             <x>50</x>
-             <y>580</y>
+             <x>40</x>
+             <y>630</y>
              <width>16</width>
              <height>20</height>
             </rect>
@@ -821,28 +821,8 @@ background-color: #80F2C8;</string>
           <widget class="QLabel" name="label_91">
            <property name="geometry">
             <rect>
-             <x>50</x>
-             <y>490</y>
-             <width>20</width>
-             <height>21</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">font: 75 16pt &quot;Tahoma&quot;;
-background-color: #80F2C8;</string>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;•&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="wordWrap">
-            <bool>true</bool>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_92">
-           <property name="geometry">
-            <rect>
-             <x>50</x>
-             <y>680</y>
+             <x>40</x>
+             <y>510</y>
              <width>20</width>
              <height>21</height>
             </rect>
@@ -878,8 +858,8 @@ image: url(:/newPrefix/information-button.png);</string>
           <widget class="QFrame" name="frame_10">
            <property name="geometry">
             <rect>
-             <x>719</x>
-             <y>229</y>
+             <x>829</x>
+             <y>269</y>
              <width>642</width>
              <height>482</height>
             </rect>
@@ -904,7 +884,6 @@ image: url(:/newPrefix/information-button.png);</string>
           <zorder>label_89</zorder>
           <zorder>label_90</zorder>
           <zorder>label_91</zorder>
-          <zorder>label_92</zorder>
           <zorder>label_115</zorder>
          </widget>
          <widget class="QWidget" name="home_window">
@@ -1075,35 +1054,41 @@ background-color: rgba(255, 255, 255, 0)</string>
            <widget class="QLabel" name="label_4">
             <property name="geometry">
              <rect>
-              <x>830</x>
-              <y>370</y>
-              <width>371</width>
-              <height>31</height>
+              <x>860</x>
+              <y>350</y>
+              <width>311</width>
+              <height>81</height>
              </rect>
             </property>
             <property name="font">
              <font>
               <family>Segoe UI Black</family>
-              <pointsize>16</pointsize>
+              <pointsize>15</pointsize>
               <weight>10</weight>
               <italic>false</italic>
               <bold>false</bold>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">font: 87 16pt &quot;Segoe UI Black&quot;;
+             <string notr="true">font: 87 15pt &quot;Segoe UI Black&quot;;
 background-color: rgba(255, 255, 255, 0)</string>
             </property>
             <property name="text">
-             <string>Insert a dioptre value for both eyes</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Introduceți valorile dioptriilor pentru ambii ochi:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
             </property>
            </widget>
            <widget class="QLabel" name="label_83">
             <property name="geometry">
              <rect>
-              <x>170</x>
+              <x>100</x>
               <y>240</y>
-              <width>451</width>
+              <width>691</width>
               <height>91</height>
              </rect>
             </property>
@@ -1112,13 +1097,13 @@ background-color: rgba(255, 255, 255, 0)</string>
 background-color: rgba(255, 255, 255, 0)</string>
             </property>
             <property name="text">
-             <string>Eye Examination</string>
+             <string>Examinare oftalmologică</string>
             </property>
            </widget>
            <widget class="QLabel" name="label_84">
             <property name="geometry">
              <rect>
-              <x>170</x>
+              <x>210</x>
               <y>410</y>
               <width>421</width>
               <height>81</height>
@@ -1133,7 +1118,7 @@ background-color: rgba(255, 255, 255, 0)</string>
              <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
             </property>
             <property name="text">
-             <string> Enter Your Dioptre Values and Begin Your Eye Examination!</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Introduceți valorile dioptriilor și începeți examinarea oftalmologică!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -1147,7 +1132,7 @@ background-color: rgba(255, 255, 255, 0)</string>
              <rect>
               <x>160</x>
               <y>360</y>
-              <width>451</width>
+              <width>561</width>
               <height>51</height>
              </rect>
             </property>
@@ -1156,7 +1141,7 @@ background-color: rgba(255, 255, 255, 0)</string>
 background-color: rgba(255, 255, 255, 0)</string>
             </property>
             <property name="text">
-             <string>Discover Your Vision Strengths:</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Descoperă-ți punctele forte ale vederii:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
            </widget>
            <zorder>label_4</zorder>
@@ -1335,7 +1320,7 @@ QPushButton:focus{
                  <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
                 </property>
                 <property name="currentIndex">
-                 <number>3</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="page_7">
                  <layout class="QGridLayout" name="gridLayout_3">
@@ -1388,7 +1373,7 @@ QPushButton:focus{
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>1751</width>
+                       <width>1781</width>
                        <height>821</height>
                       </rect>
                      </property>
@@ -1425,9 +1410,9 @@ border-radius: 100px;</string>
                       <property name="geometry">
                        <rect>
                         <x>60</x>
-                        <y>80</y>
-                        <width>81</width>
-                        <height>91</height>
+                        <y>60</y>
+                        <width>61</width>
+                        <height>71</height>
                        </rect>
                       </property>
                       <property name="styleSheet">
@@ -1441,9 +1426,9 @@ image: url(:/newPrefix/point.png);</string>
                      <widget class="QLabel" name="label_96">
                       <property name="geometry">
                        <rect>
-                        <x>190</x>
-                        <y>90</y>
-                        <width>221</width>
+                        <x>170</x>
+                        <y>60</y>
+                        <width>251</width>
                         <height>61</height>
                        </rect>
                       </property>
@@ -1452,27 +1437,27 @@ image: url(:/newPrefix/point.png);</string>
 font: 87 22pt &quot;Segoe UI Black&quot;;</string>
                       </property>
                       <property name="text">
-                       <string>Precision Point</string>
+                       <string>Punct de precizie</string>
                       </property>
                      </widget>
                      <widget class="QLabel" name="label_97">
                       <property name="geometry">
                        <rect>
-                        <x>30</x>
-                        <y>170</y>
+                        <x>50</x>
+                        <y>160</y>
                         <width>381</width>
                         <height>591</height>
                        </rect>
                       </property>
                       <property name="styleSheet">
                        <string notr="true">background-color: rgba(0, 0, 0, 0);
-font: 18pt &quot;Arial&quot;;</string>
+font: 16pt &quot;Arial&quot;;</string>
                       </property>
                       <property name="frameShape">
                        <enum>QFrame::NoFrame</enum>
                       </property>
                       <property name="text">
-                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;What to do:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;On your screen, you will see a circle with a point in the middle&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The size of the circle can be manually adjusted&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Focus on the target and track its movement across the screen&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Benefits:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Enhances visual concentration and attention&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Improves the ability to maintain focus on a single point&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Ce e de făcut:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Poziționați-vă la aproximativ 30 de centimetri de cameră. După ce ați stat 3 secunde la distanța potrivită, exercițiul va începe automat&lt;/li&gt;&lt;/ul&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pe ecran veți vedea un cerc cu un punct în mijloc&lt;br/&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Dimensiunea cercului poate fi ajustată manual&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Concentrați-vă asupra țintei și urmăriți-i mișcarea pe ecran&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Beneficii:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Îmbunătățește concentrarea vizuală și atenția&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Îmbunătățește capacitatea de a menține concentrarea asupra unui singur punct&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
                       <property name="textFormat">
                        <enum>Qt::AutoText</enum>
@@ -1493,10 +1478,10 @@ font: 18pt &quot;Arial&quot;;</string>
                      <widget class="QLabel" name="first_exercise_webcam">
                       <property name="geometry">
                        <rect>
-                        <x>620</x>
-                        <y>120</y>
-                        <width>641</width>
-                        <height>531</height>
+                        <x>790</x>
+                        <y>170</y>
+                        <width>640</width>
+                        <height>480</height>
                        </rect>
                       </property>
                       <property name="styleSheet">
@@ -1504,19 +1489,6 @@ font: 18pt &quot;Arial&quot;;</string>
                       </property>
                       <property name="text">
                        <string/>
-                      </property>
-                     </widget>
-                     <widget class="QPushButton" name="first_exercise_button">
-                      <property name="geometry">
-                       <rect>
-                        <x>810</x>
-                        <y>710</y>
-                        <width>231</width>
-                        <height>61</height>
-                       </rect>
-                      </property>
-                      <property name="text">
-                       <string>PushButton</string>
                       </property>
                      </widget>
                     </widget>
@@ -1557,10 +1529,10 @@ border-radius: 100px;</string>
                     <widget class="QLabel" name="label_98">
                      <property name="geometry">
                       <rect>
-                       <x>40</x>
-                       <y>50</y>
-                       <width>91</width>
-                       <height>121</height>
+                       <x>60</x>
+                       <y>60</y>
+                       <width>61</width>
+                       <height>71</height>
                       </rect>
                      </property>
                      <property name="styleSheet">
@@ -1575,8 +1547,8 @@ image: url(:/newPrefix/arrow.png);</string>
                      <property name="geometry">
                       <rect>
                        <x>150</x>
-                       <y>80</y>
-                       <width>321</width>
+                       <y>60</y>
+                       <width>301</width>
                        <height>71</height>
                       </rect>
                      </property>
@@ -1592,17 +1564,17 @@ font: 87 22pt &quot;Segoe UI Black&quot;;</string>
                      <property name="geometry">
                       <rect>
                        <x>50</x>
-                       <y>190</y>
+                       <y>160</y>
                        <width>351</width>
-                       <height>591</height>
+                       <height>521</height>
                       </rect>
                      </property>
                      <property name="styleSheet">
                       <string notr="true">background-color: rgba(0, 0, 0, 0);
-font: 18pt &quot;Arial&quot;;</string>
+font: 16pt &quot;Arial&quot;;</string>
                      </property>
                      <property name="text">
-                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;What to do:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Different groups of shapes will appear on the screen, one at a time&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Each group will be visible for a short duration before switching to the next one&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The task is to focus on the currently visible group of shapes without moving your head&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Benefits:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Enhances visual focus and attention&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Increases visual tracking and reaction times&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Ce e de făcut:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Diferite grupuri de forme vor apărea pe rând pe ecran&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Fiecare grup va fi vizibil pentru o perioadă scurtă de timp înainte de a apărea următorul grup&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Scopul este să vă concentrați asupra grupului de forme care este vizibil în momentul respectiv, fără să vă mișcați capul&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Beneficii:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Îmbunătățește concentrarea vizuală și atenția&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Crește urmărirea vizuală și timpii de reacție&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignJustify|Qt::AlignVCenter</set>
@@ -1611,26 +1583,13 @@ font: 18pt &quot;Arial&quot;;</string>
                       <bool>true</bool>
                      </property>
                     </widget>
-                    <widget class="QPushButton" name="second_exercise_button">
-                     <property name="geometry">
-                      <rect>
-                       <x>900</x>
-                       <y>780</y>
-                       <width>231</width>
-                       <height>41</height>
-                      </rect>
-                     </property>
-                     <property name="text">
-                      <string>PushButton</string>
-                     </property>
-                    </widget>
                     <widget class="QLabel" name="second_exercise_webcam">
                      <property name="geometry">
                       <rect>
-                       <x>730</x>
-                       <y>150</y>
-                       <width>641</width>
-                       <height>531</height>
+                       <x>790</x>
+                       <y>170</y>
+                       <width>640</width>
+                       <height>480</height>
                       </rect>
                      </property>
                      <property name="styleSheet">
@@ -1648,9 +1607,9 @@ font: 18pt &quot;Arial&quot;;</string>
                  <widget class="QFrame" name="frame_5">
                   <property name="geometry">
                    <rect>
-                    <x>10</x>
-                    <y>19</y>
-                    <width>1801</width>
+                    <x>9</x>
+                    <y>9</y>
+                    <width>1781</width>
                     <height>821</height>
                    </rect>
                   </property>
@@ -1684,9 +1643,9 @@ border-radius: 100px;</string>
                    <property name="geometry">
                     <rect>
                      <x>60</x>
-                     <y>80</y>
-                     <width>91</width>
-                     <height>81</height>
+                     <y>60</y>
+                     <width>61</width>
+                     <height>71</height>
                     </rect>
                    </property>
                    <property name="styleSheet">
@@ -1703,8 +1662,8 @@ background-color: #80F2C8;
                   <widget class="QLabel" name="label_86">
                    <property name="geometry">
                     <rect>
-                     <x>180</x>
-                     <y>80</y>
+                     <x>160</x>
+                     <y>50</y>
                      <width>241</width>
                      <height>81</height>
                     </rect>
@@ -1715,7 +1674,7 @@ border-radius: 40px;
 background-color: #80F2C8;</string>
                    </property>
                    <property name="text">
-                    <string>Track the Target</string>
+                    <string>Urmăriți ținta</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
@@ -1724,18 +1683,18 @@ background-color: #80F2C8;</string>
                   <widget class="QLabel" name="label_93">
                    <property name="geometry">
                     <rect>
-                     <x>30</x>
-                     <y>210</y>
+                     <x>50</x>
+                     <y>160</y>
                      <width>391</width>
-                     <height>551</height>
+                     <height>581</height>
                     </rect>
                    </property>
                    <property name="styleSheet">
                     <string notr="true">background-color: #80F2C8;
-font: 18pt &quot;Arial&quot;;</string>
+font: 16pt &quot;Arial&quot;;</string>
                    </property>
                    <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;What to do:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;A target will appear on your screen and start moving in a circular direction&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Follow the moving target with your eyes without moving your head&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Focus on the target and track its movement smoothly across the screen&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Benefits:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Enhances eye coordination and control&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Improves visual attention and focus&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Ce e de făcut:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Poziționați-vă la aproximativ 30 de centimetri de cameră. După ce ați stat 3 secunde la distanța potrivită, exercițiul va începe automat&lt;/li&gt;&lt;/ul&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;O țintă va apărea pe ecran și va începe să se miște într-o direcție circulară&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Urmăriți ținta în mișcare cu ajutorul ochilor, fără să vă mișcați capul&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Concentrați-vă asupra țintei și urmăriți-i mișcarea cu atenție pe ecran&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Beneficii:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Îmbunătățește coordonarea și controlul ochilor&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Îmbunătățește atenția și concentrarea vizuală&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignJustify|Qt::AlignVCenter</set>
@@ -1744,26 +1703,13 @@ font: 18pt &quot;Arial&quot;;</string>
                     <bool>true</bool>
                    </property>
                   </widget>
-                  <widget class="QPushButton" name="third_exercise_button">
-                   <property name="geometry">
-                    <rect>
-                     <x>890</x>
-                     <y>690</y>
-                     <width>351</width>
-                     <height>101</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>PushButton</string>
-                   </property>
-                  </widget>
                   <widget class="QLabel" name="third_exercise_webcam">
                    <property name="geometry">
                     <rect>
-                     <x>740</x>
-                     <y>110</y>
-                     <width>641</width>
-                     <height>531</height>
+                     <x>790</x>
+                     <y>170</y>
+                     <width>640</width>
+                     <height>480</height>
                     </rect>
                    </property>
                    <property name="styleSheet">
@@ -3292,9 +3238,9 @@ border-radius: 100px;</string>
            <widget class="QLabel" name="current_distance_label">
             <property name="geometry">
              <rect>
-              <x>120</x>
+              <x>160</x>
               <y>750</y>
-              <width>341</width>
+              <width>351</width>
               <height>151</height>
              </rect>
             </property>
@@ -3312,7 +3258,7 @@ border-radius: 100px;</string>
 font: 30pt;</string>
             </property>
             <property name="text">
-             <string>Current Distance:</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Distanța curentă:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -3340,9 +3286,9 @@ font: 30pt;</string>
            <widget class="QLabel" name="label_114">
             <property name="geometry">
              <rect>
-              <x>230</x>
+              <x>240</x>
               <y>70</y>
-              <width>241</width>
+              <width>281</width>
               <height>41</height>
              </rect>
             </property>
@@ -3350,7 +3296,7 @@ font: 30pt;</string>
              <string notr="true">font: 87 22pt &quot;Segoe UI Black&quot;;</string>
             </property>
             <property name="text">
-             <string>Eye Examination</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Examinarea ochilor&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
            </widget>
            <widget class="QLabel" name="label_116">
@@ -3363,10 +3309,10 @@ font: 30pt;</string>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">font: 18pt &quot;Arial&quot;;</string>
+             <string notr="true">font: 17pt &quot;Arial&quot;;</string>
             </property>
             <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;What to do:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Stand at the distance given in the previous page&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The distance is set for reference at the bottom of this page as well&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The test will run for both eyes, first for the left one, then for the right one&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Cover the opposite tested eye with your hand so the test is done correctly&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Results:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Results will be recorded after the test is done for both eyes&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Results can be checked in the &amp;quot;Statistics&amp;quot; page&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;What to do:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Stați la distanța dată în pagina anterioară&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Distanța este afișată ca referință și în partea de jos a acestei pagini&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Testul se va desfășura pentru ambii ochi, mai întâi pentru cel stâng, apoi pentru cel drept&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pentru ca testul să fie efectuat corect, acoperiți cu mâna ochiul opus față de cel testat&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Results:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Rezultatele vor fi înregistrate după efectuarea testului pentru ambii ochi&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Rezultatele pot fi verificate în pagina &amp;quot;Statistici&amp;quot;&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignJustify|Qt::AlignVCenter</set>
@@ -3426,7 +3372,7 @@ border-radius: 40px;
 background-color: #80F2C8;</string>
            </property>
            <property name="text">
-            <string>Vision Assessment Results</string>
+            <string>Rezultatele examinării</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -3446,7 +3392,7 @@ background-color: #80F2C8;</string>
 font: 16pt &quot;Arial&quot;;</string>
            </property>
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Chart explanation:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The bar chart represents the results of the Eye Examination on the Home page&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Based on the score of the test, the participant gets placed in one of the existing categories on the chart&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The results are displayed for both the left and right eyes.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Categories:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Enhanced Vision: scored 4 points in the Eye Examination&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Normal Vision: scored 3 points in the Eye Examination&lt;br/&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Suboptimal Vision: scored 2 points in the Eye Examination&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Impaired Vision: scored 1 points in the Eye Examination&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Chart explanation:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Diagrama reprezintă rezultatele examenului oftalmologic de pe pagina de pornire&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pe baza punctajului obținut la test, participantul este plasat într-una dintre categoriile existente în tabel&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Rezultatele afișate sunt pentru ambii ochi&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Categories:&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Enhanced Vision: obținerea unui scor de 4 puncte la examenul oftalmologic&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Normal Vision: obținerea unui scor de 3 puncte la examenul oftalmologic&lt;br/&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Suboptimal Vision: obținerea unui scor de 2 puncte la examenul oftalmologic&lt;br/&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Impaired Vision:  obținerea unui scor de 1 punct la examenul oftalmologic&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignJustify|Qt::AlignVCenter</set>
@@ -3541,7 +3487,7 @@ image: url(:/newPrefix/cropped_image (3).png);</string>
           <widget class="QLabel" name="label_120">
            <property name="geometry">
             <rect>
-             <x>920</x>
+             <x>930</x>
              <y>410</y>
              <width>181</width>
              <height>151</height>
@@ -3589,30 +3535,12 @@ image: url(:/newPrefix/cropped_image (6).png);</string>
             <string/>
            </property>
           </widget>
-          <widget class="QLabel" name="label_127">
-           <property name="geometry">
-            <rect>
-             <x>1160</x>
-             <y>390</y>
-             <width>281</width>
-             <height>51</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">font: 87 20pt &quot;Segoe UI Black&quot;;
-text-decoration: underline;
-background-color: rgba(0, 0, 0, 0);</string>
-           </property>
-           <property name="text">
-            <string>Omega-3 Fatty Acids</string>
-           </property>
-          </widget>
           <widget class="QLabel" name="label_128">
            <property name="geometry">
             <rect>
              <x>1180</x>
              <y>700</y>
-             <width>311</width>
+             <width>291</width>
              <height>51</height>
             </rect>
            </property>
@@ -3622,7 +3550,7 @@ text-decoration: underline;
 background-color: rgba(0, 0, 0, 0);</string>
            </property>
            <property name="text">
-            <string>Lutein and Zeaxanthin</string>
+            <string>Luteină și Zeaxantină</string>
            </property>
           </widget>
           <widget class="QFrame" name="frame_11">
@@ -3658,7 +3586,7 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 
 font: 15pt &quot;Arial&quot;;</string>
             </property>
             <property name="text">
-             <string> Essential for good vision, especially in low light. Found in carrots, sweet potatoes, and leafy greens.</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Esențială pentru o vedere bună, mai ales în condiții de lumină slabă. Se găsește în morcovi, cartofi dulci și legume cu frunze verzi.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -3682,7 +3610,7 @@ text-decoration: underline;
 background-color: rgba(0, 0, 0, 0);</string>
             </property>
             <property name="text">
-             <string>Vitamin A</string>
+             <string>Vitamina A</string>
             </property>
            </widget>
            <widget class="QLabel" name="label_130">
@@ -3699,7 +3627,7 @@ background-color: rgba(0, 0, 0, 0);</string>
 font: 15pt &quot;Arial&quot;;</string>
             </property>
             <property name="text">
-             <string>Protects the eyes from oxidative damage. Found in citrus fruits, bell peppers, and broccoli.</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Protejează ochii de stres oxidativ. Se găsește în citrice, ardei gras și broccoli.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -3713,7 +3641,7 @@ font: 15pt &quot;Arial&quot;;</string>
              <rect>
               <x>440</x>
               <y>390</y>
-              <width>141</width>
+              <width>151</width>
               <height>51</height>
              </rect>
             </property>
@@ -3723,7 +3651,7 @@ text-decoration: underline;
 background-color: rgba(0, 0, 0, 0);</string>
             </property>
             <property name="text">
-             <string>Vitamin C</string>
+             <string>Vitamina C</string>
             </property>
            </widget>
            <widget class="QLabel" name="label_125">
@@ -3731,7 +3659,7 @@ background-color: rgba(0, 0, 0, 0);</string>
              <rect>
               <x>440</x>
               <y>700</y>
-              <width>131</width>
+              <width>151</width>
               <height>51</height>
              </rect>
             </property>
@@ -3741,7 +3669,7 @@ text-decoration: underline;
 background-color: rgba(0, 0, 0, 0);</string>
             </property>
             <property name="text">
-             <string>Vitamin E</string>
+             <string>Vitamina E</string>
             </property>
            </widget>
            <widget class="QLabel" name="label_131">
@@ -3758,7 +3686,7 @@ background-color: rgba(0, 0, 0, 0);</string>
 font: 15pt &quot;Arial&quot;;</string>
             </property>
             <property name="text">
-             <string>Prevents cell damage in the eyes. Found in nuts, seeds, and green leafy vegetables.</string>
+             <string>Previne deteriorarea celulelor din ochi. Se găsește în nuci, semințe și legume cu frunze verzi.</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -3770,7 +3698,7 @@ font: 15pt &quot;Arial&quot;;</string>
            <widget class="QLabel" name="label_126">
             <property name="geometry">
              <rect>
-              <x>1260</x>
+              <x>1270</x>
               <y>40</y>
               <width>61</width>
               <height>51</height>
@@ -3790,7 +3718,7 @@ background-color: rgba(0, 0, 0, 0);</string>
              <rect>
               <x>1160</x>
               <y>100</y>
-              <width>271</width>
+              <width>291</width>
               <height>131</height>
              </rect>
             </property>
@@ -3799,7 +3727,7 @@ background-color: rgba(0, 0, 0, 0);</string>
 font: 15pt &quot;Arial&quot;;</string>
             </property>
             <property name="text">
-             <string>Maintains the health of the retina and may prevent age-related macular degeneration. Found in meat, shellfish, legumes, and seeds.</string>
+             <string>Menține sănătatea retinei și poate preveni degenerescența maculară legată de vârstă. Se găsește în carne, leguminoase și semințe.</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -3811,9 +3739,9 @@ font: 15pt &quot;Arial&quot;;</string>
            <widget class="QLabel" name="label_133">
             <property name="geometry">
              <rect>
-              <x>1150</x>
+              <x>1160</x>
               <y>450</y>
-              <width>291</width>
+              <width>311</width>
               <height>121</height>
              </rect>
             </property>
@@ -3822,7 +3750,7 @@ font: 15pt &quot;Arial&quot;;</string>
 font: 15pt &quot;Arial&quot;;</string>
             </property>
             <property name="text">
-             <string>Important for retinal health and reducing dry eyes. Found in fatty fish like salmon and in fish oil supplements.</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Importanți pentru sănătatea retinei și reducerea senzației de ochi uscați. Se găsește în pești grași precum somonul și în suplimentele cu ulei de pește.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -3845,13 +3773,31 @@ font: 15pt &quot;Arial&quot;;</string>
 font: 15pt &quot;Arial&quot;;</string>
             </property>
             <property name="text">
-             <string> Antioxidants that protect the eyes from harmful light. Found in kale, spinach, and other green leafy vegetables.</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Antioxidanți care protejează ochii de lumina dăunătoare. Se găsesc în kale, spanac și alte legume cu frunze verzi.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
             </property>
             <property name="wordWrap">
              <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_127">
+            <property name="geometry">
+             <rect>
+              <x>1190</x>
+              <y>390</y>
+              <width>261</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 87 20pt &quot;Segoe UI Black&quot;;
+text-decoration: underline;
+background-color: rgba(0, 0, 0, 0);</string>
+            </property>
+            <property name="text">
+             <string>Acizi grași omega-3</string>
             </property>
            </widget>
           </widget>
@@ -3862,7 +3808,6 @@ font: 15pt &quot;Arial&quot;;</string>
           <zorder>label_120</zorder>
           <zorder>label_121</zorder>
           <zorder>label_122</zorder>
-          <zorder>label_127</zorder>
           <zorder>label_128</zorder>
          </widget>
         </widget>

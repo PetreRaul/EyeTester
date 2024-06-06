@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(11, 168, 168);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="widget" native="true">
     <property name="geometry">
@@ -141,11 +144,14 @@ color: red</string>
    <widget class="QPushButton" name="exercise_2_back_button">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>80</y>
-      <width>111</width>
+      <x>40</x>
+      <y>50</y>
+      <width>91</width>
       <height>81</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(164, 255, 131);</string>
     </property>
     <property name="text">
      <string/>
@@ -164,33 +170,54 @@ color: red</string>
    <widget class="QLabel" name="current_distance_label_second">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>450</y>
-      <width>101</width>
-      <height>91</height>
+      <x>30</x>
+      <y>290</y>
+      <width>121</width>
+      <height>101</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: white</string>
+     <string notr="true">background-color: white;
+
+</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="blink_label_2">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>640</y>
-      <width>141</width>
-      <height>141</height>
+      <x>30</x>
+      <y>550</y>
+      <width>121</width>
+      <height>121</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: white</string>
+     <string notr="true">background-color: white;
+font: 87 20pt &quot;Segoe UI Black&quot;;
+color: red</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>

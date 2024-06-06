@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(11, 168, 168);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QFrame" name="frame">
     <property name="geometry">
@@ -57,6 +60,9 @@ border-radius:15px;</string>
       <height>81</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(164, 255, 131);</string>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -74,17 +80,30 @@ border-radius:15px;</string>
    <widget class="QLabel" name="current_distance_label_third">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>350</y>
-      <width>81</width>
+      <x>30</x>
+      <y>290</y>
+      <width>121</width>
       <height>101</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>19</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: white</string>
+     <string notr="true">background-color: white;
+
+</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="blink_label_3">
@@ -97,11 +116,19 @@ border-radius:15px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: white
+     <string notr="true">background-color: white;
+font: 87 20pt &quot;Segoe UI Black&quot;;
+color: red;
 </string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>

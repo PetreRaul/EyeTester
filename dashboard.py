@@ -64,9 +64,6 @@ class DashboardWindow(QMainWindow):
         self.signoutButton2.clicked.connect(self.go_to_login)
 
 
-        self.second_exercise_button.clicked.connect(self.go_to_second_exercise)
-        self.third_exercise_button.clicked.connect(self.go_to_third_exercise)
-
         self.in_test = False
 
         self.timer = QTimer(self)
