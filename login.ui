@@ -35,9 +35,9 @@ background-image: url(:/newPrefix/Default_background_image_for_an_eye_applicatio
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>110</y>
-      <width>141</width>
+      <x>220</x>
+      <y>150</y>
+      <width>331</width>
       <height>71</height>
      </rect>
     </property>
@@ -46,7 +46,7 @@ background-image: url(:/newPrefix/Default_background_image_for_an_eye_applicatio
 color:#FFFF00;</string>
     </property>
     <property name="text">
-     <string>Login</string>
+     <string>Autentificare</string>
     </property>
    </widget>
    <widget class="QPushButton" name="loginAccount">
@@ -54,7 +54,7 @@ color:#FFFF00;</string>
      <rect>
       <x>290</x>
       <y>430</y>
-      <width>154</width>
+      <width>171</width>
       <height>51</height>
      </rect>
     </property>
@@ -100,7 +100,7 @@ QPushButton:active {
 </string>
     </property>
     <property name="text">
-     <string>Log in</string>
+     <string>Autentificare</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="userField">
@@ -157,15 +157,15 @@ color: rgba(0, 0, 0, 230);
 padding-bottom: 7px;</string>
     </property>
     <property name="placeholderText">
-     <string>Password</string>
+     <string>Parolă</string>
     </property>
    </widget>
    <widget class="QLabel" name="errorField">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>410</y>
-      <width>251</width>
+      <x>0</x>
+      <y>400</y>
+      <width>751</width>
       <height>20</height>
      </rect>
     </property>
@@ -184,6 +184,9 @@ font: 75 14pt &quot;Arial&quot;;</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QPushButton" name="backLoginButton">

@@ -73,10 +73,10 @@ class RegisterWindow(QDialog):
 
         elif not re.match(password_pattern, password):
             self.errorRegister.setText(
-                "• Password must have at least 8 characters\n"
-                "• Password must contain at least one uppercase character\n"
-                "• Password must contain at least one digit\n"
-                "• Password must contain at least one special character")
+                "• Parola trebuie să conțină minim 8 caractere\n"
+                "• Parola trebuie să conțină minim o majusculă\n"
+                "• Parola trebuie să conțină minim o cifră \n"
+                "• Parola trebuie să conțină minim un caracter special")
 
         else:
             hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())  # hash la parola intr-un string hexadecimal
@@ -138,7 +138,7 @@ class LoginWindow(QDialog):
                     self.go_to_dashboard_window()
 
                 else:
-                    self.errorField.setText("Invalid username or password")
+                    self.errorField.setText("Nume de utilizator sau parolă invalide")
             else:
-                self.errorField.setText("Invalid username or password")
+                self.errorField.setText("Nume de utilizator sau parolă invalide")
 

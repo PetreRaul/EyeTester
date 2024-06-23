@@ -19,7 +19,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>600</height>
+     <height>601</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -31,9 +31,9 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>40</y>
-      <width>201</width>
+      <x>250</x>
+      <y>60</y>
+      <width>281</width>
       <height>71</height>
      </rect>
     </property>
@@ -51,7 +51,7 @@
 color:#FFFF00;</string>
     </property>
     <property name="text">
-     <string>Register</string>
+     <string>Înregistrare</string>
     </property>
    </widget>
    <widget class="QPushButton" name="createAccountButton">
@@ -161,7 +161,7 @@ color: rgba(0, 0, 0, 230);
 padding-bottom: 7px;</string>
     </property>
     <property name="placeholderText">
-     <string>Password</string>
+     <string>Parolă</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="passwordFieldConfirmPassword">
@@ -189,7 +189,7 @@ color: rgba(0, 0, 0, 230);
 padding-bottom: 7px;</string>
     </property>
     <property name="placeholderText">
-     <string>Confirm Password</string>
+     <string>Confirmare parolă</string>
     </property>
    </widget>
    <widget class="QPushButton" name="backRegisterButton">
@@ -275,7 +275,7 @@ QPushButton:active {
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: #FFFF00;
+     <string notr="true">color: red;
 font: 75 10pt &quot;Arial&quot;;</string>
     </property>
     <property name="text">

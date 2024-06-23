@@ -108,7 +108,7 @@ class DashboardWindow(QMainWindow):
 
                     w, _ = self.detector.findDistance(point_left, point_right)
                     W = 6.3
-                    f = 840
+                    f = 670
                     d = (W * f) / w
 
                     if dioptre_distance < (int(d) - 10) or dioptre_distance > (int(d) + 10):
@@ -294,14 +294,11 @@ class DashboardWindow(QMainWindow):
 
     def do_change_page(self):
         button = self.sender()
-
         if button in self.btn_list:
             index = self.btn_list.index(button)
             self.stackedWidget_carousel.setCurrentIndex(index)
-
         else:
             pass
-
         index = self.stackedWidget_carousel.currentIndex()
         self.change_background_image(index)
 
@@ -632,7 +629,7 @@ class ExerciseNumber1(QMainWindow):
                             counter = 0
 
                 if time_since_last_blink > 5:
-                    self.blink_label_1.setText(f'Please Blink')
+                    self.blink_label_1.setText(f'Clipiți')
                 elif time_since_last_blink < 5:
                     self.blink_label_1.setText("")
 
@@ -745,7 +742,7 @@ class ExerciseNumber2(QMainWindow):
                             counter = 0
 
                 if time_since_last_blink > 5:
-                    self.blink_label_2.setText(f'Please Blink')
+                    self.blink_label_2.setText(f'Clipiți')
                 elif time_since_last_blink < 5:
                     self.blink_label_2.setText("")
 
@@ -845,7 +842,6 @@ class ExerciseNumber3(QMainWindow):
 
                     vertical_length, _ = self.detector.findDistance(left_eye_up_position, left_eye_down_position)
                     horizontal_length, _ = self.detector.findDistance(left_eye_left_position, left_eye_right_position)
-
                     ratio = int((vertical_length / horizontal_length) * 100)
                     ratio_list.append(ratio)
 
@@ -864,7 +860,7 @@ class ExerciseNumber3(QMainWindow):
                             counter = 0
 
                 if time_since_last_blink > 5:
-                    self.blink_label_3.setText(f'Please Blink')
+                    self.blink_label_3.setText(f'Clipiți')
                 elif time_since_last_blink < 5:
                     self.blink_label_3.setText("")
 
